@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celta360: El modelo de los 120 millones — Unisport Events &amp; Consulting</title>
+<meta name="description" content="Análisis del proyecto Celta360 del RC Celta: cómo una inversión de 120 millones de euros redefine la rentabilidad y el fan engagement en la industria del fútbol.">
+<meta name="keywords" content="Celta360, RC Celta, sports business, destino deportivo, fan engagement, gestión deportiva, sports management, infraestructura deportiva, Unisport EC">
+<meta name="theme-color" content="#060F26">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Celta360: El modelo de los 120 millones — Unisport EC">
+<meta property="og:description" content="Cómo el RC Celta redefine la rentabilidad en la industria del fútbol.">
+<meta property="og:image" content="logo-art1.png">
+
+<link rel="icon" type="image/png" href="logo-unisportec.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #060F26;
+  --navy-2: #0A1535;
+  --navy-3: #0F1D45;
+  --gold: #C9A961;
+  --gold-soft: #B8924A;
+  --cream: #F5F1E8;
+  --white: #FFFFFF;
+  --muted: #8B95A8;
+  --line: rgba(201, 169, 97, 0.25);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  background: var(--navy);
+  color: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--white);
+  margin: 0 0 20px;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ---------- Header ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(6, 15, 38, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand img { height: 44px; width: auto; mix-blend-mode: screen; }
+.brand-long { height: 112px !important; width: auto; max-width: 640px; mix-blend-mode: screen; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cream);
+  transition: color .2s;
+  position: relative;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -8px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all .25s ease;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  border: 1px solid transparent;
+  text-align: center;
+}
+.btn-outline { background: transparent; color: var(--cream); border-color: var(--gold); }
+.btn-outline:hover { background: var(--gold); color: var(--navy); }
+.btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- Article hero ---------- */
+.article-hero {
+  padding: 110px 32px 60px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.10), transparent 60%),
+    linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+  border-bottom: 1px solid var(--line);
+}
+.back-link {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
+  transition: color .2s ease;
+}
+.back-link:hover { color: var(--gold); }
+.article-tag {
+  display: inline-block;
+  padding: 7px 14px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+.article-hero h1 {
+  font-size: clamp(34px, 5.2vw, 58px);
+  line-height: 1.15;
+  max-width: 920px;
+  margin: 0 auto 28px;
+  letter-spacing: 0.3px;
+}
+.article-meta {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Cover image ---------- */
+.article-cover {
+  max-width: 1100px;
+  margin: 60px auto 0;
+  padding: 0 32px;
+}
+.article-cover-frame {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--navy-3);
+  aspect-ratio: 16 / 9;
+}
+.article-cover-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Body ---------- */
+.article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 80px 32px 60px;
+}
+.article-body p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 0 0 28px;
+  color: var(--cream);
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  letter-spacing: 0.1px;
+}
+.article-body h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 2.8vw, 30px);
+  font-weight: 600;
+  color: var(--white);
+  margin: 48px 0 24px;
+  letter-spacing: 0.5px;
+  text-align: left;
+  border-left: 2px solid var(--gold);
+  padding-left: 18px;
+}
+.article-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.article-body ul li {
+  position: relative;
+  padding: 22px 24px 22px 30px;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--cream);
+}
+.article-body ul li::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 32px;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+.article-body ul li strong {
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-right: 4px;
+}
+.article-body p:last-child { margin-bottom: 0; }
+
+/* ---------- Article footer ---------- */
+.article-footer {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 32px 100px;
+}
+.article-footer-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 40px;
+}
+.external-link {
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  padding: 28px 32px;
+  border-radius: 2px;
+  margin-bottom: 40px;
+}
+.external-link .label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.external-link a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--cream);
+  letter-spacing: 0.3px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 4px;
+  transition: color .25s ease, border-color .25s ease;
+}
+.external-link a:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.article-tags-block {
+  margin-bottom: 48px;
+}
+.article-tags-block .label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tag-list li {
+  padding: 6px 14px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--navy-2);
+  transition: border-color .25s ease, color .25s ease;
+}
+.tag-list li:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.back-cta { text-align: center; }
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 50px 32px 30px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  background: var(--navy);
+}
+footer .brand { justify-content: center; margin-bottom: 20px; }
+footer .brand img { mix-blend-mode: screen; }
+footer p { color: var(--muted); font-size: 13px; margin: 4px 0; }
+footer a:hover { color: var(--gold); }
+
+/* ---------- Reveal animations ---------- */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+.reveal-up { transform: translateY(40px); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Hero load-in */
+.article-hero .back-link,
+.article-hero .article-tag,
+.article-hero h1,
+.article-hero .article-meta {
+  opacity: 0;
+  animation: heroFadeUp 0.8s ease-out forwards;
+}
+.article-hero .back-link    { animation-delay: 0.05s; }
+.article-hero .article-tag  { animation-delay: 0.20s; }
+.article-hero h1            { animation-delay: 0.35s; }
+.article-hero .article-meta { animation-delay: 0.50s; }
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Body paragraphs stagger when revealed */
+.article-body p.reveal:nth-child(1) { transition-delay: 0s; }
+.article-body p.reveal:nth-child(2) { transition-delay: 0.10s; }
+.article-body p.reveal:nth-child(3) { transition-delay: 0.20s; }
+.article-body p.reveal:nth-child(4) { transition-delay: 0.30s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+  .article-hero .back-link,
+  .article-hero .article-tag,
+  .article-hero h1,
+  .article-hero .article-meta {
+    opacity: 1; animation: none;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+  .nav-links a:not(.btn) { display: none; }
+  .nav { padding: 14px 20px; }
+  .brand img { height: 36px; }
+  .brand-long { height: 80px !important; max-width: 440px; }
+  .article-hero { padding: 90px 24px 50px; }
+  .article-cover { margin-top: 40px; padding: 0 20px; }
+  .article-body { padding: 60px 24px 40px; }
+  .article-body p { font-size: 16px; line-height: 1.75; text-align: left; }
+  .article-body ul li { padding: 20px 22px 20px 28px; font-size: 15px; }
+  .article-footer { padding: 30px 24px 80px; }
+  .external-link { padding: 24px 22px; }
+  .external-link a { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand" aria-label="Unisport Events &amp; Consulting — Inicio">
+      <img src="logo-uecbanner.png?v=2" alt="Unisport Events &amp; Consulting" class="brand-long">
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="insights.html" class="active">Insights</a>
+      <a href="partners.html">Partners</a>
+      <a href="contacto.html" class="btn btn-outline">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- Article hero -->
+<section class="article-hero">
+  <a href="insights.html" class="back-link">← Volver a Insights</a>
+  <span class="article-tag">STRATEGY · DESTACADO</span>
+  <h1>Celta360: El modelo de los 120 millones para transformar un club en destino.</h1>
+  <span class="article-meta">4 MIN DE LECTURA · 8 MAYO 2026</span>
+</section>
+
+<!-- Cover image -->
+<section class="article-cover reveal reveal-up" aria-hidden="false">
+  <div class="article-cover-frame">
+    <img src="logo-art1.png" alt="Render arquitectónico del proyecto Celta360 del RC Celta">
+  </div>
+</section>
+
+<!-- Body -->
+<section class="article-body" aria-label="Artículo">
+  <p class="reveal reveal-up">El RC Celta ha dejado de proyectar solo un estadio para diseñar un ecosistema de negocio total. Con una inversión superior a los 120 millones de euros, el proyecto Celta360 se posiciona como el referente europeo en la creación de "destinos deportivos" y redefine cómo un club genera valor más allá del campo.</p>
+
+  <h2 class="reveal reveal-up">Las claves estratégicas desde la consultoría de Unisport EC</h2>
+
+  <ul class="reveal reveal-up">
+    <li><strong>Ecosistema 365:</strong> Esta estrategia no busca solo mejorar la infraestructura de entrenamiento, sino convertir la propiedad del club en un motor económico que opere los 365 días del año, integrando ocio, formación corporativa y turismo deportivo en un solo concepto.</li>
+    <li><strong>Diversificación Inteligente de Activos:</strong> Al reducir la dependencia de los derechos audiovisuales y apostar por la explotación inmobiliaria y de servicios, el club garantiza su sostenibilidad financiera frente a la volatilidad de los resultados en el campo.</li>
+    <li><strong>Fan Engagement Extendido:</strong> El aficionado ya no solo consume el partido, sino que habita el espacio del club como un centro de vida y consumo recurrente, multiplicando los puntos de contacto comercial con la marca.</li>
+  </ul>
+
+  <h2 class="reveal reveal-up">¿Qué significa esto para la industria?</h2>
+
+  <p class="reveal reveal-up">Este modelo representa el futuro de la gestión de entidades deportivas: la transición de un club de fútbol tradicional a una plataforma de entretenimiento y servicios de alto rendimiento. En un mercado globalizado, la infraestructura es el nuevo lenguaje del éxito comercial, y el Celta360 es la prueba de que la inversión en activos físicos tangibles es la mejor defensa para el valor de marca a largo plazo.</p>
+</section>
+
+<!-- Article footer -->
+<section class="article-footer">
+  <div class="article-footer-divider reveal" aria-hidden="true"></div>
+
+  <div class="external-link reveal reveal-up">
+    <span class="label">Artículo Completo</span>
+    <a href="https://www.rccelta.es" target="_blank" rel="noopener noreferrer">Celta360: cómo se crea un destino en celeste</a>
+  </div>
+
+  <div class="article-tags-block reveal reveal-up">
+    <span class="label">Tags</span>
+    <ul class="tag-list">
+      <li>#UnisportEC</li>
+      <li>#GestionDeportiva</li>
+      <li>#Celta360</li>
+      <li>#IndustriaDelDeporte</li>
+      <li>#InnovationInSports</li>
+    </ul>
+  </div>
+
+  <div class="back-cta reveal reveal-up">
+    <a href="insights.html" class="btn btn-outline">← Volver a Insights</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="brand">
+    <img src="logo-unisportec.png?v=2" alt="Unisport Events &amp; Consulting">
+  </div>
+  <p>© <span id="year"></span> Unisport Events &amp; Consulting. Todos los derechos reservados.</p>
+  <p><a href="mailto:info@unisportec.com">info@unisportec.com</a></p>
+</footer>
+
+<script>
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll-triggered reveals
+  (function () {
+    var targets = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    targets.forEach(function (el) { observer.observe(el); });
+  })();
+</script>
+
+</body>
+</html>

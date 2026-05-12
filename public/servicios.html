@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios — Unisport Events &amp; Consulting</title>
+<meta name="description" content="Consultoría estratégica, eventos deportivos y gestión de talento para empresas, federaciones e instituciones del ecosistema deportivo.">
+<meta name="theme-color" content="#060F26">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Servicios — Unisport Events & Consulting">
+<meta property="og:description" content="Consultoría, eventos y talento para el ecosistema deportivo.">
+<meta property="og:image" content="logo-unisportec.png?v=2">
+
+<link rel="icon" type="image/png" href="logo-unisportec.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #060F26;
+  --navy-2: #0A1535;
+  --navy-3: #0F1D45;
+  --gold: #C9A961;
+  --gold-soft: #B8924A;
+  --cream: #F5F1E8;
+  --white: #FFFFFF;
+  --muted: #8B95A8;
+  --line: rgba(201, 169, 97, 0.25);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  background: var(--navy);
+  color: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--white);
+  margin: 0 0 20px;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+/* ---------- Header ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(6, 15, 38, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand img { height: 44px; width: auto; mix-blend-mode: screen; }
+.brand-long { height: 112px !important; width: auto; max-width: 640px; mix-blend-mode: screen; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cream);
+  transition: color .2s;
+  position: relative;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -8px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all .25s ease;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  border: 1px solid transparent;
+  text-align: center;
+}
+.btn-primary { background: var(--gold); color: var(--navy); }
+.btn-primary:hover { background: var(--cream); transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--cream); border-color: var(--gold); }
+.btn-outline:hover { background: var(--gold); color: var(--navy); }
+.btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- Hero ---------- */
+.services-hero {
+  padding: 140px 32px 100px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.10), transparent 60%),
+    linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+  border-bottom: 1px solid var(--line);
+}
+.services-hero .eyebrow {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+.services-hero h1 {
+  font-size: clamp(48px, 7vw, 84px);
+  margin-bottom: 24px;
+}
+.services-hero .subtitle {
+  max-width: 640px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 18px;
+}
+.divider {
+  width: 80px;
+  height: 1px;
+  background: var(--gold);
+  margin: 32px auto 0;
+}
+
+/* ---------- Service Hub ---------- */
+.service-hub { padding: 120px 32px 80px; }
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 56px 32px 48px;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+  transition: transform .35s ease, border-color .35s ease, background .35s ease;
+  position: relative;
+}
+.hub-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+.hub-card.active {
+  border-color: var(--gold);
+  background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy-3) 100%);
+}
+.hub-card.active::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+}
+.hub-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+.hub-card h3 {
+  font-size: 24px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.hub-card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .hub-grid { grid-template-columns: 1fr; gap: 20px; }
+  .service-hub { padding: 80px 24px 40px; }
+}
+
+/* ---------- Service Detail Panels ---------- */
+.service-detail {
+  padding: 80px 32px 160px;
+  background: var(--navy-2);
+  border-top: 1px solid var(--line);
+}
+.panel-wrap { max-width: 900px; margin: 0 auto; }
+
+.panel { display: none; }
+.panel.active {
+  display: block;
+  animation: panelFadeIn 0.5s ease-out;
+}
+@keyframes panelFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.panel-eyebrow {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  text-align: center;
+}
+.panel h2 {
+  font-size: clamp(36px, 5vw, 52px);
+  text-align: center;
+  margin-bottom: 16px;
+}
+.panel-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 64px;
+}
+
+.service-list {
+  list-style: none;
+  margin: 0 0 56px;
+  padding: 0;
+}
+.service-list li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 20px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+  animation: itemFadeIn 0.6s ease-out backwards;
+}
+.service-list li:last-child { border-bottom: none; }
+
+.service-list li:nth-child(1) { animation-delay: 0.05s; }
+.service-list li:nth-child(2) { animation-delay: 0.12s; }
+.service-list li:nth-child(3) { animation-delay: 0.19s; }
+.service-list li:nth-child(4) { animation-delay: 0.26s; }
+.service-list li:nth-child(5) { animation-delay: 0.33s; }
+.service-list li:nth-child(6) { animation-delay: 0.40s; }
+
+@keyframes itemFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.bullet {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.bullet svg { width: 12px; height: 12px; }
+
+.service-list h4 {
+  font-size: 22px;
+  margin: 0 0 8px;
+  color: var(--white);
+}
+.service-list p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.panel-cta {
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.panel-cta p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .service-list li { grid-template-columns: 24px 1fr; gap: 16px; padding: 22px 0; }
+  .bullet { width: 24px; height: 24px; }
+  .service-list h4 { font-size: 18px; }
+  .service-detail { padding: 60px 24px 100px; }
+  .panel-divider { margin-bottom: 48px; }
+}
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 50px 32px 30px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  background: var(--navy);
+}
+footer .brand { justify-content: center; margin-bottom: 20px; }
+footer .brand img { mix-blend-mode: screen; }
+footer p { color: var(--muted); font-size: 13px; margin: 4px 0; }
+footer a:hover { color: var(--gold); }
+
+/* ---------- Page-load fade ---------- */
+.services-hero .eyebrow,
+.services-hero h1,
+.services-hero .subtitle,
+.service-hub {
+  opacity: 0;
+  animation: pageFadeUp 0.8s ease-out forwards;
+}
+.services-hero .eyebrow  { animation-delay: 0.1s; }
+.services-hero h1        { animation-delay: 0.25s; }
+.services-hero .subtitle { animation-delay: 0.4s; }
+.service-hub             { animation-delay: 0.55s; }
+
+@keyframes pageFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-hero .eyebrow,
+  .services-hero h1,
+  .services-hero .subtitle,
+  .service-hub,
+  .panel.active,
+  .service-list li {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+/* ---------- Mobile nav ---------- */
+@media (max-width: 768px) {
+  .nav-links a:not(.btn) { display: none; }
+  .nav { padding: 14px 20px; }
+  .brand img { height: 36px; }
+  .brand-long { height: 80px !important; max-width: 440px; }
+  .services-hero { padding: 100px 24px 80px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand" aria-label="Unisport Events &amp; Consulting — Inicio">
+      <img src="logo-uecbanner.png?v=2" alt="Unisport Events &amp; Consulting" class="brand-long">
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html" class="active">Servicios</a>
+      <a href="insights.html">Insights</a>
+      <a href="partners.html">Partners</a>
+      <a href="contacto.html" class="btn btn-outline">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- Hero -->
+<section class="services-hero">
+  <span class="eyebrow">Lo que hacemos</span>
+  <h1>Servicios</h1>
+  <p class="subtitle">Una propuesta integral en consultoría, eventos y talento para empresas, federaciones e instituciones del ecosistema deportivo.</p>
+  <div class="divider"></div>
+</section>
+
+<!-- Service Hub -->
+<section class="service-hub" aria-label="Categorías de servicios">
+  <div class="hub-grid" role="tablist">
+    <button class="hub-card active" data-target="consultoria" role="tab" aria-selected="true" aria-controls="consultoria">
+      <svg class="hub-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="24" cy="24" r="18"/>
+        <circle cx="24" cy="24" r="11"/>
+        <circle cx="24" cy="24" r="4" fill="currentColor"/>
+        <line x1="24" y1="2" x2="24" y2="6"/>
+        <line x1="24" y1="42" x2="24" y2="46"/>
+        <line x1="2" y1="24" x2="6" y2="24"/>
+        <line x1="42" y1="24" x2="46" y2="24"/>
+      </svg>
+      <h3>Consultoría</h3>
+      <p>Estrategia, marketing, IA y captación de inversión.</p>
+    </button>
+
+    <button class="hub-card" data-target="eventos" role="tab" aria-selected="false" aria-controls="eventos">
+      <svg class="hub-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M14 6h20v12c0 5.5-4.5 10-10 10s-10-4.5-10-10V6z"/>
+        <path d="M14 10H8c0 6 3 10 8 11"/>
+        <path d="M34 10h6c0 6-3 10-8 11"/>
+        <line x1="24" y1="28" x2="24" y2="36"/>
+        <rect x="17" y="36" width="14" height="6" rx="0.5"/>
+      </svg>
+      <h3>Eventos</h3>
+      <p>Camps, ligas, torneos y experiencias deportivas.</p>
+    </button>
+
+    <button class="hub-card" data-target="talento" role="tab" aria-selected="false" aria-controls="talento">
+      <svg class="hub-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="20" cy="16" r="6"/>
+        <path d="M8 40c0-7 5.5-12 12-12s12 5 12 12"/>
+        <path d="M37 8l1.6 3.4 3.4.5-2.5 2.4.6 3.4-3.1-1.6-3.1 1.6.6-3.4-2.5-2.4 3.4-.5z"/>
+      </svg>
+      <h3>Talento</h3>
+      <p>Asesoramiento, scouting y branding deportivo.</p>
+    </button>
+  </div>
+</section>
+
+<!-- Service Detail Panels -->
+<section class="service-detail">
+  <div class="panel-wrap">
+
+    <!-- Consultoría -->
+    <div class="panel active" id="consultoria" role="tabpanel" aria-labelledby="consultoria-tab">
+      <span class="panel-eyebrow">I — Consultoría</span>
+      <h2>Consultoría Estratégica</h2>
+      <div class="panel-divider"></div>
+      <ul class="service-list">
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Consultoría de Captación de Clientes</h4>
+            <p>Diseño de estrategias comerciales personalizadas para atraer nuevos socios o clientes corporativos, optimizando el embudo de ventas.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Consultoría de Marketing Integral</h4>
+            <p>Gestión estratégica de redes sociales, campañas de email marketing y optimización de CRM para fortalecer la relación con la audiencia.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Auditoría de Experiencia y Lealtad (NPS 360°)</h4>
+            <p>Análisis científico de la satisfacción del usuario para blindar ingresos y elevar el estándar de exclusividad.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Transformación Digital con IA</h4>
+            <p>Implementación de Agentes de Inteligencia Artificial para automatizar ventas, finanzas y atención al cliente.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Estructuración de Inversión (Investment Ready)</h4>
+            <p>Creación de tesis de inversión y Pitch Decks de alto nivel para la captación de capital y fondos.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Desarrollo de Ecosistemas Web</h4>
+            <p>Diseño y mantenimiento de plataformas web orientadas a la conversión y profesionalización de la imagen institucional.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="panel-cta">
+        <p>¿Listos para activar este servicio?</p>
+        <a href="contacto.html" class="btn btn-primary">Solicitar Consultoría Especializada</a>
+      </div>
+    </div>
+
+    <!-- Eventos -->
+    <div class="panel" id="eventos" role="tabpanel" aria-labelledby="eventos-tab">
+      <span class="panel-eyebrow">II — Eventos</span>
+      <h2>Eventos y Ligas</h2>
+      <div class="panel-divider"></div>
+      <ul class="service-list">
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Creación y Gestión de Camps Internacionales</h4>
+            <p>Desarrollo integral de programas de entrenamiento con estándares de élite para jóvenes talentos.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Eventos Deportivos Corporativos</h4>
+            <p>Diseño y ejecución de torneos, clinics y experiencias de teambuilding a medida para empresas y marcas premium.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Gestión Profesional de Ligas y Torneos</h4>
+            <p>Organización integral de competiciones, asegurando la excelencia operativa y logística.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Activación de Patrocinios</h4>
+            <p>Ejecución táctica de acuerdos comerciales para maximizar el retorno de inversión (ROI).</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Marketing y Comunicación de Eventos</h4>
+            <p>Estrategia de contenidos en tiempo real para generar tracción y alcance durante la competición.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="panel-cta">
+        <p>¿Listos para activar este servicio?</p>
+        <a href="contacto.html" class="btn btn-primary">Solicitar Consultoría Especializada</a>
+      </div>
+    </div>
+
+    <!-- Talento -->
+    <div class="panel" id="talento" role="tabpanel" aria-labelledby="talento-tab">
+      <span class="panel-eyebrow">III — Talento</span>
+      <h2>Personas y Mercado</h2>
+      <div class="panel-divider"></div>
+      <ul class="service-list">
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Asesoramiento Integral para Jugadores</h4>
+            <p>Posicionamiento estratégico en clubes, asesoría legal, programas formativos y representación profesional.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Asesoramiento de Mercado para Clubes (Scouting)</h4>
+            <p>Búsqueda y filtrado de jugadores según necesidades específicas, utilizando una red global de contactos.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Estrategia de Marca Personal (Athlete Branding)</h4>
+            <p>Gestión de imagen, activos digitales y reputación para figuras deportivas de alto perfil.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,2 8,6 3,10"/></svg></span>
+          <div>
+            <h4>Gestión de Academias de Alto Rendimiento</h4>
+            <p>Consultoría especializada para elevar la metodología formativa y la rentabilidad de centros de formación.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="panel-cta">
+        <p>¿Listos para activar este servicio?</p>
+        <a href="contacto.html" class="btn btn-primary">Solicitar Consultoría Especializada</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="brand">
+    <img src="logo-unisportec.png?v=2" alt="Unisport Events &amp; Consulting">
+  </div>
+  <p>© <span id="year"></span> Unisport Events &amp; Consulting. Todos los derechos reservados.</p>
+  <p><a href="mailto:bernardonaranjor@gmail.com">bernardonaranjor@gmail.com</a></p>
+</footer>
+
+<script>
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Service hub tab system
+  (function () {
+    var cards  = document.querySelectorAll('.hub-card');
+    var panels = document.querySelectorAll('.panel');
+    var detail = document.querySelector('.service-detail');
+
+    function activate(id) {
+      cards.forEach(function (c) {
+        var match = c.dataset.target === id;
+        c.classList.toggle('active', match);
+        c.setAttribute('aria-selected', match ? 'true' : 'false');
+      });
+      panels.forEach(function (p) {
+        p.classList.toggle('active', p.id === id);
+      });
+    }
+
+    cards.forEach(function (card) {
+      card.addEventListener('click', function () {
+        var target = card.dataset.target;
+        activate(target);
+        // Smooth scroll into the detail section after a short beat so the fade can start
+        setTimeout(function () {
+          detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 80);
+      });
+    });
+
+    // Optional: deep-link via URL hash (#consultoria, #eventos, #talento)
+    var hash = (window.location.hash || '').replace('#', '');
+    if (['consultoria', 'eventos', 'talento'].indexOf(hash) !== -1) {
+      activate(hash);
+    }
+  })();
+</script>
+
+</body>
+</html>

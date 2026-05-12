@@ -1,0 +1,18 @@
+{
+  "name": "unisport-ec",
+  "version": "1.0.0",
+  "description": "Unisport Events & Consulting — corporate website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "author": "Unisport Events & Consulting",
+  "license": "UNLICENSED",
+  "private": true
+}

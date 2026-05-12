@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights: Sports Business — Unisport Events &amp; Consulting</title>
+<meta name="description" content="Análisis estratégicos sobre gestión deportiva, marketing y transformación digital en la industria del deporte.">
+<meta name="keywords" content="sports business, consultoría deportiva, digital sports, IA en el deporte, inversión deportiva, sports marketing, gestión deportiva, sports management, sports analytics">
+<meta name="theme-color" content="#060F26">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Insights: Sports Business — Unisport Events & Consulting">
+<meta property="og:description" content="Análisis estratégicos sobre gestión deportiva, marketing y transformación digital en la industria del deporte.">
+<meta property="og:image" content="logo-unisportec.png?v=2">
+
+<link rel="icon" type="image/png" href="logo-unisportec.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #060F26;
+  --navy-2: #0A1535;
+  --navy-3: #0F1D45;
+  --gold: #C9A961;
+  --gold-soft: #B8924A;
+  --cream: #F5F1E8;
+  --white: #FFFFFF;
+  --muted: #8B95A8;
+  --line: rgba(201, 169, 97, 0.25);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  background: var(--navy);
+  color: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--white);
+  margin: 0 0 20px;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ---------- Header ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(6, 15, 38, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand img { height: 44px; width: auto; mix-blend-mode: screen; }
+.brand-long { height: 112px !important; width: auto; max-width: 640px; mix-blend-mode: screen; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cream);
+  transition: color .2s;
+  position: relative;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -8px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all .25s ease;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  border: 1px solid transparent;
+  text-align: center;
+}
+.btn-outline { background: transparent; color: var(--cream); border-color: var(--gold); }
+.btn-outline:hover { background: var(--gold); color: var(--navy); }
+.btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- Hero ---------- */
+.insights-hero {
+  padding: 140px 32px 100px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.10), transparent 60%),
+    linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+  border-bottom: 1px solid var(--line);
+}
+.insights-hero .eyebrow {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+.insights-hero h1 {
+  font-size: clamp(40px, 6vw, 68px);
+  margin-bottom: 24px;
+}
+.insights-hero .subtitle {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+.divider {
+  width: 80px;
+  height: 1px;
+  background: var(--gold);
+  margin: 32px auto 0;
+}
+
+/* ---------- Featured Article ---------- */
+.featured-section { padding: 100px 32px 60px; }
+.featured-article {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.featured-link {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: stretch;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: border-color .35s ease, transform .35s ease;
+}
+.featured-link:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+.featured-image {
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--navy-3);
+}
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(.2,.65,.3,1);
+}
+.featured-link:hover .featured-image img { transform: scale(1.05); }
+.featured-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 48px 48px 0;
+}
+.featured-content .article-tag {
+  margin-bottom: 22px;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 7px 14px;
+  letter-spacing: 3px;
+}
+.featured-content h2 {
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+.featured-content .article-excerpt {
+  color: var(--muted);
+  font-size: 17px;
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+.article-meta {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+@media (max-width: 900px) {
+  .featured-link { grid-template-columns: 1fr; gap: 0; }
+  .featured-content { padding: 36px 28px 36px; }
+  .featured-image { aspect-ratio: 16 / 9; }
+}
+
+/* ---------- Articles Grid ---------- */
+.articles-section {
+  padding: 80px 32px 160px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.articles-heading {
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.articles-heading::before,
+.articles-heading::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: var(--line);
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.article-card {
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: border-color .35s ease, transform .35s ease;
+}
+.article-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-6px);
+}
+.card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.article-image {
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: var(--navy-3);
+}
+.article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(.2,.65,.3,1);
+}
+.article-card:hover .article-image img { transform: scale(1.06); }
+
+.article-body {
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.article-tag {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 5px 12px;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--gold);
+  border-radius: 2px;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+.article-title {
+  font-size: 22px;
+  line-height: 1.25;
+  margin: 0 0 14px;
+  color: var(--white);
+}
+.article-excerpt {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0 0 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-cta {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 9px 20px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  transition: background .25s ease, color .25s ease;
+}
+.article-card:hover .card-cta,
+.featured-link:hover .card-cta {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+@media (max-width: 900px) {
+  .article-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .article-grid { grid-template-columns: 1fr; gap: 24px; }
+  .articles-section { padding: 60px 24px 100px; }
+  .featured-section { padding: 60px 24px 30px; }
+  .insights-hero { padding: 100px 24px 70px; }
+}
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 50px 32px 30px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  background: var(--navy);
+}
+footer .brand { justify-content: center; margin-bottom: 20px; }
+footer .brand img { mix-blend-mode: screen; }
+footer p { color: var(--muted); font-size: 13px; margin: 4px 0; }
+footer a:hover { color: var(--gold); }
+
+/* ---------- Scroll-triggered reveal ---------- */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+.reveal-up { transform: translateY(40px); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+.article-grid > .reveal:nth-child(1) { transition-delay: 0s; }
+.article-grid > .reveal:nth-child(2) { transition-delay: 0.12s; }
+.article-grid > .reveal:nth-child(3) { transition-delay: 0.24s; }
+.article-grid > .reveal:nth-child(4) { transition-delay: 0.36s; }
+.article-grid > .reveal:nth-child(5) { transition-delay: 0.48s; }
+.article-grid > .reveal:nth-child(6) { transition-delay: 0.60s; }
+
+/* Page-load fade for hero */
+.insights-hero .eyebrow,
+.insights-hero h1,
+.insights-hero .subtitle {
+  opacity: 0;
+  animation: heroFadeUp 0.8s ease-out forwards;
+}
+.insights-hero .eyebrow  { animation-delay: 0.1s; }
+.insights-hero h1        { animation-delay: 0.25s; }
+.insights-hero .subtitle { animation-delay: 0.4s; }
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+  .insights-hero .eyebrow, .insights-hero h1, .insights-hero .subtitle {
+    opacity: 1; animation: none;
+  }
+}
+
+/* ---------- Mobile nav ---------- */
+@media (max-width: 768px) {
+  .nav-links a:not(.btn) { display: none; }
+  .nav { padding: 14px 20px; }
+  .brand img { height: 36px; }
+  .brand-long { height: 80px !important; max-width: 440px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand" aria-label="Unisport Events &amp; Consulting — Inicio">
+      <img src="logo-uecbanner.png?v=2" alt="Unisport Events &amp; Consulting" class="brand-long">
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="insights.html" class="active">Insights</a>
+      <a href="partners.html">Partners</a>
+      <a href="contacto.html" class="btn btn-outline">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- Hero -->
+<section class="insights-hero">
+  <span class="eyebrow">Sports Business Hub</span>
+  <h1>Insights: Sports Business</h1>
+  <p class="subtitle">Análisis estratégicos sobre gestión deportiva, marketing y transformación digital en la industria del deporte.</p>
+  <div class="divider"></div>
+</section>
+
+<!--
+  ================================================================
+  FEATURED ARTICLE  —  swap data inside this block to feature a different post.
+  Fields to update: image src/alt, tag, headline, excerpt, meta, link href.
+  ================================================================
+-->
+<section class="featured-section">
+  <article class="featured-article reveal reveal-up">
+    <a href="articulo-celta360.html?v=2" class="featured-link" aria-label="Leer artículo destacado: Celta360">
+      <div class="featured-image">
+        <img src="logo-art1.png" alt="Render arquitectónico del proyecto Celta360 del RC Celta" loading="lazy">
+      </div>
+      <div class="featured-content">
+        <span class="article-tag">STRATEGY · DESTACADO</span>
+        <h2>Celta360: El nuevo estándar del Destino Deportivo</h2>
+        <p class="article-excerpt">Descubre cómo el RC Celta transforma 120 millones de euros en un motor económico que redefine la rentabilidad en la industria del fútbol.</p>
+        <span class="article-meta">4 MIN DE LECTURA · 8 MAYO 2026</span>
+        <span class="card-cta">Leer Artículo</span>
+      </div>
+    </a>
+  </article>
+</section>
+
+<!-- Article grid -->
+<section class="articles-section" aria-label="Más artículos">
+  <h2 class="articles-heading reveal reveal-up">Más artículos</h2>
+
+  <div class="article-grid">
+
+    <!--
+      ================================================================
+      ARTICLE CARD TEMPLATE  —  copy this entire <article> block to add a new post.
+      Update: image src + alt, tag text, title, excerpt (≤2 lines), link href.
+      ================================================================
+    -->
+    <article class="article-card reveal reveal-up">
+      <a href="articulo-celta360.html?v=2" class="card-link" aria-label="Leer artículo: Celta360">
+        <div class="article-image">
+          <img src="logo-art1.png" alt="Render arquitectónico del proyecto Celta360 del RC Celta" loading="lazy">
+        </div>
+        <div class="article-body">
+          <span class="article-tag">Strategy</span>
+          <h3 class="article-title">Celta360: El nuevo estándar del Destino Deportivo</h3>
+          <p class="article-excerpt">Descubre cómo el RC Celta transforma 120 millones de euros en un motor económico que redefine la rentabilidad en la industria del fútbol.</p>
+          <span class="card-cta">Leer Artículo</span>
+        </div>
+      </a>
+    </article>
+
+    <article class="article-card reveal reveal-up">
+      <a href="articulo-atleti-apollo.html?v=2" class="card-link" aria-label="Leer artículo: Atleti y Apollo">
+        <div class="article-image">
+          <img src="logo-art2.png" alt="Estadio Metropolitano del Atlético de Madrid al atardecer" loading="lazy">
+        </div>
+        <div class="article-body">
+          <span class="article-tag">Strategy</span>
+          <h3 class="article-title">Atleti y Apollo: El capital privado llega a LaLiga</h3>
+          <p class="article-excerpt">Analizamos cómo la entrada de Apollo Sports Capital redefine el modelo de propiedad y la estrategia financiera del Atlético de Madrid.</p>
+          <span class="card-cta">Leer Artículo</span>
+        </div>
+      </a>
+    </article>
+
+    <article class="article-card reveal reveal-up">
+      <a href="articulo-moises-caicedo.html?v=2" class="card-link" aria-label="Leer artículo: Moisés Caicedo">
+        <div class="article-image">
+          <img src="logo-art3.png" alt="Moisés Caicedo en una sesión de entrenamiento" loading="lazy">
+        </div>
+        <div class="article-body">
+          <span class="article-tag">Ownership</span>
+          <h3 class="article-title">Moisés Caicedo: De jugador de élite a dueño de club</h3>
+          <p class="article-excerpt">Analizamos cómo Moisés Caicedo profesionaliza el fútbol base en Ecuador a través de un modelo de inversión estratégica y ownership.</p>
+          <span class="card-cta">Leer Artículo</span>
+        </div>
+      </a>
+    </article>
+
+    <!-- Add new <article class="article-card reveal reveal-up"> blocks here -->
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="brand">
+    <img src="logo-unisportec.png?v=2" alt="Unisport Events &amp; Consulting">
+  </div>
+  <p>© <span id="year"></span> Unisport Events &amp; Consulting. Todos los derechos reservados.</p>
+  <p><a href="mailto:bernardonaranjor@gmail.com">bernardonaranjor@gmail.com</a></p>
+</footer>
+
+<script>
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll-triggered reveals
+  (function () {
+    var targets = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    targets.forEach(function (el) { observer.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
