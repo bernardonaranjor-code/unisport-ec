@@ -1,54 +1,113 @@
 {
   "meta": {
-    "title": "Uni Sport EC | Consultoría Estratégica y Gestión Deportiva",
-    "description": "Consultoría estratégica y operativa para clubes, federaciones y atletas en Ecuador y España. Eventos, talento y transformación del negocio deportivo."
+    "home":     { "title": "Uni Sport EC | Consultoría Estratégica y Gestión Deportiva", "description": "Expertos en consultoría deportiva, gestión de talento y organización de eventos de alto rendimiento en Ecuador y España." },
+    "services": { "title": "Servicios | Uni Sport EC — Consultoría, Eventos y Talento Deportivo", "description": "Tres líneas de servicio: consultoría estratégica, gestión integral de eventos y desarrollo de talento. Soluciones a medida para clubes, federaciones e instituciones." },
+    "partners": { "title": "Partners | Uni Sport EC — Equipo directivo de consultoría deportiva", "description": "Equipo directivo de Uni Sport EC: Bernardo Naranjo, Fausto Rodríguez y Alex Espinosa. Trayectorias complementarias que unen estrategia, deporte y mercado global." },
+    "insights": { "title": "Insights | Uni Sport EC — Sports Business y análisis estratégicos", "description": "Análisis estratégicos sobre gestión deportiva, marketing y transformación digital. Casos de estudio sobre Celta360, Apollo Sports Capital, ownership y digital sports business." },
+    "contact":  { "title": "Contacto | Uni Sport EC — Solicita tu análisis de situación", "description": "Hablemos de tu proyecto deportivo. Hubs en Madrid y Quito. Solicita un análisis de situación: respondemos en menos de 48 horas." }
   },
   "nav": {
     "home": "Inicio",
     "services": "Servicios",
-    "partners": "Partners",
     "insights": "Insights",
+    "partners": "Partners",
     "contact": "Contacto",
-    "menu": "Abrir menú",
     "language": "Cambiar idioma"
   },
   "home": {
-    "title": "Estrategia. Gestión. Resultados.",
-    "subtitle": "Acompañamos a clubes, federaciones y atletas a competir al nivel del deporte global.",
-    "ctaServices": "Ver Servicios",
-    "ctaContact": "Hablemos",
-    "missionTitle": "Misión",
-    "missionBody": "Profesionalizar la industria deportiva con estrategia, gestión y ejecución de clase mundial.",
-    "visionTitle": "Visión",
-    "visionBody": "Ser el aliado estratégico de referencia para clubes, federaciones y atletas de habla hispana.",
-    "valuesTitle": "Valores",
-    "valuesBody": "Integridad, excelencia operativa, mentalidad global y compromiso con el resultado."
+    "hero": {
+      "title": "Estrategia, Eventos y <em>Consultoría</em> para el Deporte Global",
+      "subtitle": "Diseñamos, gestionamos y ejecutamos proyectos deportivos para empresas, federaciones e instituciones. Convertimos ambición en resultados medibles.",
+      "ctaPrimary": "Solicitar Análisis de Situación",
+      "ctaSecondary": "Ver servicios"
+    },
+    "services": {
+      "eyebrow": "Qué hacemos",
+      "title": "Servicios",
+      "card1Title": "Consultoría estratégica",
+      "card1Body": "Diseñamos, analizamos y planificamos proyectos deportivos. Realizamos estudios de viabilidad, posicionamiento y modelos de negocio para clubes, marcas y entidades.",
+      "card2Title": "Eventos y ligas",
+      "card2Body": "Producimos torneos, ligas y eventos internacionales de extremo a extremo: operaciones, logística, partners y experiencia para participantes y aficionados.",
+      "card3Title": "Talento",
+      "card3Body": "Personas y Mercado: Conectamos el potencial deportivo con las oportunidades del sector."
+    },
+    "about": {
+      "eyebrow": "Sobre nosotros",
+      "title": "Misión, Visión y Valores",
+      "missionTitle": "Misión",
+      "missionBody": "Transformar la industria del deporte a través de consultoría estratégica de alta precisión, integrando tecnología de vanguardia y metodologías de élite para maximizar la rentabilidad, la eficiencia operativa y el valor institucional de nuestros clientes.",
+      "visionTitle": "Visión",
+      "visionBody": "Ser la firma de consultoría deportiva referente en Iberoamérica, reconocida por conectar el potencial del talento local con los estándares de gestión y capital globales, liderando la transición hacia un modelo de digital sports business sostenible.",
+      "valuesTitle": "Valores"
+    },
+    "partners": { "eyebrow": "Equipo", "title": "Partners" },
+    "track": { "eyebrow": "Trayectoria", "title": "Trayectoria comprobada en proyectos para:" }
   },
   "services": {
-    "heading": "Lo que hacemos",
-    "lead": "Tres líneas de servicio, una misma exigencia.",
-    "consulting": { "name": "Consultoría", "lead": "Estrategia institucional, comercial y deportiva para entidades en crecimiento." },
-    "events":     { "name": "Eventos",     "lead": "Diseño y operación integral de eventos deportivos y experiencias de marca." },
-    "talent":     { "name": "Talento",     "lead": "Representación, desarrollo de carrera y gestión integral de atletas." }
+    "hero": {
+      "eyebrow": "Lo que hacemos",
+      "title": "Servicios",
+      "subtitle": "Una propuesta integral en consultoría, eventos y talento para empresas, federaciones e instituciones del ecosistema deportivo."
+    },
+    "tabs": {
+      "consultingTitle": "Consultoría",
+      "consultingLead": "Estrategia, marketing, IA y captación de inversión.",
+      "eventsTitle": "Eventos",
+      "eventsLead": "Camps, ligas, torneos y experiencias deportivas.",
+      "talentTitle": "Talento",
+      "talentLead": "Asesoramiento, scouting y branding deportivo."
+    },
+    "panels": {
+      "consultingTitle": "Consultoría Estratégica",
+      "eventsTitle": "Eventos y Ligas",
+      "talentTitle": "Personas y Mercado"
+    },
+    "cta": {
+      "lead": "¿Listos para activar este servicio?",
+      "button": "Solicitar Consultoría Especializada"
+    }
   },
   "partners": {
-    "heading": "Quiénes somos",
-    "lead": "Un equipo con experiencia en clubes, federaciones y eventos de alcance internacional."
+    "hero": {
+      "eyebrow": "Equipo directivo",
+      "title": "Partners",
+      "subtitle": "Tres trayectorias complementarias que unen estrategia, deporte y mercado para escalar proyectos con visión global."
+    },
+    "cta": {
+      "eyebrow": "Trabajemos juntos",
+      "heading": "¿Tienes un proyecto en mente? Nuestro equipo está listo para escucharlo.",
+      "button": "Solicitar Análisis de Situación"
+    }
+  },
+  "insights": {
+    "hero": {
+      "eyebrow": "Sports Business Hub",
+      "title": "Insights: Sports Business",
+      "subtitle": "Análisis estratégicos sobre gestión deportiva, marketing y transformación digital en la industria del deporte."
+    },
+    "moreArticles": "Más artículos"
   },
   "contact": {
-    "heading": "Hablemos",
-    "lead": "Cuéntanos tu proyecto y exploramos juntos la mejor forma de avanzar."
+    "hero": {
+      "eyebrow": "Hablemos",
+      "title": "Contacto",
+      "subtitle": "Cuéntanos sobre tu proyecto. Diseñamos un análisis de situación a medida y respondemos en menos de 48 horas."
+    },
+    "channels": {
+      "eyebrow": "Canales Directos",
+      "heading": "Conéctate con nosotros",
+      "phones": "Teléfonos · Hub Madrid / Quito"
+    },
+    "form": {
+      "eyebrow": "Estrategia a medida",
+      "heading": "Solicitar Análisis de Situación",
+      "name": "Nombre",
+      "email": "Email",
+      "org": "Organización / Club",
+      "message": "Cuéntanos sobre tu proyecto",
+      "submit": "Enviar Solicitud",
+      "note": "Respondemos en menos de 48 horas."
+    }
   },
-  "form": {
-    "name": "Nombre",
-    "email": "Correo electrónico",
-    "company": "Organización",
-    "message": "Mensaje",
-    "send": "Enviar",
-    "privacy": "Al enviar aceptas nuestra política de privacidad."
-  },
-  "footer": {
-    "rights": "Todos los derechos reservados.",
-    "tagline": "Consultoría deportiva — Ecuador · España"
-  }
+  "footer": { "rights": "Todos los derechos reservados." }
 }
