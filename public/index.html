@@ -3,11 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uni Sport EC | Consultoría Estratégica y Gestión Deportiva</title>
-<meta name="description" content="Expertos en consultoría deportiva, gestión de talento y organización de eventos de alto rendimiento en Ecuador y España.">
+<title data-i18n="meta.home.title">Uni Sport EC | Consultoría Estratégica y Gestión Deportiva</title>
+<meta name="description" content="Expertos en consultoría deportiva, gestión de talento y organización de eventos de alto rendimiento en Ecuador y España." data-i18n-attr="content:meta.home.description">
 <meta name="keywords" content="consultoría deportiva, gestión deportiva, sports business, eventos deportivos, gestión de talento, Ecuador, España, Iberoamérica, Unisport EC">
 <meta name="author" content="Unisport Events & Consulting">
 <meta name="theme-color" content="#060F26">
+
+<!-- SEO bilingüe (ES / EN) -->
+<link rel="canonical" href="https://unisportec.com/" />
+<link rel="alternate" hreflang="es" href="https://unisportec.com/" />
+<link rel="alternate" hreflang="en" href="https://unisportec.com/?lang=en" />
+<link rel="alternate" hreflang="x-default" href="https://unisportec.com/" />
 
 <!-- Favicons -->
 <link rel="icon" type="image/png" href="logo-unisportec.png?v=2">
@@ -20,6 +26,7 @@
 <meta property="og:description" content="Expertos en consultoría deportiva, gestión de talento y organización de eventos de alto rendimiento en Ecuador y España.">
 <meta property="og:image" content="logo-unisportec.png?v=2">
 <meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
 
 <!-- Twitter card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -112,6 +119,30 @@ header {
   transition: color .2s;
 }
 .nav-links a:hover { color: var(--gold); }
+
+/* ---------- Language switcher ---------- */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 8px;
+}
+.lang-btn {
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--cream);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+.lang-btn:hover, .lang-btn:focus-visible { opacity: 1; outline: none; }
+.lang-btn.is-active { opacity: 1; color: var(--gold); }
+.lang-divider { color: var(--cream); opacity: 0.3; font-size: 12px; }
 
 .btn {
   display: inline-block;
@@ -636,8 +667,11 @@ footer a:hover { color: var(--gold); }
   .brand-long { height: 80px !important; max-width: 440px; }
   section { padding: 80px 24px; }
   .hero { padding: 100px 24px 80px; }
+  .lang-switcher { margin-left: 4px; gap: 0.25rem; }
 }
 </style>
+
+<script src="/js/i18n.js" defer></script>
 </head>
 <body>
 
@@ -647,10 +681,15 @@ footer a:hover { color: var(--gold); }
       <img src="logo-uecbanner.png?v=2" alt="Unisport Events & Consulting" class="brand-long">
     </a>
     <nav class="nav-links" aria-label="Principal">
-      <a href="servicios.html">Servicios</a>
-      <a href="insights.html">Insights</a>
-      <a href="partners.html">Partners</a>
-      <a href="contacto.html" class="btn btn-outline">Contacto</a>
+      <a href="servicios.html" data-i18n="nav.services">Servicios</a>
+      <a href="insights.html" data-i18n="nav.insights">Insights</a>
+      <a href="partners.html" data-i18n="nav.partners">Partners</a>
+      <a href="contacto.html" class="btn btn-outline" data-i18n="nav.contact">Contacto</a>
+      <div class="lang-switcher" role="group" aria-label="Cambiar idioma" data-i18n-attr="aria-label:nav.language">
+        <button type="button" class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+        <span class="lang-divider" aria-hidden="true">/</span>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </nav>
   </div>
 </header>
@@ -660,36 +699,36 @@ footer a:hover { color: var(--gold); }
 <!-- Hero -->
 <section class="hero">
   <img src="logo-unisportec.png?v=2" alt="" class="hero-logo" aria-hidden="true">
-  <h1>Estrategia, Eventos y <em>Consultoría</em> para el Deporte Global</h1>
-  <p class="subtitle">Diseñamos, gestionamos y ejecutamos proyectos deportivos para empresas, federaciones e instituciones. Convertimos ambición en resultados medibles.</p>
+  <h1 data-i18n-html="home.hero.title">Estrategia, Eventos y <em>Consultoría</em> para el Deporte Global</h1>
+  <p class="subtitle" data-i18n="home.hero.subtitle">Diseñamos, gestionamos y ejecutamos proyectos deportivos para empresas, federaciones e instituciones. Convertimos ambición en resultados medibles.</p>
   <div class="hero-ctas">
-    <a href="contacto.html" class="btn btn-primary">Solicitar Análisis de Situación</a>
-    <a href="servicios.html" class="btn btn-outline">Ver servicios</a>
+    <a href="contacto.html" class="btn btn-primary" data-i18n="home.hero.ctaPrimary">Solicitar Análisis de Situación</a>
+    <a href="servicios.html" class="btn btn-outline" data-i18n="home.hero.ctaSecondary">Ver servicios</a>
   </div>
 </section>
 
 <!-- Services -->
 <section id="servicios" class="services">
   <div class="section-title reveal reveal-up">
-    <span class="eyebrow">Qué hacemos</span>
-    <h2>Servicios</h2>
+    <span class="eyebrow" data-i18n="home.services.eyebrow">Qué hacemos</span>
+    <h2 data-i18n="home.services.title">Servicios</h2>
     <div class="divider"></div>
   </div>
   <div class="grid">
     <article class="card reveal reveal-up">
       <span class="card-icon">01</span>
-      <h3>Consultoría estratégica</h3>
-      <p>Diseñamos, analizamos y planificamos proyectos deportivos. Realizamos estudios de viabilidad, posicionamiento y modelos de negocio para clubes, marcas y entidades.</p>
+      <h3 data-i18n="home.services.card1Title">Consultoría estratégica</h3>
+      <p data-i18n="home.services.card1Body">Diseñamos, analizamos y planificamos proyectos deportivos. Realizamos estudios de viabilidad, posicionamiento y modelos de negocio para clubes, marcas y entidades.</p>
     </article>
     <article class="card reveal reveal-up">
       <span class="card-icon">02</span>
-      <h3>Eventos y ligas</h3>
-      <p>Producimos torneos, ligas y eventos internacionales de extremo a extremo: operaciones, logística, partners y experiencia para participantes y aficionados.</p>
+      <h3 data-i18n="home.services.card2Title">Eventos y ligas</h3>
+      <p data-i18n="home.services.card2Body">Producimos torneos, ligas y eventos internacionales de extremo a extremo: operaciones, logística, partners y experiencia para participantes y aficionados.</p>
     </article>
     <article class="card reveal reveal-up">
       <span class="card-icon">03</span>
-      <h3>Talento</h3>
-      <p>Personas y Mercado: Conectamos el potencial deportivo con las oportunidades del sector.</p>
+      <h3 data-i18n="home.services.card3Title">Talento</h3>
+      <p data-i18n="home.services.card3Body">Personas y Mercado: Conectamos el potencial deportivo con las oportunidades del sector.</p>
     </article>
   </div>
 </section>
@@ -697,27 +736,27 @@ footer a:hover { color: var(--gold); }
 <!-- About / Misión, Visión y Valores -->
 <section id="nosotros" class="about">
   <div class="about-content">
-    <span class="eyebrow reveal reveal-up" style="display:block; color:var(--gold); font-size:12px; letter-spacing:4px; text-transform:uppercase;">Sobre nosotros</span>
-    <h2 class="reveal reveal-up" style="margin-top:12px;">Misión, Visión y Valores</h2>
+    <span class="eyebrow reveal reveal-up" data-i18n="home.about.eyebrow" style="display:block; color:var(--gold); font-size:12px; letter-spacing:4px; text-transform:uppercase;">Sobre nosotros</span>
+    <h2 class="reveal reveal-up" data-i18n="home.about.title" style="margin-top:12px;">Misión, Visión y Valores</h2>
     <div class="divider reveal" style="margin: 24px auto 56px;"></div>
 
     <div class="pillars">
       <div class="pillar reveal reveal-up">
-        <h3 class="pillar-title">Misión</h3>
-        <p>Transformar la industria del deporte a través de consultoría estratégica de alta precisión, integrando tecnología de vanguardia y metodologías de élite para maximizar la rentabilidad, la eficiencia operativa y el valor institucional de nuestros clientes.</p>
+        <h3 class="pillar-title" data-i18n="home.about.missionTitle">Misión</h3>
+        <p data-i18n="home.about.missionBody">Transformar la industria del deporte a través de consultoría estratégica de alta precisión, integrando tecnología de vanguardia y metodologías de élite para maximizar la rentabilidad, la eficiencia operativa y el valor institucional de nuestros clientes.</p>
       </div>
 
       <div class="pillar-line reveal" aria-hidden="true"></div>
 
       <div class="pillar reveal reveal-up">
-        <h3 class="pillar-title">Visión</h3>
-        <p>Ser la firma de consultoría deportiva referente en Iberoamérica, reconocida por conectar el potencial del talento local con los estándares de gestión y capital globales, liderando la transición hacia un modelo de digital sports business sostenible.</p>
+        <h3 class="pillar-title" data-i18n="home.about.visionTitle">Visión</h3>
+        <p data-i18n="home.about.visionBody">Ser la firma de consultoría deportiva referente en Iberoamérica, reconocida por conectar el potencial del talento local con los estándares de gestión y capital globales, liderando la transición hacia un modelo de digital sports business sostenible.</p>
       </div>
 
       <div class="pillar-line reveal" aria-hidden="true"></div>
 
       <div class="pillar reveal reveal-up">
-        <h3 class="pillar-title">Valores</h3>
+        <h3 class="pillar-title" data-i18n="home.about.valuesTitle">Valores</h3>
         <ul class="values-list">
           <li>Rigor Estratégico <span>(Data-Driven)</span></li>
           <li>Excelencia de Élite <span>(Global Standards)</span></li>
@@ -733,8 +772,8 @@ footer a:hover { color: var(--gold); }
 <!-- Partners -->
 <section id="partners" class="partners">
   <div class="section-title reveal reveal-up">
-    <span class="eyebrow">Equipo</span>
-    <h2>Partners</h2>
+    <span class="eyebrow" data-i18n="home.partners.eyebrow">Equipo</span>
+    <h2 data-i18n="home.partners.title">Partners</h2>
     <div class="divider"></div>
   </div>
   <div class="partners-grid">
@@ -765,8 +804,8 @@ footer a:hover { color: var(--gold); }
 <!-- Track record -->
 <section class="track-record" aria-labelledby="track-record-title">
   <div class="section-title reveal reveal-up">
-    <span class="eyebrow">Trayectoria</span>
-    <h2 id="track-record-title">Trayectoria comprobada en proyectos para:</h2>
+    <span class="eyebrow" data-i18n="home.track.eyebrow">Trayectoria</span>
+    <h2 id="track-record-title" data-i18n="home.track.title">Trayectoria comprobada en proyectos para:</h2>
     <div class="divider"></div>
   </div>
   <div class="logo-grid">
@@ -808,7 +847,7 @@ footer a:hover { color: var(--gold); }
   <div class="brand">
     <img src="logo-unisportec.png?v=2" alt="Unisport Events & Consulting">
   </div>
-  <p>© <span id="year"></span> Unisport Events &amp; Consulting. Todos los derechos reservados.</p>
+  <p>© <span id="year"></span> Unisport Events &amp; Consulting. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
   <p><a href="mailto:bernardonaranjor@gmail.com">bernardonaranjor@gmail.com</a></p>
 </footer>
 
