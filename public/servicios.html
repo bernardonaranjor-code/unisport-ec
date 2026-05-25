@@ -3,16 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Servicios | Uni Sport EC — Consultoría, Eventos y Talento Deportivo</title>
-<meta name="description" content="Tres líneas de servicio: consultoría estratégica, gestión integral de eventos y desarrollo de talento. Soluciones a medida para clubes, federaciones e instituciones.">
+<title data-i18n="meta.services.title">Servicios | Uni Sport EC — Consultoría, Eventos y Talento Deportivo</title>
+<meta name="description" content="Tres líneas de servicio: consultoría estratégica, gestión integral de eventos y desarrollo de talento. Soluciones a medida para clubes, federaciones e instituciones." data-i18n-attr="content:meta.services.description">
 <meta name="keywords" content="servicios deportivos, consultoría estratégica, eventos deportivos, gestión de talento, sports management, Unisport EC, Ecuador, España">
 <meta name="author" content="Unisport Events & Consulting">
 <meta name="theme-color" content="#060F26">
+
+<!-- SEO bilingüe (ES / EN) -->
+<link rel="canonical" href="https://unisportec.com/servicios" />
+<link rel="alternate" hreflang="es" href="https://unisportec.com/servicios" />
+<link rel="alternate" hreflang="en" href="https://unisportec.com/servicios?lang=en" />
+<link rel="alternate" hreflang="x-default" href="https://unisportec.com/servicios" />
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Servicios — Unisport Events & Consulting">
 <meta property="og:description" content="Consultoría, eventos y talento para el ecosistema deportivo.">
 <meta property="og:image" content="logo-unisportec.png?v=2">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
 
 <link rel="icon" type="image/png" href="logo-unisportec.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,6 +104,30 @@ header {
   height: 1px;
   background: var(--gold);
 }
+
+/* ---------- Language switcher ---------- */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 8px;
+}
+.lang-btn {
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--cream);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+.lang-btn:hover, .lang-btn:focus-visible { opacity: 1; outline: none; }
+.lang-btn.is-active { opacity: 1; color: var(--gold); }
+.lang-divider { color: var(--cream); opacity: 0.3; font-size: 12px; }
 
 .btn {
   display: inline-block;
@@ -377,8 +409,11 @@ footer a:hover { color: var(--gold); }
   .brand img { height: 36px; }
   .brand-long { height: 80px !important; max-width: 440px; }
   .services-hero { padding: 100px 24px 80px; }
+  .lang-switcher { margin-left: 4px; gap: 0.25rem; }
 }
 </style>
+
+<script src="/js/i18n.js" defer></script>
 </head>
 <body>
 
@@ -388,11 +423,16 @@ footer a:hover { color: var(--gold); }
       <img src="logo-uecbanner.png?v=2" alt="Unisport Events &amp; Consulting" class="brand-long">
     </a>
     <nav class="nav-links" aria-label="Principal">
-      <a href="index.html">Inicio</a>
-      <a href="servicios.html" class="active">Servicios</a>
-      <a href="insights.html">Insights</a>
-      <a href="partners.html">Partners</a>
-      <a href="contacto.html" class="btn btn-outline">Contacto</a>
+      <a href="index.html" data-i18n="nav.home">Inicio</a>
+      <a href="servicios.html" class="active" data-i18n="nav.services">Servicios</a>
+      <a href="insights.html" data-i18n="nav.insights">Insights</a>
+      <a href="partners.html" data-i18n="nav.partners">Partners</a>
+      <a href="contacto.html" class="btn btn-outline" data-i18n="nav.contact">Contacto</a>
+      <div class="lang-switcher" role="group" aria-label="Cambiar idioma" data-i18n-attr="aria-label:nav.language">
+        <button type="button" class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+        <span class="lang-divider" aria-hidden="true">/</span>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </nav>
   </div>
 </header>
@@ -401,9 +441,9 @@ footer a:hover { color: var(--gold); }
 
 <!-- Hero -->
 <section class="services-hero">
-  <span class="eyebrow">Lo que hacemos</span>
-  <h1>Servicios</h1>
-  <p class="subtitle">Una propuesta integral en consultoría, eventos y talento para empresas, federaciones e instituciones del ecosistema deportivo.</p>
+  <span class="eyebrow" data-i18n="services.hero.eyebrow">Lo que hacemos</span>
+  <h1 data-i18n="services.hero.title">Servicios</h1>
+  <p class="subtitle" data-i18n="services.hero.subtitle">Una propuesta integral en consultoría, eventos y talento para empresas, federaciones e instituciones del ecosistema deportivo.</p>
   <div class="divider"></div>
 </section>
 
@@ -420,8 +460,8 @@ footer a:hover { color: var(--gold); }
         <line x1="2" y1="24" x2="6" y2="24"/>
         <line x1="42" y1="24" x2="46" y2="24"/>
       </svg>
-      <h3>Consultoría</h3>
-      <p>Estrategia, marketing, IA y captación de inversión.</p>
+      <h3 data-i18n="services.tabs.consultingTitle">Consultoría</h3>
+      <p data-i18n="services.tabs.consultingLead">Estrategia, marketing, IA y captación de inversión.</p>
     </button>
 
     <button class="hub-card" data-target="eventos" role="tab" aria-selected="false" aria-controls="eventos">
@@ -432,8 +472,8 @@ footer a:hover { color: var(--gold); }
         <line x1="24" y1="28" x2="24" y2="36"/>
         <rect x="17" y="36" width="14" height="6" rx="0.5"/>
       </svg>
-      <h3>Eventos</h3>
-      <p>Camps, ligas, torneos y experiencias deportivas.</p>
+      <h3 data-i18n="services.tabs.eventsTitle">Eventos</h3>
+      <p data-i18n="services.tabs.eventsLead">Camps, ligas, torneos y experiencias deportivas.</p>
     </button>
 
     <button class="hub-card" data-target="talento" role="tab" aria-selected="false" aria-controls="talento">
@@ -442,8 +482,8 @@ footer a:hover { color: var(--gold); }
         <path d="M8 40c0-7 5.5-12 12-12s12 5 12 12"/>
         <path d="M37 8l1.6 3.4 3.4.5-2.5 2.4.6 3.4-3.1-1.6-3.1 1.6.6-3.4-2.5-2.4 3.4-.5z"/>
       </svg>
-      <h3>Talento</h3>
-      <p>Asesoramiento, scouting y branding deportivo.</p>
+      <h3 data-i18n="services.tabs.talentTitle">Talento</h3>
+      <p data-i18n="services.tabs.talentLead">Asesoramiento, scouting y branding deportivo.</p>
     </button>
   </div>
 </section>
@@ -455,7 +495,7 @@ footer a:hover { color: var(--gold); }
     <!-- Consultoría -->
     <div class="panel active" id="consultoria" role="tabpanel" aria-labelledby="consultoria-tab">
       <span class="panel-eyebrow">I — Consultoría</span>
-      <h2>Consultoría Estratégica</h2>
+      <h2 data-i18n="services.panels.consultingTitle">Consultoría Estratégica</h2>
       <div class="panel-divider"></div>
       <ul class="service-list">
         <li>
@@ -509,15 +549,15 @@ footer a:hover { color: var(--gold); }
         </li>
       </ul>
       <div class="panel-cta">
-        <p>¿Listos para activar este servicio?</p>
-        <a href="contacto.html" class="btn btn-primary">Solicitar Consultoría Especializada</a>
+        <p data-i18n="services.cta.lead">¿Listos para activar este servicio?</p>
+        <a href="contacto.html" class="btn btn-primary" data-i18n="services.cta.button">Solicitar Consultoría Especializada</a>
       </div>
     </div>
 
     <!-- Eventos -->
     <div class="panel" id="eventos" role="tabpanel" aria-labelledby="eventos-tab">
       <span class="panel-eyebrow">II — Eventos</span>
-      <h2>Eventos y Ligas</h2>
+      <h2 data-i18n="services.panels.eventsTitle">Eventos y Ligas</h2>
       <div class="panel-divider"></div>
       <ul class="service-list">
         <li>
@@ -557,15 +597,15 @@ footer a:hover { color: var(--gold); }
         </li>
       </ul>
       <div class="panel-cta">
-        <p>¿Listos para activar este servicio?</p>
-        <a href="contacto.html" class="btn btn-primary">Solicitar Consultoría Especializada</a>
+        <p data-i18n="services.cta.lead">¿Listos para activar este servicio?</p>
+        <a href="contacto.html" class="btn btn-primary" data-i18n="services.cta.button">Solicitar Consultoría Especializada</a>
       </div>
     </div>
 
     <!-- Talento -->
     <div class="panel" id="talento" role="tabpanel" aria-labelledby="talento-tab">
       <span class="panel-eyebrow">III — Talento</span>
-      <h2>Personas y Mercado</h2>
+      <h2 data-i18n="services.panels.talentTitle">Personas y Mercado</h2>
       <div class="panel-divider"></div>
       <ul class="service-list">
         <li>
@@ -598,8 +638,8 @@ footer a:hover { color: var(--gold); }
         </li>
       </ul>
       <div class="panel-cta">
-        <p>¿Listos para activar este servicio?</p>
-        <a href="contacto.html" class="btn btn-primary">Solicitar Consultoría Especializada</a>
+        <p data-i18n="services.cta.lead">¿Listos para activar este servicio?</p>
+        <a href="contacto.html" class="btn btn-primary" data-i18n="services.cta.button">Solicitar Consultoría Especializada</a>
       </div>
     </div>
 
@@ -612,7 +652,7 @@ footer a:hover { color: var(--gold); }
   <div class="brand">
     <img src="logo-unisportec.png?v=2" alt="Unisport Events &amp; Consulting">
   </div>
-  <p>© <span id="year"></span> Unisport Events &amp; Consulting. Todos los derechos reservados.</p>
+  <p>© <span id="year"></span> Unisport Events &amp; Consulting. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
   <p><a href="mailto:bernardonaranjor@gmail.com">bernardonaranjor@gmail.com</a></p>
 </footer>
 
