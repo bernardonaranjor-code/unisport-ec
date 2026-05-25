@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "title": "Uni Sport EC | Consultoría Estratégica y Gestión Deportiva",
+    "description": "Consultoría estratégica y operativa para clubes, federaciones y atletas en Ecuador y España. Eventos, talento y transformación del negocio deportivo."
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "partners": "Partners",
+    "insights": "Insights",
+    "contact": "Contacto",
+    "menu": "Abrir menú",
+    "language": "Cambiar idioma"
+  },
+  "home": {
+    "title": "Estrategia. Gestión. Resultados.",
+    "subtitle": "Acompañamos a clubes, federaciones y atletas a competir al nivel del deporte global.",
+    "ctaServices": "Ver Servicios",
+    "ctaContact": "Hablemos",
+    "missionTitle": "Misión",
+    "missionBody": "Profesionalizar la industria deportiva con estrategia, gestión y ejecución de clase mundial.",
+    "visionTitle": "Visión",
+    "visionBody": "Ser el aliado estratégico de referencia para clubes, federaciones y atletas de habla hispana.",
+    "valuesTitle": "Valores",
+    "valuesBody": "Integridad, excelencia operativa, mentalidad global y compromiso con el resultado."
+  },
+  "services": {
+    "heading": "Lo que hacemos",
+    "lead": "Tres líneas de servicio, una misma exigencia.",
+    "consulting": { "name": "Consultoría", "lead": "Estrategia institucional, comercial y deportiva para entidades en crecimiento." },
+    "events":     { "name": "Eventos",     "lead": "Diseño y operación integral de eventos deportivos y experiencias de marca." },
+    "talent":     { "name": "Talento",     "lead": "Representación, desarrollo de carrera y gestión integral de atletas." }
+  },
+  "partners": {
+    "heading": "Quiénes somos",
+    "lead": "Un equipo con experiencia en clubes, federaciones y eventos de alcance internacional."
+  },
+  "contact": {
+    "heading": "Hablemos",
+    "lead": "Cuéntanos tu proyecto y exploramos juntos la mejor forma de avanzar."
+  },
+  "form": {
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "company": "Organización",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "privacy": "Al enviar aceptas nuestra política de privacidad."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "tagline": "Consultoría deportiva — Ecuador · España"
+  }
+}

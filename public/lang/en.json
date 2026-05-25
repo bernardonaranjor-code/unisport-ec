@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "title": "Uni Sport EC | Strategic Consulting & Sports Management",
+    "description": "Strategic and operational consulting for clubs, federations and athletes across Ecuador and Spain. Events, talent and sports business transformation."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "partners": "Partners",
+    "insights": "Insights",
+    "contact": "Contact",
+    "menu": "Open menu",
+    "language": "Switch language"
+  },
+  "home": {
+    "title": "Strategy. Management. Results.",
+    "subtitle": "We help clubs, federations and athletes compete at the level of global sport.",
+    "ctaServices": "Our Services",
+    "ctaContact": "Let's talk",
+    "missionTitle": "Mission",
+    "missionBody": "Professionalize the sports industry with world-class strategy, management and execution.",
+    "visionTitle": "Vision",
+    "visionBody": "To be the strategic partner of choice for Spanish-speaking clubs, federations and athletes.",
+    "valuesTitle": "Values",
+    "valuesBody": "Integrity, operational excellence, global mindset, and a relentless focus on results."
+  },
+  "services": {
+    "heading": "What we do",
+    "lead": "Three service lines, one standard.",
+    "consulting": { "name": "Consulting", "lead": "Institutional, commercial and sporting strategy for growing organizations." },
+    "events":     { "name": "Events",     "lead": "End-to-end design and operation of sports events and brand experiences." },
+    "talent":     { "name": "Talent",     "lead": "Representation, career development and full athlete management." }
+  },
+  "partners": {
+    "heading": "Who we are",
+    "lead": "A team with experience across clubs, federations and international events."
+  },
+  "contact": {
+    "heading": "Let's talk",
+    "lead": "Tell us about your project and we'll find the best way to move forward together."
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email address",
+    "company": "Organization",
+    "message": "Message",
+    "send": "Send",
+    "privacy": "By submitting you accept our privacy policy."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "Sports consulting — Ecuador · Spain"
+  }
+}
