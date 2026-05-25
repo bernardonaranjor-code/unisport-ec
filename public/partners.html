@@ -3,16 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Partners | Uni Sport EC — Equipo directivo de consultoría deportiva</title>
-<meta name="description" content="Equipo directivo de Uni Sport EC: Bernardo Naranjo, Fausto Rodríguez y Alex Espinosa. Trayectorias complementarias que unen estrategia, deporte y mercado global.">
+<title data-i18n="meta.partners.title">Partners | Uni Sport EC — Equipo directivo de consultoría deportiva</title>
+<meta name="description" content="Equipo directivo de Uni Sport EC: Bernardo Naranjo, Fausto Rodríguez y Alex Espinosa. Trayectorias complementarias que unen estrategia, deporte y mercado global." data-i18n-attr="content:meta.partners.description">
 <meta name="keywords" content="partners, equipo directivo, Bernardo Naranjo, Fausto Rodríguez, Alex Espinosa, consultoría deportiva, gestión deportiva, Unisport EC">
 <meta name="author" content="Unisport Events & Consulting">
 <meta name="theme-color" content="#060F26">
+
+<!-- SEO bilingüe (ES / EN) -->
+<link rel="canonical" href="https://unisportec.com/partners" />
+<link rel="alternate" hreflang="es" href="https://unisportec.com/partners" />
+<link rel="alternate" hreflang="en" href="https://unisportec.com/partners?lang=en" />
+<link rel="alternate" hreflang="x-default" href="https://unisportec.com/partners" />
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Partners — Unisport Events & Consulting">
 <meta property="og:description" content="Equipo directivo: Bernardo Naranjo, Fausto Rodríguez y Alex Espinosa.">
 <meta property="og:image" content="logo-unisportec.png?v=2">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
 
 <link rel="icon" type="image/png" href="logo-unisportec.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,6 +102,30 @@ header {
   height: 1px;
   background: var(--gold);
 }
+
+/* ---------- Language switcher ---------- */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 8px;
+}
+.lang-btn {
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--cream);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+.lang-btn:hover, .lang-btn:focus-visible { opacity: 1; outline: none; }
+.lang-btn.is-active { opacity: 1; color: var(--gold); }
+.lang-divider { color: var(--cream); opacity: 0.3; font-size: 12px; }
 
 .btn {
   display: inline-block;
@@ -322,8 +354,11 @@ footer a:hover { color: var(--gold); }
   .nav { padding: 14px 20px; }
   .brand img { height: 36px; }
   .brand-long { height: 80px !important; max-width: 440px; }
+  .lang-switcher { margin-left: 4px; gap: 0.25rem; }
 }
 </style>
+
+<script src="/js/i18n.js" defer></script>
 </head>
 <body>
 
@@ -333,11 +368,16 @@ footer a:hover { color: var(--gold); }
       <img src="logo-uecbanner.png?v=2" alt="Unisport Events &amp; Consulting" class="brand-long">
     </a>
     <nav class="nav-links" aria-label="Principal">
-      <a href="index.html">Inicio</a>
-      <a href="servicios.html">Servicios</a>
-      <a href="insights.html">Insights</a>
-      <a href="partners.html" class="active">Partners</a>
-      <a href="contacto.html" class="btn btn-outline">Contacto</a>
+      <a href="index.html" data-i18n="nav.home">Inicio</a>
+      <a href="servicios.html" data-i18n="nav.services">Servicios</a>
+      <a href="insights.html" data-i18n="nav.insights">Insights</a>
+      <a href="partners.html" class="active" data-i18n="nav.partners">Partners</a>
+      <a href="contacto.html" class="btn btn-outline" data-i18n="nav.contact">Contacto</a>
+      <div class="lang-switcher" role="group" aria-label="Cambiar idioma" data-i18n-attr="aria-label:nav.language">
+        <button type="button" class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+        <span class="lang-divider" aria-hidden="true">/</span>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </nav>
   </div>
 </header>
@@ -346,21 +386,15 @@ footer a:hover { color: var(--gold); }
 
 <!-- Hero -->
 <section class="partners-hero">
-  <span class="eyebrow">Equipo directivo</span>
-  <h1>Partners</h1>
-  <p class="subtitle">Tres trayectorias complementarias que unen estrategia, deporte y mercado para escalar proyectos con visión global.</p>
+  <span class="eyebrow" data-i18n="partners.hero.eyebrow">Equipo directivo</span>
+  <h1 data-i18n="partners.hero.title">Partners</h1>
+  <p class="subtitle" data-i18n="partners.hero.subtitle">Tres trayectorias complementarias que unen estrategia, deporte y mercado para escalar proyectos con visión global.</p>
   <div class="divider"></div>
 </section>
 
 <!-- Profiles -->
 <section class="partners-list" aria-label="Equipo de partners">
 
-  <!--
-    ================================================================
-    PARTNER PROFILE — copy this block to add or replace a partner.
-    Update: image src, alt, name, role, bio.
-    ================================================================
-  -->
   <article class="partner-profile reveal reveal-up">
     <div class="partner-photo-frame">
       <img src="logo-bn.png" alt="Retrato de Bernardo Naranjo" loading="lazy">
@@ -405,9 +439,9 @@ footer a:hover { color: var(--gold); }
 
 <!-- Closing CTA -->
 <section class="partners-cta">
-  <span class="eyebrow reveal reveal-up">Trabajemos juntos</span>
-  <h2 class="reveal reveal-up">¿Tienes un proyecto en mente? Nuestro equipo está listo para escucharlo.</h2>
-  <a href="contacto.html" class="btn btn-primary reveal reveal-up">Solicitar Análisis de Situación</a>
+  <span class="eyebrow reveal reveal-up" data-i18n="partners.cta.eyebrow">Trabajemos juntos</span>
+  <h2 class="reveal reveal-up" data-i18n="partners.cta.heading">¿Tienes un proyecto en mente? Nuestro equipo está listo para escucharlo.</h2>
+  <a href="contacto.html" class="btn btn-primary reveal reveal-up" data-i18n="partners.cta.button">Solicitar Análisis de Situación</a>
 </section>
 
 </main>
@@ -416,7 +450,7 @@ footer a:hover { color: var(--gold); }
   <div class="brand">
     <img src="logo-unisportec.png?v=2" alt="Unisport Events &amp; Consulting">
   </div>
-  <p>© <span id="year"></span> Unisport Events &amp; Consulting. Todos los derechos reservados.</p>
+  <p>© <span id="year"></span> Unisport Events &amp; Consulting. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
   <p><a href="mailto:bernardonaranjor@gmail.com">bernardonaranjor@gmail.com</a></p>
 </footer>
 
