@@ -3,16 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contacto | Uni Sport EC — Solicita tu análisis de situación</title>
-<meta name="description" content="Hablemos de tu proyecto deportivo. Hubs en Madrid y Quito. Solicita un análisis de situación: respondemos en menos de 48 horas.">
+<title data-i18n="meta.contact.title">Contacto | Uni Sport EC — Solicita tu análisis de situación</title>
+<meta name="description" content="Hablemos de tu proyecto deportivo. Hubs en Madrid y Quito. Solicita un análisis de situación: respondemos en menos de 48 horas." data-i18n-attr="content:meta.contact.description">
 <meta name="keywords" content="contacto consultoría deportiva, solicitar análisis, Unisport EC, Madrid, Quito, sports consulting, asesoría deportiva">
 <meta name="author" content="Unisport Events & Consulting">
 <meta name="theme-color" content="#060F26">
+
+<!-- SEO bilingüe (ES / EN) -->
+<link rel="canonical" href="https://unisportec.com/contacto" />
+<link rel="alternate" hreflang="es" href="https://unisportec.com/contacto" />
+<link rel="alternate" hreflang="en" href="https://unisportec.com/contacto?lang=en" />
+<link rel="alternate" hreflang="x-default" href="https://unisportec.com/contacto" />
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Contacto — Unisport Events & Consulting">
 <meta property="og:description" content="Solicita un análisis de situación. Hablemos de tu proyecto deportivo.">
 <meta property="og:image" content="logo-unisportec.png?v=2">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
 
 <link rel="icon" type="image/png" href="logo-unisportec.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -107,6 +115,30 @@ header {
 .nav-links a:hover { color: var(--gold); }
 .nav-links a.active { color: var(--gold); }
 .nav-links a.active.btn { color: var(--navy); background: var(--gold); }
+
+/* ---------- Language switcher ---------- */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 8px;
+}
+.lang-btn {
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--cream);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+.lang-btn:hover, .lang-btn:focus-visible { opacity: 1; outline: none; }
+.lang-btn.is-active { opacity: 1; color: var(--gold); }
+.lang-divider { color: var(--cream); opacity: 0.3; font-size: 12px; }
 
 .btn {
   display: inline-block;
@@ -421,8 +453,11 @@ footer a:hover { color: var(--gold); }
   .brand img { height: 36px; }
   .brand-long { height: 80px !important; max-width: 440px; }
   .contact-hero { padding: 100px 24px 50px; }
+  .lang-switcher { margin-left: 4px; gap: 0.25rem; }
 }
 </style>
+
+<script src="/js/i18n.js" defer></script>
 </head>
 <body>
 
@@ -449,11 +484,16 @@ footer a:hover { color: var(--gold); }
       <img src="logo-uecbanner.png?v=2" alt="Unisport Events &amp; Consulting" class="brand-long">
     </a>
     <nav class="nav-links" aria-label="Principal">
-      <a href="index.html">Inicio</a>
-      <a href="servicios.html">Servicios</a>
-      <a href="insights.html">Insights</a>
-      <a href="partners.html">Partners</a>
-      <a href="contacto.html" class="btn btn-outline active">Contacto</a>
+      <a href="index.html" data-i18n="nav.home">Inicio</a>
+      <a href="servicios.html" data-i18n="nav.services">Servicios</a>
+      <a href="insights.html" data-i18n="nav.insights">Insights</a>
+      <a href="partners.html" data-i18n="nav.partners">Partners</a>
+      <a href="contacto.html" class="btn btn-outline active" data-i18n="nav.contact">Contacto</a>
+      <div class="lang-switcher" role="group" aria-label="Cambiar idioma" data-i18n-attr="aria-label:nav.language">
+        <button type="button" class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+        <span class="lang-divider" aria-hidden="true">/</span>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </nav>
   </div>
 </header>
@@ -462,9 +502,9 @@ footer a:hover { color: var(--gold); }
 
 <!-- Hero -->
 <section class="contact-hero">
-  <span class="eyebrow">Hablemos</span>
-  <h1>Contacto</h1>
-  <p class="subtitle">Cuéntanos sobre tu proyecto. Diseñamos un análisis de situación a medida y respondemos en menos de 48 horas.</p>
+  <span class="eyebrow" data-i18n="contact.hero.eyebrow">Hablemos</span>
+  <h1 data-i18n="contact.hero.title">Contacto</h1>
+  <p class="subtitle" data-i18n="contact.hero.subtitle">Cuéntanos sobre tu proyecto. Diseñamos un análisis de situación a medida y respondemos en menos de 48 horas.</p>
   <div class="divider"></div>
 </section>
 
@@ -474,8 +514,8 @@ footer a:hover { color: var(--gold); }
 
     <!-- LEFT: Direct channels -->
     <aside class="channels reveal reveal-left" aria-label="Canales directos">
-      <span class="panel-eyebrow">Canales Directos</span>
-      <h2>Conéctate con nosotros</h2>
+      <span class="panel-eyebrow" data-i18n="contact.channels.eyebrow">Canales Directos</span>
+      <h2 data-i18n="contact.channels.heading">Conéctate con nosotros</h2>
       <div class="accent-line" aria-hidden="true"></div>
 
       <ul class="channel-list">
@@ -523,7 +563,7 @@ footer a:hover { color: var(--gold); }
         </li>
       </ul>
 
-      <span class="phone-hub-title">Teléfonos · Hub Madrid / Quito</span>
+      <span class="phone-hub-title" data-i18n="contact.channels.phones">Teléfonos · Hub Madrid / Quito</span>
       <ul class="phone-list">
         <li>
           <a href="tel:+34603438412">
@@ -554,35 +594,35 @@ footer a:hover { color: var(--gold); }
 
     <!-- RIGHT: Form -->
     <div class="form-wrap reveal reveal-right">
-      <span class="panel-eyebrow">Estrategia a medida</span>
-      <h2>Solicitar Análisis de Situación</h2>
+      <span class="panel-eyebrow" data-i18n="contact.form.eyebrow">Estrategia a medida</span>
+      <h2 data-i18n="contact.form.heading">Solicitar Análisis de Situación</h2>
       <div class="accent-line" aria-hidden="true"></div>
 
       <form action="mailto:info@unisportec.com" method="post" enctype="text/plain" autocomplete="on">
         <div class="form-row">
           <div>
-            <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" required autocomplete="name">
+            <label for="name" data-i18n="contact.form.name">Nombre</label>
+            <input type="text" id="name" name="name" required autocomplete="name" data-i18n-attr="placeholder:contact.form.name" placeholder="Nombre">
           </div>
           <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required autocomplete="email">
+            <label for="email" data-i18n="contact.form.email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email" data-i18n-attr="placeholder:contact.form.email" placeholder="Email">
           </div>
         </div>
         <div class="form-row full">
           <div>
-            <label for="org">Organización / Club</label>
-            <input type="text" id="org" name="organization" autocomplete="organization">
+            <label for="org" data-i18n="contact.form.org">Organización / Club</label>
+            <input type="text" id="org" name="organization" autocomplete="organization" data-i18n-attr="placeholder:contact.form.org" placeholder="Organización / Club">
           </div>
         </div>
         <div class="form-row full">
           <div>
-            <label for="message">Cuéntanos sobre tu proyecto</label>
-            <textarea id="message" name="message" required></textarea>
+            <label for="message" data-i18n="contact.form.message">Cuéntanos sobre tu proyecto</label>
+            <textarea id="message" name="message" required data-i18n-attr="placeholder:contact.form.message" placeholder="Cuéntanos sobre tu proyecto"></textarea>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary form-submit">Enviar Solicitud</button>
-        <p class="form-note">Respondemos en menos de 48 horas.</p>
+        <button type="submit" class="btn btn-primary form-submit" data-i18n="contact.form.submit">Enviar Solicitud</button>
+        <p class="form-note" data-i18n="contact.form.note">Respondemos en menos de 48 horas.</p>
       </form>
     </div>
 
@@ -595,7 +635,7 @@ footer a:hover { color: var(--gold); }
   <div class="brand">
     <img src="logo-unisportec.png?v=2" alt="Unisport Events &amp; Consulting">
   </div>
-  <p>© <span id="year"></span> Unisport Events &amp; Consulting. Todos los derechos reservados.</p>
+  <p>© <span id="year"></span> Unisport Events &amp; Consulting. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
   <p><a href="mailto:info@unisportec.com">info@unisportec.com</a></p>
 </footer>
 
