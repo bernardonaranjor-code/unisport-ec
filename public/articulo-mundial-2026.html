@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mundial 2026 — Uni Sport EC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:   #01062c;
+      --gold:   #c9a84c;
+      --gold-light: #dbbe70;
+      --white:  #ffffff;
+      --navy-2: #060d3a;
+      --navy-3: #0b1450;
+      --navy-card: rgba(255,255,255,0.04);
+      --navy-border: rgba(201,168,76,0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      min-height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* Background texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,168,76,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 100% 80%, rgba(201,168,76,0.06) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 20px;
+    }
+
+    /* Hero */
+    .hero { text-align: center; margin-bottom: 52px; opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards; }
+    .tournament-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+    }
+    .tournament-label::before, .tournament-label::after {
+      content: ''; display: block; width: 28px; height: 1px;
+      background: var(--gold); opacity: 0.5;
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 72px);
+      font-weight: 900; line-height: 0.95; letter-spacing: -2px;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    h1 .line1 { color: var(--white); display: block; }
+    h1 .line2 { color: var(--gold); display: block; -webkit-text-stroke: 1px var(--gold); }
+
+    .hero-sub {
+      margin-top: 20px; font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.4); letter-spacing: 1px; line-height: 1.7;
+    }
+
+    /* Stats row */
+    .stats {
+      display: flex; gap: 1px; margin-bottom: 48px;
+      border: 1px solid var(--navy-border); border-radius: 12px; overflow: hidden;
+      opacity: 0; animation: fadeUp 0.6s ease 0.35s forwards;
+    }
+    .stat { flex: 1; padding: 20px 28px; background: var(--navy-card); text-align: center; position: relative; }
+    .stat + .stat::before {
+      content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
+      width: 1px; background: var(--navy-border);
+    }
+    .stat-n { font-size: 36px; font-weight: 900; color: var(--gold); letter-spacing: -1px; line-height: 1; }
+    .stat-l { font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 6px; }
+
+    /* CTA button */
+    .cta-wrap { width: 100%; max-width: 420px; opacity: 0; animation: fadeUp 0.6s ease 0.45s forwards; }
+    .btn-download {
+      width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px;
+      background: var(--gold); color: var(--navy);
+      font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase; border: none; border-radius: 10px;
+      padding: 20px 32px; cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 8px 32px rgba(201,168,76,0.25);
+      position: relative; overflow: hidden;
+    }
+    .btn-download::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .btn-download:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.35); }
+    .btn-download:active { transform: translateY(0); }
+    .btn-download svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .success {
+      display: none; margin-top: 14px; padding: 12px 16px;
+      background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 8px; font-size: 12px; font-weight: 600; color: var(--gold);
+      letter-spacing: 0.5px; text-align: center;
+    }
+
+    /* Compatible apps */
+    .compat { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin-top: 24px; opacity: 0; animation: fadeUp 0.6s ease 0.55s forwards; }
+    .compat-item {
+      font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.2); display: flex; align-items: center; gap: 6px;
+    }
+    .compat-item::before {
+      content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: 0.4;
+    }
+
+    /* Phases strip */
+    .phases { display: flex; gap: 8px; margin-top: 48px; flex-wrap: wrap; justify-content: center; opacity: 0; animation: fadeUp 0.6s ease 0.65s forwards; }
+    .phase-tag {
+      font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 6px 12px; border-radius: 4px;
+      border: 1px solid rgba(201,168,76,0.2); color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.02);
+    }
+    .phase-tag.active { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.08); }
+
+    /* Footer */
+    .footer {
+      margin-top: 64px; font-size: 10px; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.15); text-align: center;
+      opacity: 0; animation: fadeUp 0.6s ease 0.75s forwards;
+    }
+    .footer a { color: rgba(201,168,76,0.4); text-decoration: none; }
+    .footer a:hover { color: var(--gold); }
+
+    /* Back-to-Insights link (added for site navigation) */
+    .back-link {
+      position: fixed; top: 24px; left: 24px; z-index: 10;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: rgba(255,255,255,0.55);
+      text-decoration: none; padding: 10px 16px;
+      border: 1px solid rgba(201,168,76,0.25); border-radius: 6px;
+      background: rgba(255,255,255,0.03); transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .back-link:hover { color: var(--gold); border-color: var(--gold); background: rgba(201,168,76,0.06); }
+    .back-link svg { width: 12px; height: 12px; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .stats { flex-direction: row; }
+      .stat { padding: 16px 12px; }
+      .stat-n { font-size: 28px; }
+      .back-link { top: 16px; left: 16px; font-size: 10px; padding: 8px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="insights.html" class="back-link" aria-label="Volver a Insights">
+    <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="8,2 4,6 8,10"/>
+    </svg>
+    Insights
+  </a>
+
+  <div class="page">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="tournament-label">FIFA World Cup 2026</div>
+      <h1>
+        <span class="line1">Calendario</span>
+        <span class="line2">Completo</span>
+      </h1>
+      <p class="hero-sub">
+        104 partidos · Horarios en hora de Madrid (CEST)<br>
+        Fase de grupos, eliminatorias y Final
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat"><div class="stat-n">104</div><div class="stat-l">Partidos</div></div>
+      <div class="stat"><div class="stat-n">48</div><div class="stat-l">Equipos</div></div>
+      <div class="stat"><div class="stat-n">39</div><div class="stat-l">Días</div></div>
+      <div class="stat"><div class="stat-n">16</div><div class="stat-l">Estadios</div></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-wrap">
+      <button class="btn-download" onclick="descargar()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Añadir a mi Calendario
+      </button>
+      <div class="success" id="ok">
+        ✓ &nbsp;Descarga iniciada — abre el archivo .ics para importar
+      </div>
+    </div>
+
+    <!-- Compatible -->
+    <div class="compat">
+      <div class="compat-item">Google Calendar</div>
+      <div class="compat-item">Apple Calendar</div>
+      <div class="compat-item">Outlook</div>
+      <div class="compat-item">Cualquier app .ics</div>
+    </div>
+
+    <!-- Phases -->
+    <div class="phases">
+      <span class="phase-tag active">Fase de Grupos</span>
+      <span class="phase-tag active">Ronda de 32</span>
+      <span class="phase-tag active">Octavos</span>
+      <span class="phase-tag active">Cuartos</span>
+      <span class="phase-tag active">Semifinales</span>
+      <span class="phase-tag active">Final</span>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Creado por <a href="https://www.unisportec.com" target="_blank">Uni Sport EC</a>
+      &nbsp;·&nbsp; Horarios CEST (Madrid)
+      &nbsp;·&nbsp; Fuente: FIFA.com
+    </div>
+
+  </div>
+
+  <script>
+    const ICS = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Uni Sport EC//Mundial 2026//ES\nCALSCALE:GREGORIAN\nMETHOD:PUBLISH\nX-WR-CALNAME:Mundial 2026 - Uni Sport EC\nX-WR-CALDESC:Calendario completo del FIFA World Cup 2026. 104 partidos. Horarios en hora de Madrid (CEST). Creado por Uni Sport EC - www.unisportec.com\nX-WR-TIMEZONE:Europe/Madrid\nX-WR-RELCALID:mundial-2026-unisportec\n\nBEGIN:VEVENT\nUID:a10cfaeb-18cd-419f-bbe5-fd008dbf0cdf@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260611T180000Z\nDTEND:20260611T200000Z\nSUMMARY:🏆 Mundial 2026 | Inauguración: México vs Sudáfrica (Gr.A)\nDESCRIPTION:FIFA World Cup 2026 - Partido inaugural. Grupo A.\nLOCATION:Estadio Azteca, Ciudad de México\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:c19e02f7-23fd-4732-b770-7edc38849d60@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260612T010000Z\nDTEND:20260612T030000Z\nSUMMARY:⚽ Mundial 2026 | Corea del Sur vs Chequia (Gr.A)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Estadio Akron, Zapopan\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:8ea01642-007e-4307-a25a-9edc14382f1e@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260612T180000Z\nDTEND:20260612T200000Z\nSUMMARY:⚽ Mundial 2026 | Canadá vs Bosnia-Herzegovina (Gr.B)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:BMO Field, Toronto\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:106252f4-46fa-4384-9443-3c6d8b9b8a0f@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260613T000000Z\nDTEND:20260613T020000Z\nSUMMARY:⚽ Mundial 2026 | USA vs Paraguay (Gr.D)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:SoFi Stadium, Inglewood (Los Ángeles)\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:1fde22fa-5fde-467d-af4f-b0a92614803f@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260613T180000Z\nDTEND:20260613T200000Z\nSUMMARY:⚽ Mundial 2026 | Qatar vs Suiza (Gr.B)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Levi's Stadium, Santa Clara\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:e293a88c-290f-4966-adc1-84c67e325f65@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260613T210000Z\nDTEND:20260613T230000Z\nSUMMARY:⚽ Mundial 2026 | Brasil vs Marruecos (Gr.C)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:MetLife Stadium, Nueva York/NJ\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:10612566-440f-4cc5-bead-d5c53fc50f17@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260614T000000Z\nDTEND:20260614T020000Z\nSUMMARY:⚽ Mundial 2026 | Haití vs Escocia (Gr.C)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Gillette Stadium, Foxborough (Boston)\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:f2d48ed2-a020-41c3-86c4-dc5b636d8106@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260614T030000Z\nDTEND:20260614T050000Z\nSUMMARY:⚽ Mundial 2026 | Australia vs Turquía (Gr.D)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:BC Place, Vancouver\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:2bad27be-08ab-4d83-8aa0-70840b0595e5@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260614T160000Z\nDTEND:20260614T180000Z\nSUMMARY:⚽ Mundial 2026 | Alemania vs Curaçao (Gr.E)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:NRG Stadium, Houston\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:a303da6e-f260-4f9e-bf0b-464d9e89b0ed@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260614T190000Z\nDTEND:20260614T210000Z\nSUMMARY:⚽ Mundial 2026 | Países Bajos vs Japón (Gr.F)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:AT&T Stadium, Arlington (Dallas)\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:97c30a8b-bf1d-4302-a095-b60354df4f03@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260614T220000Z\nDTEND:20260615T000000Z\nSUMMARY:⚽ Mundial 2026 | Costa de Marfil vs Ecuador (Gr.E)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Lincoln Financial Field, Filadelfia\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:9e13aa41-099d-472a-b149-675eb1387c3a@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260615T010000Z\nDTEND:20260615T030000Z\nSUMMARY:⚽ Mundial 2026 | Suecia vs Túnez (Gr.F)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Estadio BBVA, Monterrey\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:3afb0f1f-f143-400d-a049-51f7dee44809@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260615T150000Z\nDTEND:20260615T170000Z\nSUMMARY:⚽ Mundial 2026 | España vs Cabo Verde (Gr.H)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Mercedes-Benz Stadium, Atlanta\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:2483407c-5039-421e-8478-33cbe32808fd@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260615T180000Z\nDTEND:20260615T200000Z\nSUMMARY:⚽ Mundial 2026 | Bélgica vs Egipto (Gr.G)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Lumen Field, Seattle\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:89fca664-ff04-4c90-9725-6c26be4f513a@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260615T210000Z\nDTEND:20260615T230000Z\nSUMMARY:⚽ Mundial 2026 | Arabia Saudí vs Uruguay (Gr.H)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Hard Rock Stadium, Miami\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:c7a0409a-e153-457e-bc60-be74237a453d@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260616T000000Z\nDTEND:20260616T020000Z\nSUMMARY:⚽ Mundial 2026 | Irán vs Nueva Zelanda (Gr.G)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:SoFi Stadium, Inglewood\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:dbeda76b-3f1d-4acd-a669-0973233a0838@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260616T180000Z\nDTEND:20260616T200000Z\nSUMMARY:⚽ Mundial 2026 | Francia vs Senegal (Gr.I)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:MetLife Stadium, Nueva York/NJ\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:10935e62-7b95-4a41-a715-400e7e59986b@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260616T210000Z\nDTEND:20260616T230000Z\nSUMMARY:⚽ Mundial 2026 | Irak vs Noruega (Gr.I)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Gillette Stadium, Foxborough\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:06d38657-8325-443b-bd72-7ab0c32bdb64@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260617T000000Z\nDTEND:20260617T020000Z\nSUMMARY:⚽ Mundial 2026 | Argentina vs Algeria (Gr.J)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Arrowhead Stadium, Kansas City\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:ea6f6f2d-8d1c-46de-945f-aa1e96eb2bda@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260617T030000Z\nDTEND:20260617T050000Z\nSUMMARY:⚽ Mundial 2026 | Austria vs Jordania (Gr.J)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Levi's Stadium, Santa Clara\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:8ec2ad08-57c0-44ba-b4ec-d1eb931d183a@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260617T160000Z\nDTEND:20260617T180000Z\nSUMMARY:⚽ Mundial 2026 | Portugal vs RD Congo (Gr.K)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:NRG Stadium, Houston\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:5559ad2c-21a2-4456-a428-3814d68d6b7e@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260617T190000Z\nDTEND:20260617T210000Z\nSUMMARY:⚽ Mundial 2026 | Inglaterra vs Croacia (Gr.L)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:AT&T Stadium, Arlington\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:fe974623-accd-49a8-ab26-287764758607@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260617T220000Z\nDTEND:20260618T000000Z\nSUMMARY:⚽ Mundial 2026 | Ghana vs Panamá (Gr.L)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:BMO Field, Toronto\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:a3af9801-e8aa-444e-9233-50cb2919f62e@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260618T010000Z\nDTEND:20260618T030000Z\nSUMMARY:⚽ Mundial 2026 | Uzbekistán vs Colombia (Gr.K)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Estadio Azteca, Ciudad de México\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:2394a41f-0fde-4eea-afe6-40bc0278b855@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260618T150000Z\nDTEND:20260618T170000Z\nSUMMARY:⚽ Mundial 2026 | Chequia vs Sudáfrica (Gr.A)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Mercedes-Benz Stadium, Atlanta\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:70d98a7a-9a0b-4602-ab6a-98c823e737a1@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260618T180000Z\nDTEND:20260618T200000Z\nSUMMARY:⚽ Mundial 2026 | Suiza vs Bosnia-Herzegovina (Gr.B)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:SoFi Stadium, Inglewood\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:477a145d-ccfc-4bc4-afff-f4e5f58cb42c@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260618T210000Z\nDTEND:20260618T230000Z\nSUMMARY:⚽ Mundial 2026 | Canadá vs Qatar (Gr.B)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:BC Place, Vancouver\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:e174fd2a-e4c5-4469-a2fd-69c64ee2c5ba@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260619T000000Z\nDTEND:20260619T020000Z\nSUMMARY:⚽ Mundial 2026 | México vs Corea del Sur (Gr.A)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Estadio Akron, Zapopan\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:4d693951-fe9a-4aab-aed3-9849d69f4b0c@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260619T180000Z\nDTEND:20260619T200000Z\nSUMMARY:⚽ Mundial 2026 | USA vs Australia (Gr.D)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Lumen Field, Seattle\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:f54885d3-6fcc-4da3-b784-1b9e4c1fc2d5@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260619T210000Z\nDTEND:20260619T230000Z\nSUMMARY:⚽ Mundial 2026 | Escocia vs Marruecos (Gr.C)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Gillette Stadium, Foxborough\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:40483e8f-cbfa-4d82-a299-c9b0f5d89e89@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260619T233000Z\nDTEND:20260620T013000Z\nSUMMARY:⚽ Mundial 2026 | Brasil vs Haití (Gr.C)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Lincoln Financial Field, Filadelfia\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:583914c0-b021-476a-b98c-9c80eadf2075@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260620T020000Z\nDTEND:20260620T040000Z\nSUMMARY:⚽ Mundial 2026 | Turquía vs Paraguay (Gr.D)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Levi's Stadium, Santa Clara\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:8fed4b45-39c8-4350-a3a1-5dce14107f33@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260620T160000Z\nDTEND:20260620T180000Z\nSUMMARY:⚽ Mundial 2026 | Países Bajos vs Suecia (Gr.F)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:NRG Stadium, Houston\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:bff2b4d2-2ae4-4e50-ad01-9bdbdfe84274@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260620T190000Z\nDTEND:20260620T210000Z\nSUMMARY:⚽ Mundial 2026 | Alemania vs Costa de Marfil (Gr.E)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:BMO Field, Toronto\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:89212a96-819b-4eec-b5af-014c275b9f87@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260620T230000Z\nDTEND:20260621T010000Z\nSUMMARY:⚽ Mundial 2026 | Ecuador vs Curaçao (Gr.E)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Arrowhead Stadium, Kansas City\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:88b3448b-ba9f-496d-949c-e3f8a774e4b2@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260621T030000Z\nDTEND:20260621T050000Z\nSUMMARY:⚽ Mundial 2026 | Túnez vs Japón (Gr.F) - Partido 1000\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Estadio BBVA, Monterrey\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:efbec8fb-7053-4da0-848b-0e6885e83434@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260621T150000Z\nDTEND:20260621T170000Z\nSUMMARY:⚽ Mundial 2026 | España vs Arabia Saudí (Gr.H)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Mercedes-Benz Stadium, Atlanta\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:bc6d1b9a-0277-45a4-a76b-979f410694c6@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260621T180000Z\nDTEND:20260621T200000Z\nSUMMARY:⚽ Mundial 2026 | Bélgica vs Irán (Gr.G)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:SoFi Stadium, Inglewood\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:435fd2db-7a44-43af-99fc-708574855e61@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260621T210000Z\nDTEND:20260621T230000Z\nSUMMARY:⚽ Mundial 2026 | Uruguay vs Cabo Verde (Gr.H)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Hard Rock Stadium, Miami\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:28be9145-8525-420a-826a-eee9d6f146cb@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260622T000000Z\nDTEND:20260622T020000Z\nSUMMARY:⚽ Mundial 2026 | Nueva Zelanda vs Egipto (Gr.G)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:BC Place, Vancouver\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:f46028a9-a432-434b-b74d-88ee31f88402@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260622T160000Z\nDTEND:20260622T180000Z\nSUMMARY:⚽ Mundial 2026 | Argentina vs Austria (Gr.J)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:AT&T Stadium, Arlington\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:62614f8c-17a0-4fe2-ab77-b5c3adb7b7f6@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260622T200000Z\nDTEND:20260622T220000Z\nSUMMARY:⚽ Mundial 2026 | Francia vs Irak (Gr.I)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Lincoln Financial Field, Filadelfia\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:7ebb9095-a82f-41e4-905e-dd1f576a7dae@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260622T230000Z\nDTEND:20260623T010000Z\nSUMMARY:⚽ Mundial 2026 | Noruega vs Senegal (Gr.I)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:MetLife Stadium, Nueva York/NJ\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:c05741b7-981a-4b00-b64d-097822c2ba7a@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260623T020000Z\nDTEND:20260623T040000Z\nSUMMARY:⚽ Mundial 2026 | Jordania vs Algeria (Gr.J)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Levi's Stadium, Santa Clara\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:e28e98d1-95d0-4e75-91ea-d399fbf86db5@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260623T160000Z\nDTEND:20260623T180000Z\nSUMMARY:⚽ Mundial 2026 | Portugal vs Uzbekistán (Gr.K)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:NRG Stadium, Houston\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:5b554299-a0cc-4df7-8954-b32bf2c8cd7c@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260623T190000Z\nDTEND:20260623T210000Z\nSUMMARY:⚽ Mundial 2026 | Inglaterra vs Ghana (Gr.L)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Gillette Stadium, Foxborough\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:de842340-4315-4e38-8b00-cb38a033fcf7@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260623T220000Z\nDTEND:20260624T000000Z\nSUMMARY:⚽ Mundial 2026 | Panamá vs Croacia (Gr.L)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:BMO Field, Toronto\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:62437950-a355-4c74-9bd9-cfdb480594c5@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260624T010000Z\nDTEND:20260624T030000Z\nSUMMARY:⚽ Mundial 2026 | Colombia vs RD Congo (Gr.K)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Estadio Akron, Zapopan\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:7fc6a9c6-b4a5-4b81-8488-e55d98720a46@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260624T180000Z\nDTEND:20260624T200000Z\nSUMMARY:⚽ Mundial 2026 | Suiza vs Canadá (Gr.B J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:BC Place, Vancouver\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:8b8787e2-6f5b-4c93-9562-cfda8f624744@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260624T180000Z\nDTEND:20260624T200000Z\nSUMMARY:⚽ Mundial 2026 | Bosnia-Herzegovina vs Qatar (Gr.B J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Lumen Field, Seattle\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:3dedd38d-92a2-4209-ab74-7976bed53feb@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260624T210000Z\nDTEND:20260624T230000Z\nSUMMARY:⚽ Mundial 2026 | Marruecos vs Haití (Gr.C J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Mercedes-Benz Stadium, Atlanta\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:b4316623-5cc8-4c08-8988-1d58e7be4859@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260624T210000Z\nDTEND:20260624T230000Z\nSUMMARY:⚽ Mundial 2026 | Escocia vs Brasil (Gr.C J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Hard Rock Stadium, Miami\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:bedd9ec2-1844-45aa-8dea-a00c484ac6e3@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260625T000000Z\nDTEND:20260625T020000Z\nSUMMARY:⚽ Mundial 2026 | Sudáfrica vs Corea del Sur (Gr.A J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Estadio BBVA, Monterrey\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:f9807745-13a2-42c0-85db-b5e63e3a4fe9@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260625T000000Z\nDTEND:20260625T020000Z\nSUMMARY:⚽ Mundial 2026 | Chequia vs México (Gr.A J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Estadio Azteca, Ciudad de México\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:696d7459-951b-434e-94fe-4cd6ccffa9ed@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260625T190000Z\nDTEND:20260625T210000Z\nSUMMARY:⚽ Mundial 2026 | Curaçao vs Costa de Marfil (Gr.E J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Lincoln Financial Field, Filadelfia\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:ea1e7f97-1fe7-46b8-ad57-dbce3e9db512@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260625T190000Z\nDTEND:20260625T210000Z\nSUMMARY:⚽ Mundial 2026 | Ecuador vs Alemania (Gr.E J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:MetLife Stadium, Nueva York/NJ\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:11bff67f-a203-44f0-a4b5-059b439eb8f2@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260625T220000Z\nDTEND:20260626T000000Z\nSUMMARY:⚽ Mundial 2026 | Túnez vs Países Bajos (Gr.F J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Arrowhead Stadium, Kansas City\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:a1487dbe-f686-4a57-a747-09687e56f078@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260625T220000Z\nDTEND:20260626T000000Z\nSUMMARY:⚽ Mundial 2026 | Japón vs Suecia (Gr.F J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:AT&T Stadium, Arlington\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:b47e32df-f9f5-4486-9282-2d03c4c4c027@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260626T010000Z\nDTEND:20260626T030000Z\nSUMMARY:⚽ Mundial 2026 | Turquía vs USA (Gr.D J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:SoFi Stadium, Inglewood\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:f588ba7e-e790-41f3-8a66-51b1fa348015@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260626T010000Z\nDTEND:20260626T030000Z\nSUMMARY:⚽ Mundial 2026 | Paraguay vs Australia (Gr.D J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Levi's Stadium, Santa Clara\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:dd7bb81d-537b-4dea-b8ba-3e45047cafac@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260626T180000Z\nDTEND:20260626T200000Z\nSUMMARY:⚽ Mundial 2026 | Noruega vs Francia (Gr.I J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Gillette Stadium, Foxborough\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:be854ad4-47a7-42fd-ab10-8aa4a688c47c@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260626T180000Z\nDTEND:20260626T200000Z\nSUMMARY:⚽ Mundial 2026 | Senegal vs Irak (Gr.I J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:BMO Field, Toronto\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:62ffd77f-93ca-425a-9b86-51e1bb730664@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260626T230000Z\nDTEND:20260627T010000Z\nSUMMARY:⚽ Mundial 2026 | Cabo Verde vs Arabia Saudí (Gr.H J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:NRG Stadium, Houston\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:426f8095-04da-426a-bf55-32f7d78eaf32@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260626T230000Z\nDTEND:20260627T010000Z\nSUMMARY:⚽ Mundial 2026 | Uruguay vs España (Gr.H J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Estadio Akron, Zapopan\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:135fc2be-9ac7-4899-bc06-26f01bff26a4@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260627T020000Z\nDTEND:20260627T040000Z\nSUMMARY:⚽ Mundial 2026 | Nueva Zelanda vs Bélgica (Gr.G J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:BC Place, Vancouver\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:52a0faec-f9e8-4f00-818e-4270486fdf33@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260627T020000Z\nDTEND:20260627T040000Z\nSUMMARY:⚽ Mundial 2026 | Egipto vs Irán (Gr.G J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Lumen Field, Seattle\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:235f9313-f0e1-4016-bfc8-e33611aa1163@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260627T200000Z\nDTEND:20260627T220000Z\nSUMMARY:⚽ Mundial 2026 | Panamá vs Inglaterra (Gr.L J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:MetLife Stadium, Nueva York/NJ\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:e2f8aea4-6481-4e09-b99a-72363c11467f@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260627T200000Z\nDTEND:20260627T220000Z\nSUMMARY:⚽ Mundial 2026 | Croacia vs Ghana (Gr.L J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Lincoln Financial Field, Filadelfia\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:483da714-e64d-4dfc-8e31-1d0cb5bed6ad@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260627T223000Z\nDTEND:20260628T003000Z\nSUMMARY:⚽ Mundial 2026 | Colombia vs Portugal (Gr.K J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Hard Rock Stadium, Miami\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:68968c82-a74d-4bae-ac5b-48605231c41b@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260627T223000Z\nDTEND:20260628T003000Z\nSUMMARY:⚽ Mundial 2026 | RD Congo vs Uzbekistán (Gr.K J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Mercedes-Benz Stadium, Atlanta\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:dfdcb857-084c-4266-b1c0-a16eba6fd6c2@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260628T010000Z\nDTEND:20260628T030000Z\nSUMMARY:⚽ Mundial 2026 | Algeria vs Austria (Gr.J J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:Arrowhead Stadium, Kansas City\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:0488cab9-f348-4dac-ae59-574060d29a1f@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260628T010000Z\nDTEND:20260628T030000Z\nSUMMARY:⚽ Mundial 2026 | Jordania vs Argentina (Gr.J J3)\nDESCRIPTION:⚽ FIFA World Cup 2026\nLOCATION:AT&T Stadium, Arlington\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:6edeecf8-fcf3-4279-bb17-930c19f6f251@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260628T190000Z\nDTEND:20260628T210000Z\nSUMMARY:🔵 Mundial 2026 | R32 M73: 2º Gr.A vs 2º Gr.B\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:SoFi Stadium, Inglewood\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:84a409f6-6a8f-4ff1-9ae4-c5edc9df8315@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260629T170000Z\nDTEND:20260629T190000Z\nSUMMARY:🔵 Mundial 2026 | R32 M76: 1º Gr.C vs 2º Gr.F\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:NRG Stadium, Houston\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:4878be10-06c9-48f0-bca2-e717b9270602@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260629T203000Z\nDTEND:20260629T223000Z\nSUMMARY:🔵 Mundial 2026 | R32 M74: 1º Gr.E vs Mejor 3º\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:Gillette Stadium, Foxborough\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:99283b77-a445-4229-a0e4-dc3f2cc58ba9@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260630T010000Z\nDTEND:20260630T030000Z\nSUMMARY:🔵 Mundial 2026 | R32 M75: 1º Gr.F vs 2º Gr.C\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:Estadio BBVA, Monterrey\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:15b999e3-764c-4fc0-955d-980fe794d287@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260630T170000Z\nDTEND:20260630T190000Z\nSUMMARY:🔵 Mundial 2026 | R32 M78: 2º Gr.E vs 2º Gr.I\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:AT&T Stadium, Arlington\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:56391824-e112-4ace-95c3-83c80878450e@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260630T210000Z\nDTEND:20260630T230000Z\nSUMMARY:🔵 Mundial 2026 | R32 M77: 1º Gr.I vs Mejor 3º\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:MetLife Stadium, Nueva York/NJ\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:10e8a8b5-fd22-495b-8c1e-3973a591b22b@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260701T010000Z\nDTEND:20260701T030000Z\nSUMMARY:🔵 Mundial 2026 | R32 M79: 1º Gr.A vs Mejor 3º\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:Estadio Azteca, Ciudad de México\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:0fcdd89f-7c34-4a33-b056-fc43f004a6ca@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260701T160000Z\nDTEND:20260701T180000Z\nSUMMARY:🔵 Mundial 2026 | R32 M80: 1º Gr.L vs Mejor 3º\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:Mercedes-Benz Stadium, Atlanta\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:1f5ad664-ab2f-46ba-87aa-3c1e7b4aa929@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260701T200000Z\nDTEND:20260701T220000Z\nSUMMARY:🔵 Mundial 2026 | R32 M82: 1º Gr.G vs Mejor 3º\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:Lumen Field, Seattle\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:16cf37be-e661-4e0c-8bbb-5a2917665eab@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260702T000000Z\nDTEND:20260702T020000Z\nSUMMARY:🔵 Mundial 2026 | R32 M81: 1º Gr.D vs Mejor 3º\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:Levi's Stadium, Santa Clara\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:248a7a91-b8fa-404a-9602-1341c3f0f946@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260702T190000Z\nDTEND:20260702T210000Z\nSUMMARY:🔵 Mundial 2026 | R32 M84: 1º Gr.H vs 2º Gr.J\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:SoFi Stadium, Inglewood\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:63957fd9-73e2-4d1e-92ba-ad8ab09d660c@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260702T230000Z\nDTEND:20260703T010000Z\nSUMMARY:🔵 Mundial 2026 | R32 M83: 2º Gr.K vs 2º Gr.L\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:BMO Field, Toronto\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:7ef55753-3b3f-4dae-bfbe-f4634276cc90@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260703T030000Z\nDTEND:20260703T050000Z\nSUMMARY:🔵 Mundial 2026 | R32 M85: 1º Gr.B vs Mejor 3º\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:BC Place, Vancouver\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:4be59c35-6066-468b-a71f-d3258114e4ff@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260703T180000Z\nDTEND:20260703T200000Z\nSUMMARY:🔵 Mundial 2026 | R32 M88: 2º Gr.D vs 2º Gr.G\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:AT&T Stadium, Arlington\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:61057e53-5c17-4c56-9665-30624f2262f7@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260703T220000Z\nDTEND:20260704T000000Z\nSUMMARY:🔵 Mundial 2026 | R32 M86: 1º Gr.J vs 2º Gr.H\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:Hard Rock Stadium, Miami\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:6a48bf97-9eff-4664-a0d5-931a751bcef5@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260704T013000Z\nDTEND:20260704T033000Z\nSUMMARY:🔵 Mundial 2026 | R32 M87: 1º Gr.K vs Mejor 3º\nDESCRIPTION:FIFA World Cup 2026 - Ronda de 32\nLOCATION:Arrowhead Stadium, Kansas City\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:519dab86-c10d-4402-8ce3-95fa5317df6e@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260704T170000Z\nDTEND:20260704T190000Z\nSUMMARY:🟡 Mundial 2026 | Octavos M90: W73 vs W75\nDESCRIPTION:FIFA World Cup 2026 - Octavos de Final\nLOCATION:NRG Stadium, Houston\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:9e7b2643-3d10-4a1d-ac62-ec687dc73687@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260704T210000Z\nDTEND:20260704T230000Z\nSUMMARY:🟡 Mundial 2026 | Octavos M89: W74 vs W77\nDESCRIPTION:FIFA World Cup 2026 - Octavos de Final\nLOCATION:Lincoln Financial Field, Filadelfia\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:931c8270-9230-498f-b91c-745538d04741@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260705T200000Z\nDTEND:20260705T220000Z\nSUMMARY:🟡 Mundial 2026 | Octavos M91: W76 vs W78\nDESCRIPTION:FIFA World Cup 2026 - Octavos de Final\nLOCATION:MetLife Stadium, Nueva York/NJ\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:ed27d1cd-fb90-45eb-81d0-a498d642d215@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260706T000000Z\nDTEND:20260706T020000Z\nSUMMARY:🟡 Mundial 2026 | Octavos M92: W79 vs W80\nDESCRIPTION:FIFA World Cup 2026 - Octavos de Final\nLOCATION:Estadio Azteca, Ciudad de México\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:a4c07a81-93e9-4c01-9fc8-3a389a4eaad2@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260706T190000Z\nDTEND:20260706T210000Z\nSUMMARY:🟡 Mundial 2026 | Octavos M93: W83 vs W84\nDESCRIPTION:FIFA World Cup 2026 - Octavos de Final\nLOCATION:AT&T Stadium, Arlington\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:0f5e79e6-c5c9-47dd-8f3b-63a17aec0da9@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260707T000000Z\nDTEND:20260707T020000Z\nSUMMARY:🟡 Mundial 2026 | Octavos M94: W81 vs W82\nDESCRIPTION:FIFA World Cup 2026 - Octavos de Final\nLOCATION:Lumen Field, Seattle\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:ea9a7206-a9b0-47d2-82f2-f5d33d79405f@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260707T160000Z\nDTEND:20260707T180000Z\nSUMMARY:🟡 Mundial 2026 | Octavos M95: W86 vs W88\nDESCRIPTION:FIFA World Cup 2026 - Octavos de Final\nLOCATION:Mercedes-Benz Stadium, Atlanta\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:3b6654f2-6f55-44de-82e1-91e6520be973@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260707T200000Z\nDTEND:20260707T220000Z\nSUMMARY:🟡 Mundial 2026 | Octavos M96: W85 vs W87\nDESCRIPTION:FIFA World Cup 2026 - Octavos de Final\nLOCATION:BC Place, Vancouver\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:e040f091-9cf9-4321-b3b1-5dbc14b53f79@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260709T200000Z\nDTEND:20260709T220000Z\nSUMMARY:🔴 Mundial 2026 | Cuartos M97: W89 vs W90\nDESCRIPTION:FIFA World Cup 2026 - Cuartos de Final\nLOCATION:Gillette Stadium, Foxborough\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:f6864fc9-5869-4f55-90a7-44aa46c8a00f@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260710T190000Z\nDTEND:20260710T210000Z\nSUMMARY:🔴 Mundial 2026 | Cuartos M98: W93 vs W94\nDESCRIPTION:FIFA World Cup 2026 - Cuartos de Final\nLOCATION:SoFi Stadium, Inglewood\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:b5031cd9-3096-4433-946a-26082ca98e27@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260711T210000Z\nDTEND:20260711T230000Z\nSUMMARY:🔴 Mundial 2026 | Cuartos M99: W91 vs W92\nDESCRIPTION:FIFA World Cup 2026 - Cuartos de Final\nLOCATION:Hard Rock Stadium, Miami\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:e45a93ec-5b85-48a7-afc8-ee5c9e113d18@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260712T010000Z\nDTEND:20260712T030000Z\nSUMMARY:🔴 Mundial 2026 | Cuartos M100: W95 vs W96\nDESCRIPTION:FIFA World Cup 2026 - Cuartos de Final\nLOCATION:Arrowhead Stadium, Kansas City\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:ed1875ae-0fe9-421b-a4a1-d45aa8b46e15@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260714T190000Z\nDTEND:20260714T210000Z\nSUMMARY:🔥 Mundial 2026 | Semifinal M101: W97 vs W98\nDESCRIPTION:FIFA World Cup 2026 - Semifinal\nLOCATION:AT&T Stadium, Arlington (Dallas)\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:8e5d93a4-09cd-46b6-a546-07bbb88bc5a0@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260715T190000Z\nDTEND:20260715T210000Z\nSUMMARY:🔥 Mundial 2026 | Semifinal M102: W99 vs W100\nDESCRIPTION:FIFA World Cup 2026 - Semifinal\nLOCATION:Mercedes-Benz Stadium, Atlanta\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:9ccf3030-f83f-4484-92fd-b42809f09676@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260718T210000Z\nDTEND:20260718T230000Z\nSUMMARY:🥉 Mundial 2026 | Tercer Puesto M103\nDESCRIPTION:FIFA World Cup 2026 - Partido por el Tercer Puesto\nLOCATION:Hard Rock Stadium, Miami\nEND:VEVENT\n\nBEGIN:VEVENT\nUID:f610001a-2b33-4894-ab73-c21db6a23ea4@unisportec.com\nDTSTAMP:20260602T113439Z\nDTSTART:20260719T190000Z\nDTEND:20260719T210000Z\nSUMMARY:🏆 Mundial 2026 | GRAN FINAL M104\nDESCRIPTION:FIFA World Cup 2026 - FINAL\nLOCATION:MetLife Stadium, Nueva York/NJ\nEND:VEVENT\nEND:VCALENDAR\n";
+    function descargar() {
+      const blob = new Blob([ICS], { type: 'text/calendar;charset=utf-8' });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href     = url;
+      a.download = 'Mundial_2026_UniSportEC.ics';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      document.getElementById('ok').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
