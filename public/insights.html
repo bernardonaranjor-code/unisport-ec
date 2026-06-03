@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="meta.insights.title">Insights | Uni Sport EC — Sports Business y análisis estratégicos</title>
 <meta name="description" content="Análisis estratégicos sobre gestión deportiva, marketing y transformación digital. Casos de estudio sobre Celta360, Apollo Sports Capital, ownership y digital sports business." data-i18n-attr="content:meta.insights.description">
-<meta name="keywords" content="sports business, consultoría deportiva, digital sports, IA en el deporte, inversión deportiva, sports marketing, gestión deportiva, sports analytics, Celta360, Apollo Sports, Unisport EC">
+<meta name="keywords" content="sports business, consultoría deportiva, digital sports, IA en el deporte, inversión deportiva, sports marketing, gestión deportiva, sports analytics, Celta360, Apollo Sports, Mundial 2026, FIFA World Cup, Unisport EC">
 <meta name="author" content="Unisport Events & Consulting">
 <meta name="theme-color" content="#060F26">
 
@@ -316,6 +316,48 @@ header {
 }
 .article-card:hover .article-image img { transform: scale(1.06); }
 
+/* Mundial 2026 — cover sin imagen externa (CSS puro, brand-consistent) */
+.article-image-mundial {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.22), transparent 65%),
+    linear-gradient(135deg, #060d3a 0%, #01062c 100%);
+}
+.article-image-mundial::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,169,97,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,169,97,0.04) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+}
+.mundial-cover-label {
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.mundial-cover-year {
+  position: relative;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 11vw, 80px);
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.article-card:hover .article-image-mundial { filter: brightness(1.08); }
+
 .article-body {
   padding: 28px 28px 32px;
   display: flex;
@@ -536,6 +578,22 @@ footer a:hover { color: var(--gold); }
           <h3 class="article-title">Moisés Caicedo: De jugador de élite a dueño de club</h3>
           <p class="article-excerpt">Analizamos cómo Moisés Caicedo profesionaliza el fútbol base en Ecuador a través de un modelo de inversión estratégica y ownership.</p>
           <span class="card-cta">Leer Artículo</span>
+        </div>
+      </a>
+    </article>
+
+    <!-- Mundial 2026 — Calendario completo (Herramienta) -->
+    <article class="article-card reveal reveal-up">
+      <a href="articulo-mundial-2026.html?v=1" class="card-link" aria-label="Abrir: Mundial 2026 — Calendario completo">
+        <div class="article-image article-image-mundial" role="img" aria-label="Calendario del Mundial 2026">
+          <span class="mundial-cover-label">FIFA World Cup</span>
+          <span class="mundial-cover-year">2026</span>
+        </div>
+        <div class="article-body">
+          <span class="article-tag">Herramientas</span>
+          <h3 class="article-title">Mundial 2026 — Calendario Completo</h3>
+          <p class="article-excerpt">Añade los 104 partidos del FIFA World Cup 2026 directamente a tu Google Calendar, Apple Calendar u Outlook. Horarios en hora de Madrid.</p>
+          <span class="card-cta">Abrir Calendario</span>
         </div>
       </a>
     </article>
