@@ -1,0 +1,59 @@
+# ============================================================
+#  Auto-deploy: GitHub → GoDaddy (FTPS)
+# ============================================================
+#
+#  Se dispara con CADA push a main, o manualmente desde la
+#  pestaña "Actions" del repo (botón "Run workflow").
+#
+#  REQUIERE 4 SECRETS configurados en el repo:
+#    Settings → Secrets and variables → Actions → New repository secret
+#
+#    FTP_SERVER       → ej. ftp.unisportec.com
+#    FTP_USERNAME     → usuario FTP de GoDaddy
+#    FTP_PASSWORD     → contraseña FTP de GoDaddy
+#    FTP_SERVER_DIR   → ruta destino en el servidor (ej. /public_html/)
+#
+#  Detalles paso a paso en DEPLOY_SETUP.md.
+# ============================================================
+
+name: Deploy to GoDaddy
+
+on:
+  push:
+    branches:
+      - main
+    # Solo redeploya si cambian archivos servibles. Editar README no dispara deploy.
+    paths:
+      - 'public/**'
+      - '.github/workflows/deploy-godaddy.yml'
+  workflow_dispatch:   # Permite disparar manualmente desde la UI
+
+jobs:
+  deploy:
+    name: Sync public/ to GoDaddy via FTPS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: FTP Deploy (incremental sync)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:     ${{ secrets.FTP_SERVER }}
+          username:   ${{ secrets.FTP_USERNAME }}
+          password:   ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir:  ./public/
+          protocol:   ftps
+          security:   loose          # GoDaddy a veces tiene certificados raros
+          state-name: .ftp-deploy-sync-state.json   # cache de úc digo qué archivos cambiaron
+          log-level:  standard
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            **/.DS_Store
+            **/.ftp-deploy-sync-state.json
+            **/Thumbs.db
