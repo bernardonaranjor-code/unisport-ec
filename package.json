@@ -1,8 +1,8 @@
 {
   "name": "unisport-ec",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "private": true,
-  "description": "Unisport Events & Consulting — corporate website",
+  "description": "Unisport Events & Consulting — GitHub raw proxy server",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

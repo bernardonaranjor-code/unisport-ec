@@ -1,9 +1,15 @@
 /**
- * Unisport Events & Consulting — Express server (Airo-resilient)
- *  - Sirve archivos desde /public si existen.
- *  - Si /public está vacío (bug de copia de Airo), devuelve una página de
- *    diagnóstico en / con la lista de qué hay realmente en /app/.
- *  - Endpoint /debug muestra el filesystem para troubleshooting.
+ * Unisport Events & Consulting — Express proxy server
+ * ============================================================
+ *  Workaround para el bug de copia de la plataforma Airo de GoDaddy:
+ *  Airo NO copia el contenido de la carpeta `public/` del repo al host.
+ *  Solución: en vez de servir archivos locales, proxyeamos cada request
+ *  contra raw.githubusercontent.com (URL pública del repo), con caché
+ *  en memoria. Así los archivos viven en GitHub y se sirven de ahí.
+ *
+ *  Pros: bypassa el bug, auto-deploy en cada push (sin Pull from GitHub).
+ *  Cons: latencia extra de ~50-200ms en la primera carga (cacheable 60s).
+ * ============================================================
  */
 
 const express = require('express');
@@ -13,90 +19,110 @@ const fs      = require('fs');
 const app  = express();
 const PORT = process.env.PORT || 3000;
 const HOST = '0.0.0.0';
-const PUBLIC_DIR = path.join(__dirname, 'public');
 
-// ---------- Helpers ----------
+const REPO_OWNER  = 'bernardonaranjor-code';
+const REPO_NAME   = 'unisport-ec';
+const REPO_BRANCH = 'main';
+const RAW_BASE    = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/public`;
 
-function walk(dir, depth = 0, maxDepth = 3) {
-  const out = [];
-  if (depth > maxDepth) return ['  ...(deeper levels omitted)...'];
-  let entries = [];
-  try { entries = fs.readdirSync(dir, { withFileTypes: true }); }
-  catch (e) { return [`  [error reading ${dir}: ${e.message}]`]; }
-  for (const ent of entries) {
-    const full = path.join(dir, ent.name);
-    if (ent.isDirectory()) {
-      out.push(`${'  '.repeat(depth)}📁 ${ent.name}/`);
-      out.push(...walk(full, depth + 1, maxDepth));
-    } else {
-      let size = '';
-      try { size = ` (${fs.statSync(full).size}b)`; } catch (_) {}
-      out.push(`${'  '.repeat(depth)}📄 ${ent.name}${size}`);
-    }
+// ---------- Cache en memoria ----------
+const cache = new Map();
+const CACHE_TTL_MS = 60 * 1000;   // 60 segundos
+
+// MIME helpers
+function guessMime(filename) {
+  const ext = path.extname(filename).toLowerCase();
+  switch (ext) {
+    case '.html': return 'text/html; charset=utf-8';
+    case '.js':   return 'application/javascript; charset=utf-8';
+    case '.json': return 'application/json; charset=utf-8';
+    case '.css':  return 'text/css; charset=utf-8';
+    case '.png':  return 'image/png';
+    case '.jpg':
+    case '.jpeg': return 'image/jpeg';
+    case '.gif':  return 'image/gif';
+    case '.svg':  return 'image/svg+xml';
+    case '.ico':  return 'image/x-icon';
+    case '.webp': return 'image/webp';
+    case '.woff': return 'font/woff';
+    case '.woff2':return 'font/woff2';
+    case '.txt':  return 'text/plain; charset=utf-8';
+    default:      return 'application/octet-stream';
   }
-  return out;
 }
 
-function publicExistsAndHasIndex() {
+async function serveFromGitHub(filename, res) {
+  // Sanitize
+  if (filename.includes('..')) return res.status(400).send('Bad request');
+
+  const cacheKey = filename;
+  const cached = cache.get(cacheKey);
+
+  if (cached && Date.now() < cached.expires) {
+    res.set('Content-Type', cached.contentType);
+    res.set('Cache-Control', 'public, max-age=3600');
+    res.set('X-Cache', 'HIT');
+    return res.send(cached.body);
+  }
+
+  const url = `${RAW_BASE}/${filename}`;
   try {
-    return fs.existsSync(path.join(PUBLIC_DIR, 'index.html'));
-  } catch (_) { return false; }
+    const r = await fetch(url);
+    if (!r.ok) {
+      console.log(`[404] ${url} → ${r.status}`);
+      return res.status(404).send(`File not found: ${filename}`);
+    }
+    const contentType = guessMime(filename);
+    const buf = Buffer.from(await r.arrayBuffer());
+
+    cache.set(cacheKey, {
+      body: buf,
+      contentType,
+      expires: Date.now() + CACHE_TTL_MS
+    });
+    res.set('Content-Type', contentType);
+    res.set('Cache-Control', 'public, max-age=3600');
+    res.set('X-Cache', 'MISS');
+    res.send(buf);
+  } catch (e) {
+    console.error(`[ERR] fetching ${url}: ${e.message}`);
+    res.status(502).send(`Upstream error: ${e.message}`);
+  }
 }
 
-// ---------- /debug — always available ----------
+// ---------- Rutas explicitas (clean URLs) ----------
+app.get('/', (_req, res) => serveFromGitHub('index.html', res));
 
-app.get('/debug', (_req, res) => {
-  const lines = [
-    'Unisport EC — Airo Debug',
-    '========================',
-    `__dirname: ${__dirname}`,
-    `PUBLIC_DIR: ${PUBLIC_DIR}`,
-    `public/index.html exists: ${publicExistsAndHasIndex()}`,
-    `process.cwd(): ${process.cwd()}`,
-    `Node: ${process.version}`,
-    '',
-    `--- Tree of ${__dirname} (max depth 3) ---`,
-    ...walk(__dirname, 0, 3)
-  ];
-  res.type('text/plain').send(lines.join('\n'));
+const pages = ['servicios', 'partners', 'insights', 'contacto'];
+pages.forEach((slug) => {
+  app.get(`/${slug}`, (_req, res) => serveFromGitHub(`${slug}.html`, res));
+  app.get(`/${slug}.html`, (_req, res) => serveFromGitHub(`${slug}.html`, res));
 });
 
-// ---------- Static serving (only if public/ has content) ----------
+app.get('/articulo/:slug', (req, res) => {
+  serveFromGitHub(`articulo-${req.params.slug}.html`, res);
+});
 
-if (publicExistsAndHasIndex()) {
-  app.use(
-    express.static(PUBLIC_DIR, {
-      extensions: ['html'],
-      maxAge: '1h'
-    })
-  );
+// ---------- /debug — estado del proxy ----------
+app.get('/debug', (_req, res) => {
+  const stats = {
+    proxy_target: RAW_BASE,
+    cache_entries: cache.size,
+    cache_ttl_ms: CACHE_TTL_MS,
+    node_version: process.version,
+    cached_files: Array.from(cache.keys()),
+  };
+  res.type('application/json').send(JSON.stringify(stats, null, 2));
+});
 
-  ['servicios', 'partners', 'insights', 'contacto'].forEach((slug) => {
-    app.get(`/${slug}`, (_req, res) => {
-      res.sendFile(path.join(PUBLIC_DIR, `${slug}.html`));
-    });
-  });
-
-  app.get('/articulo/:slug', (req, res) => {
-    const file = path.join(PUBLIC_DIR, `articulo-${req.params.slug}.html`);
-    res.sendFile(file, (err) => {
-      if (err) res.redirect('/');
-    });
-  });
-
-  app.get('/', (_req, res) => {
-    res.sendFile(path.join(PUBLIC_DIR, 'index.html'));
-  });
-
-} else {
-  // ---------- Fallback: public/ no copy. Sirve página de diagnóstico ----------
-  const fallback = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Unisport EC — Setup pendiente</title><style>body{font-family:'Inter',sans-serif;background:#060F26;color:#F5F1E8;margin:0;padding:48px 24px;line-height:1.6}.wrap{max-width:680px;margin:0 auto}h1{font-family:'Cormorant Garamond',serif;color:#C9A961;font-size:36px;margin:0 0 16px}p{color:#8B95A8;margin:0 0 12px}a{color:#C9A961}code{background:rgba(201,169,97,0.1);padding:2px 8px;border-radius:3px;color:#C9A961}</style></head><body><div class="wrap"><h1>Unisport Events &amp; Consulting</h1><p><strong>Servidor activo</strong> — Node corriendo correctamente.</p><p>La carpeta <code>/app/public/</code> está vacía en el host. Esto suele ser un bug de copia del platform de hosting (Airo no incluyó los archivos estáticos durante el clone).</p><p>Para diagnosticar el estado real del filesystem: <a href="/debug">/debug</a></p></div></body></html>`;
-
-  app.get('/', (_req, res) => res.type('text/html').send(fallback));
-  app.use((_req, res) => res.type('text/html').send(fallback));
-}
+// ---------- Wildcard — cualquier otro path (logos, .json, .js, .css) ----------
+app.use((req, res) => {
+  const filename = req.path.replace(/^\//, '');
+  if (!filename || filename === '') return serveFromGitHub('index.html', res);
+  serveFromGitHub(filename, res);
+});
 
 app.listen(PORT, HOST, () => {
-  console.log(`Unisport EC site listening on ${HOST}:${PORT}`);
-  console.log(`public/index.html present: ${publicExistsAndHasIndex()}`);
+  console.log(`Unisport EC proxy listening on ${HOST}:${PORT}`);
+  console.log(`Source: ${RAW_BASE}`);
 });
