@@ -7,12 +7,7 @@
     "contact":  { "title": "Contact | Uni Sport EC — Request your situation analysis", "description": "Let's talk about your sports project. Hubs in Madrid and Quito. Request a situation analysis: we reply in under 48 hours." }
   },
   "nav": {
-    "home": "Home",
-    "services": "Services",
-    "insights": "Insights",
-    "partners": "Partners",
-    "contact": "Contact",
-    "language": "Switch language"
+    "home": "Home", "services": "Services", "insights": "Insights", "partners": "Partners", "contact": "Contact", "language": "Switch language"
   },
   "home": {
     "hero": {
@@ -22,8 +17,7 @@
       "ctaSecondary": "See services"
     },
     "services": {
-      "eyebrow": "What we do",
-      "title": "Services",
+      "eyebrow": "What we do", "title": "Services",
       "card1Title": "Strategic Consulting",
       "card1Body": "We design, analyze and plan sports projects. We deliver feasibility studies, positioning and business models for clubs, brands and organizations.",
       "card2Title": "Events & Leagues",
@@ -32,8 +26,7 @@
       "card3Body": "People and Market: we connect sports potential with industry opportunities."
     },
     "about": {
-      "eyebrow": "About us",
-      "title": "Mission, Vision & Values",
+      "eyebrow": "About us", "title": "Mission, Vision & Values",
       "missionTitle": "Mission",
       "missionBody": "Transform the sports industry through high-precision strategic consulting, integrating cutting-edge technology and elite methodologies to maximize profitability, operational efficiency and institutional value for our clients.",
       "visionTitle": "Vision",
@@ -45,8 +38,7 @@
   },
   "services": {
     "hero": {
-      "eyebrow": "What we do",
-      "title": "Services",
+      "eyebrow": "What we do", "title": "Services",
       "subtitle": "An integrated offer in consulting, events and talent for companies, federations and institutions in the sports ecosystem."
     },
     "tabs": {
@@ -58,9 +50,36 @@
       "talentLead": "Advisory, scouting and sports branding."
     },
     "panels": {
+      "consultingEyebrow": "I — Consulting",
       "consultingTitle": "Strategic Consulting",
+      "eventsEyebrow": "II — Events",
       "eventsTitle": "Events & Leagues",
+      "talentEyebrow": "III — Talent",
       "talentTitle": "People and Market"
+    },
+    "list": {
+      "consulting": {
+        "item1": { "title": "Client Acquisition Consulting", "body": "Design of tailored commercial strategies to attract new members or corporate clients, optimizing the sales funnel." },
+        "item2": { "title": "Integrated Marketing Consulting", "body": "Strategic management of social media, email marketing campaigns and CRM optimization to strengthen the relationship with the audience." },
+        "item3": { "title": "Experience & Loyalty Audit (NPS 360°)", "body": "Data-driven analysis of user satisfaction to safeguard revenue and raise the standard of exclusivity." },
+        "item4": { "title": "AI-Powered Digital Transformation", "body": "Deployment of AI Agents to automate sales, finance and customer service operations." },
+        "item5": { "title": "Investment Readiness", "body": "Development of investment theses and premium Pitch Decks for capital raising and fund acquisition." },
+        "item6": { "title": "Web Ecosystem Development", "body": "Design and maintenance of conversion-focused web platforms that professionalize the institutional image." },
+        "item7": { "title": "Game Day Logistics Consulting", "body": "Comprehensive operational planning for matchday: crowd flow management, vendor coordination and fan experience excellence in stadiums and arenas." }
+      },
+      "events": {
+        "item1": { "title": "International Camps Creation & Management", "body": "End-to-end development of training programs with elite standards for young talent." },
+        "item2": { "title": "Corporate Sports Events", "body": "Design and execution of tournaments, clinics and bespoke teambuilding experiences for premium companies and brands." },
+        "item3": { "title": "Professional League & Tournament Management", "body": "End-to-end organization of competitions, ensuring operational and logistical excellence." },
+        "item4": { "title": "Sponsorship Activation", "body": "Tactical execution of commercial agreements to maximize return on investment (ROI)." },
+        "item5": { "title": "Event Marketing & Communications", "body": "Real-time content strategy to drive traction and reach throughout the competition." }
+      },
+      "talent": {
+        "item1": { "title": "Integrated Advisory for Players", "body": "Strategic positioning at clubs, legal counsel, training programs and professional representation." },
+        "item2": { "title": "Market Advisory for Clubs (Scouting)", "body": "Search and filtering of players based on specific needs, leveraging a global network of contacts." },
+        "item3": { "title": "Personal Brand Strategy (Athlete Branding)", "body": "Image management, digital assets and reputation for high-profile sports figures." },
+        "item4": { "title": "High-Performance Academy Management", "body": "Specialized consulting to elevate training methodology and profitability of academies." }
+      }
     },
     "cta": {
       "lead": "Ready to activate this service?",
@@ -69,8 +88,7 @@
   },
   "partners": {
     "hero": {
-      "eyebrow": "Leadership team",
-      "title": "Partners",
+      "eyebrow": "Leadership team", "title": "Partners",
       "subtitle": "Three complementary careers joining strategy, sport and market to scale projects with a global vision."
     },
     "cta": {
@@ -86,16 +104,14 @@
   },
   "insights": {
     "hero": {
-      "eyebrow": "Sports Business Hub",
-      "title": "Insights: Sports Business",
+      "eyebrow": "Sports Business Hub", "title": "Insights: Sports Business",
       "subtitle": "Strategic analysis on sports management, marketing and digital transformation in the sports industry."
     },
     "moreArticles": "More articles"
   },
   "contact": {
     "hero": {
-      "eyebrow": "Let's talk",
-      "title": "Contact",
+      "eyebrow": "Let's talk", "title": "Contact",
       "subtitle": "Tell us about your project. We design a tailored situation analysis and reply in under 48 hours."
     },
     "channels": {
@@ -104,11 +120,8 @@
       "phones": "Phones · Madrid / Quito Hub"
     },
     "form": {
-      "eyebrow": "Tailored strategy",
-      "heading": "Request a Situation Analysis",
-      "name": "Name",
-      "email": "Email",
-      "org": "Organization / Club",
+      "eyebrow": "Tailored strategy", "heading": "Request a Situation Analysis",
+      "name": "Name", "email": "Email", "org": "Organization / Club",
       "message": "Tell us about your project",
       "submit": "Send Request",
       "note": "We reply in under 48 hours."
