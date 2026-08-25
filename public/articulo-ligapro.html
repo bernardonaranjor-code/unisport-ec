@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LigaPro: de administrar una crisis a construir un modelo — Unisport Events &amp; Consulting</title>
+<meta name="description" content="Análisis del crecimiento de LigaPro: +456% en promedio anual de ingresos, +88% de crecimiento vs. una región que se contrae. El caso de gestión que rompió el techo histórico del fútbol ecuatoriano.">
+<meta name="keywords" content="LigaPro, Ecuador, gestión deportiva, sports business, fútbol ecuatoriano, ingresos audiovisuales, patrocinios, Unisport EC">
+<meta name="theme-color" content="#060F26">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="LigaPro: de administrar una crisis a construir un modelo — Unisport EC">
+<meta property="og:description" content="El caso de gestión que rompió el techo histórico del fútbol ecuatoriano. +456% en ingresos, +88% mientras la región se contrae.">
+<meta property="og:image" content="logo-unisportec.png?v=2">
+
+<link rel="icon" type="image/png" href="logo-unisportec.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #060F26;
+  --navy-2: #0A1535;
+  --navy-3: #0F1D45;
+  --gold: #C9A961;
+  --gold-soft: #B8924A;
+  --cream: #F5F1E8;
+  --white: #FFFFFF;
+  --muted: #8B95A8;
+  --line: rgba(201, 169, 97, 0.25);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  background: var(--navy);
+  color: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--white);
+  margin: 0 0 20px;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ---------- Header ---------- */
+header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(6, 15, 38, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 32px; max-width: 1200px; margin: 0 auto; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand img { height: 44px; width: auto; mix-blend-mode: screen; }
+.brand-long { height: 112px !important; width: auto; max-width: 640px; mix-blend-mode: screen; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--cream); transition: color .2s; position: relative;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -8px;
+  height: 1px; background: var(--gold);
+}
+
+.btn {
+  display: inline-block; padding: 14px 28px; font-size: 13px;
+  letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px;
+  cursor: pointer; transition: all .25s ease;
+  font-family: 'Inter', sans-serif; font-weight: 400;
+  border: 1px solid transparent; text-align: center;
+}
+.btn-outline { background: transparent; color: var(--cream); border-color: var(--gold); }
+.btn-outline:hover { background: var(--gold); color: var(--navy); }
+.btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- Article hero ---------- */
+.article-hero {
+  padding: 110px 32px 60px; text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.10), transparent 60%),
+    linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+  border-bottom: 1px solid var(--line);
+}
+.back-link {
+  display: inline-block; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 32px;
+  transition: color .2s ease;
+}
+.back-link:hover { color: var(--gold); }
+.article-tag {
+  display: inline-block; padding: 7px 14px; font-size: 10px;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
+  background: transparent; border: 1px solid var(--gold); border-radius: 2px;
+  font-weight: 500; margin-bottom: 28px;
+}
+.article-hero h1 {
+  font-size: clamp(34px, 5.2vw, 58px); line-height: 1.15;
+  max-width: 920px; margin: 0 auto 28px; letter-spacing: 0.3px;
+}
+.article-meta {
+  display: block; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* ---------- Cover (CSS-only, brand-consistent) ---------- */
+.article-cover { max-width: 1100px; margin: 60px auto 0; padding: 0 32px; }
+.article-cover-frame {
+  overflow: hidden; border: 1px solid var(--line);
+  border-radius: 2px; background: var(--navy-3); aspect-ratio: 16 / 9;
+  position: relative; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 14px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.22), transparent 65%),
+    linear-gradient(135deg, var(--navy-2) 0%, var(--navy) 100%);
+}
+.article-cover-frame::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(201,169,97,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,169,97,0.04) 1px, transparent 1px);
+  background-size: 44px 44px; pointer-events: none;
+}
+.cover-label {
+  position: relative; font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 5px;
+  text-transform: uppercase; color: var(--gold);
+}
+.cover-number {
+  position: relative; font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(64px, 15vw, 128px); font-weight: 700;
+  color: var(--gold); letter-spacing: -3px; line-height: 1;
+}
+.cover-caption {
+  position: relative; font-family: 'Inter', sans-serif;
+  font-size: 12px; font-weight: 500; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--cream); opacity: 0.7;
+  max-width: 400px; text-align: center;
+}
+
+/* ---------- Body ---------- */
+.article-body { max-width: 760px; margin: 0 auto; padding: 80px 32px 60px; }
+.article-body p {
+  font-size: 17px; line-height: 1.8; margin: 0 0 28px;
+  color: var(--cream); text-align: justify;
+  hyphens: auto; -webkit-hyphens: auto; letter-spacing: 0.1px;
+}
+.article-body h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 2.8vw, 30px); font-weight: 600;
+  color: var(--white); margin: 48px 0 24px; letter-spacing: 0.5px;
+  text-align: left; border-left: 2px solid var(--gold); padding-left: 18px;
+}
+.article-body ul {
+  list-style: none; padding: 0; margin: 0 0 32px;
+  display: flex; flex-direction: column; gap: 22px;
+}
+.article-body ul li {
+  position: relative; padding: 22px 24px 22px 30px;
+  background: var(--navy-2); border: 1px solid var(--line); border-radius: 2px;
+  font-size: 16px; line-height: 1.7; color: var(--cream);
+}
+.article-body ul li::before {
+  content: ''; position: absolute; left: 12px; top: 32px;
+  width: 6px; height: 6px; background: var(--gold); border-radius: 50%;
+}
+.article-body ul li strong {
+  color: var(--gold); font-weight: 600; letter-spacing: 0.3px; margin-right: 4px;
+}
+.article-body p:last-child { margin-bottom: 0; }
+
+/* ---------- Article footer ---------- */
+.article-footer { max-width: 760px; margin: 0 auto; padding: 40px 32px 100px; }
+.article-footer-divider { width: 60px; height: 1px; background: var(--gold); margin: 0 auto 40px; }
+.external-link {
+  background: var(--navy-2); border: 1px solid var(--line);
+  padding: 28px 32px; border-radius: 2px; margin-bottom: 40px;
+}
+.external-link .label {
+  display: block; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+}
+.external-link a {
+  font-family: 'Cormorant Garamond', serif; font-size: 22px;
+  color: var(--cream); letter-spacing: 0.3px;
+  border-bottom: 1px solid var(--line); padding-bottom: 4px;
+  transition: color .25s ease, border-color .25s ease;
+}
+.external-link a:hover { color: var(--gold); border-color: var(--gold); }
+
+.article-tags-block { margin-bottom: 48px; }
+.article-tags-block .label {
+  display: block; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+}
+.tag-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
+.tag-list li {
+  padding: 6px 14px; font-size: 12px; letter-spacing: 1px;
+  color: var(--cream); border: 1px solid var(--line); border-radius: 2px;
+  background: var(--navy-2); transition: border-color .25s ease, color .25s ease;
+}
+.tag-list li:hover { border-color: var(--gold); color: var(--gold); }
+
+.back-cta { text-align: center; }
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 50px 32px 30px; text-align: center;
+  border-top: 1px solid var(--line); background: var(--navy);
+}
+footer .brand { justify-content: center; margin-bottom: 20px; }
+footer .brand img { mix-blend-mode: screen; }
+footer p { color: var(--muted); font-size: 13px; margin: 4px 0; }
+footer a:hover { color: var(--gold); }
+
+/* ---------- Reveal animations ---------- */
+.reveal { opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
+.reveal-up { transform: translateY(40px); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+.article-hero .back-link, .article-hero .article-tag, .article-hero h1, .article-hero .article-meta {
+  opacity: 0; animation: heroFadeUp 0.8s ease-out forwards;
+}
+.article-hero .back-link    { animation-delay: 0.05s; }
+.article-hero .article-tag  { animation-delay: 0.20s; }
+.article-hero h1            { animation-delay: 0.35s; }
+.article-hero .article-meta { animation-delay: 0.50s; }
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+  .article-hero .back-link, .article-hero .article-tag, .article-hero h1, .article-hero .article-meta { opacity: 1; animation: none; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+  .nav-links a:not(.btn) { display: none; }
+  .nav { padding: 14px 20px; }
+  .brand img { height: 36px; }
+  .brand-long { height: 80px !important; max-width: 440px; }
+  .article-hero { padding: 90px 24px 50px; }
+  .article-cover { margin-top: 40px; padding: 0 20px; }
+  .article-body { padding: 60px 24px 40px; }
+  .article-body p { font-size: 16px; line-height: 1.75; text-align: left; }
+  .article-body ul li { padding: 20px 22px 20px 28px; font-size: 15px; }
+  .article-footer { padding: 30px 24px 80px; }
+  .external-link { padding: 24px 22px; }
+  .external-link a { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand" aria-label="Unisport Events &amp; Consulting — Inicio">
+      <img src="logo-uecbanner.png?v=2" alt="Unisport Events &amp; Consulting" class="brand-long">
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="insights.html" class="active">Insights</a>
+      <a href="partners.html">Partners</a>
+      <a href="contacto.html" class="btn btn-outline">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- Article hero -->
+<section class="article-hero">
+  <a href="insights.html" class="back-link">← Volver a Insights</a>
+  <span class="article-tag">STRATEGY · GESTIÓN DEPORTIVA</span>
+  <h1>LigaPro: de administrar una crisis a construir un modelo.</h1>
+  <span class="article-meta">5 MIN DE LECTURA · 8 JUNIO 2026</span>
+</section>
+
+<!-- Cover (CSS-only, brand-consistent) -->
+<section class="article-cover reveal reveal-up" aria-hidden="false">
+  <div class="article-cover-frame" role="img" aria-label="LigaPro: crecimiento de 456% en promedio anual de ingresos">
+    <span class="cover-label">LigaPro · 2018–2025</span>
+    <span class="cover-number">+456%</span>
+    <span class="cover-caption">Crecimiento en el promedio anual de ingresos</span>
+  </div>
+</section>
+
+<!-- Body -->
+<section class="article-body" aria-label="Artículo">
+  <p class="reveal reveal-up">En la última década, la LigaPro ha demostrado que con una gestión eficaz se pueden romper barreras históricas. Desde 2018, el fenómeno no es cualitativo: es una transformación que se lee en los estados financieros del fútbol ecuatoriano. Los ingresos anuales, que históricamente tenían un techo de 19,2 millones de dólares por año, hoy se apoyan en un piso sólido de más de 30 millones, con un pico de 38,3 millones alcanzado en 2023. La matemática no miente: el modelo está funcionando.</p>
+
+  <h2 class="reveal reveal-up">Ocho ejercicios que superan tres décadas</h2>
+
+  <p class="reveal reveal-up">La comparación entre gestiones dimensiona la magnitud del cambio. En los 30 años previos, cuatro presidencias generaron acumulativamente 159 millones de dólares. En apenas ocho ejercicios auditados de la gestión actual se alcanzaron 236 millones. El promedio anual pasó de 5,3 a 29,5 millones — un salto del 456% que no se explica por inflación ni por ciclos de mercado, sino por una arquitectura de negocio radicalmente distinta.</p>
+
+  <ul class="reveal reveal-up">
+    <li><strong>30 años previos:</strong> USD 159M generados por cuatro presidencias sucesivas.</li>
+    <li><strong>8 ejercicios actuales:</strong> USD 236M generados — casi USD 80M por encima del acumulado histórico.</li>
+    <li><strong>Promedio anual:</strong> de USD 5,3M a USD 29,5M. Un multiplicador de 5,5x.</li>
+  </ul>
+
+  <h2 class="reveal reveal-up">Del privilegio a la inclusión total</h2>
+
+  <p class="reveal reveal-up">El cambio no fue solo de tamaño del pastel, también de repartición. Antes, apenas 9 de 24 clubes recibían ingresos por derechos televisivos — el modelo condensaba valor en pocas manos y dejaba fuera a la mayoría del ecosistema. Hoy los 28 de 28 clubes cobran. La equidad estructural se convirtió en ventaja competitiva de la liga en su conjunto, no en carga.</p>
+
+  <p class="reveal reveal-up">Además, el reparto audiovisual pasó de transferir el 93,5% a los clubes en el período 2018–2023 al 100% en 2025. Cero comisión de la liga sobre TV. Esa decisión redirige incentivos: la liga gana cuando el producto crece, no cuando extrae valor del reparto.</p>
+
+  <h2 class="reveal reveal-up">El motor comercial multiplicado por 4,6</h2>
+
+  <p class="reveal reveal-up">La segunda columna del crecimiento es el ingreso comercial — sponsors, activaciones y derechos de marca. Pasó de 2,18 millones de dólares en 2019 a 10,06 millones en 2025, un 4,6x en seis años. Y el número de marcas patrocinadoras saltó de 2 o 3 a 15. No es diversificación cosmética: es una base comercial que reduce la dependencia de un solo ingreso y blinda el negocio contra volatilidad.</p>
+
+  <h2 class="reveal reveal-up">Contexto regional: la excepción</h2>
+
+  <p class="reveal reveal-up">Lo interesante es que este crecimiento ocurre a contracorriente. La televisión paga en América Latina se contrae — se proyecta que caerá de 73 a 53 millones de suscriptores. Ligas con producto premium global como la Ligue 1 francesa perdieron el 87% de sus ingresos audiovisuales en el último ciclo. En ese contexto, LigaPro no solo esquiva la caída: crece 88% en el mismo período. Es un caso de estudio para entender cómo diseñar valor cuando el macro juega en contra.</p>
+
+  <h2 class="reveal reveal-up">Más allá de las cifras — infraestructura institucional</h2>
+
+  <p class="reveal reveal-up">Los ingresos son el resultado; lo importante es la infraestructura que los produce. Desde 2018, LigaPro construyó verticales que antes no existían y que ahora son la garantía de sostenibilidad del modelo:</p>
+
+  <ul class="reveal reveal-up">
+    <li><strong>LigaPro Kids:</strong> semillero formativo institucionalizado que conecta a la liga con el fútbol base y crea pipeline de talento.</li>
+    <li><strong>LigaPro Institute:</strong> plataforma de formación y profesionalización de dirigentes, cuerpo técnico y personal deportivo del ecosistema.</li>
+    <li><strong>Fundación LigaPro:</strong> brazo social que le da a la liga una licencia para operar más allá de lo estrictamente comercial.</li>
+    <li><strong>Showtime:</strong> producto de entretenimiento propio que sube el valor percibido del contenido audiovisual y abre nuevas ventanas de monetización.</li>
+    <li><strong>VAR y arbitraje centralizado:</strong> inversión en calidad deportiva que reduce controversias, protege la integridad de la competición y sostiene el valor del producto.</li>
+  </ul>
+
+  <h2 class="reveal reveal-up">La lectura desde Unisport EC</h2>
+
+  <p class="reveal reveal-up">Lo que ocurrió en LigaPro es exactamente el tipo de transformación que trabajamos con clubes, federaciones e instituciones: convertir una entidad deportiva en un motor económico sostenible que sirva a todos sus stakeholders. No es marketing con más presupuesto ni operaciones con más personal: es rearquitectura del modelo de negocio, con métricas de eficiencia, incentivos alineados y verticales que se refuerzan mutuamente.</p>
+
+  <p class="reveal reveal-up">La lección para el resto de la industria en Iberoamérica es directa: el techo es una construcción histórica, no una barrera física. Con estrategia deliberada y ejecución disciplinada, esos techos se rompen. LigaPro lo está demostrando en tiempo real.</p>
+</section>
+
+<!-- Article footer -->
+<section class="article-footer">
+  <div class="article-footer-divider reveal" aria-hidden="true"></div>
+
+  <div class="external-link reveal reveal-up">
+    <span class="label">Fuente de los datos</span>
+    <a href="https://www.instagram.com/p/DcQx7O0kZob/?img_index=1" target="_blank" rel="noopener noreferrer">Publicación oficial del presidente de LigaPro (Instagram)</a>
+  </div>
+
+  <div class="article-tags-block reveal reveal-up">
+    <span class="label">Tags</span>
+    <ul class="tag-list">
+      <li>#UnisportEC</li>
+      <li>#LigaPro</li>
+      <li>#GestionDeportiva</li>
+      <li>#FutbolEcuatoriano</li>
+      <li>#SportsBusiness</li>
+      <li>#Iberoamérica</li>
+    </ul>
+  </div>
+
+  <div class="back-cta reveal reveal-up">
+    <a href="insights.html" class="btn btn-outline">← Volver a Insights</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="brand">
+    <img src="logo-unisportec.png?v=2" alt="Unisport Events &amp; Consulting">
+  </div>
+  <p>© <span id="year"></span> Unisport Events &amp; Consulting. Todos los derechos reservados.</p>
+  <p><a href="mailto:info@unisportec.com">info@unisportec.com</a></p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  (function () {
+    var targets = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { targets.forEach(function (el) { el.classList.add('is-visible'); }); return; }
+    var observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); obs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    targets.forEach(function (el) { observer.observe(el); });
+  })();
+</script>
+
+</body>
+</html>

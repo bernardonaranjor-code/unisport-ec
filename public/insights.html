@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="meta.insights.title">Insights | Uni Sport EC — Sports Business y análisis estratégicos</title>
-<meta name="description" content="Análisis estratégicos sobre gestión deportiva, marketing y transformación digital. Casos de estudio sobre Celta360, Apollo Sports Capital, ownership y digital sports business." data-i18n-attr="content:meta.insights.description">
-<meta name="keywords" content="sports business, consultoría deportiva, digital sports, IA en el deporte, inversión deportiva, sports marketing, gestión deportiva, sports analytics, Celta360, Apollo Sports, Mundial 2026, FIFA World Cup, Unisport EC">
+<meta name="description" content="Análisis estratégicos sobre gestión deportiva, marketing y transformación digital. Casos de estudio sobre Celta360, Apollo Sports Capital, LigaPro, ownership y digital sports business." data-i18n-attr="content:meta.insights.description">
+<meta name="keywords" content="sports business, consultoría deportiva, digital sports, IA en el deporte, inversión deportiva, sports marketing, gestión deportiva, sports analytics, Celta360, Apollo Sports, LigaPro, Mundial 2026, FIFA World Cup, Unisport EC">
 <meta name="author" content="Unisport Events & Consulting">
 <meta name="theme-color" content="#060F26">
 
@@ -65,187 +65,49 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
 /* ---------- Header ---------- */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(6, 15, 38, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 32px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+header { position: sticky; top: 0; z-index: 50; background: rgba(6, 15, 38, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 32px; max-width: 1200px; margin: 0 auto; }
 .brand { display: flex; align-items: center; gap: 14px; }
 .brand img { height: 44px; width: auto; mix-blend-mode: screen; }
 .brand-long { height: 112px !important; width: auto; max-width: 640px; mix-blend-mode: screen; }
 .nav-links { display: flex; gap: 32px; align-items: center; }
-.nav-links a {
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--cream);
-  transition: color .2s;
-  position: relative;
-}
+.nav-links a { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cream); transition: color .2s; position: relative; }
 .nav-links a:hover { color: var(--gold); }
 .nav-links a.active { color: var(--gold); }
-.nav-links a.active::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0; bottom: -8px;
-  height: 1px;
-  background: var(--gold);
-}
+.nav-links a.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -8px; height: 1px; background: var(--gold); }
 
-/* ---------- Language switcher ---------- */
-.lang-switcher {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-left: 8px;
-}
-.lang-btn {
-  background: transparent;
-  border: none;
-  padding: 4px 8px;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  color: var(--cream);
-  opacity: 0.5;
-  cursor: pointer;
-  transition: opacity 0.2s ease, color 0.2s ease;
-}
+/* Language switcher */
+.lang-switcher { display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 8px; }
+.lang-btn { background: transparent; border: none; padding: 4px 8px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; color: var(--cream); opacity: 0.5; cursor: pointer; transition: opacity 0.2s ease, color 0.2s ease; }
 .lang-btn:hover, .lang-btn:focus-visible { opacity: 1; outline: none; }
 .lang-btn.is-active { opacity: 1; color: var(--gold); }
 .lang-divider { color: var(--cream); opacity: 0.3; font-size: 12px; }
 
-.btn {
-  display: inline-block;
-  padding: 14px 28px;
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: all .25s ease;
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  border: 1px solid transparent;
-  text-align: center;
-}
+.btn { display: inline-block; padding: 14px 28px; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: all .25s ease; font-family: 'Inter', sans-serif; font-weight: 400; border: 1px solid transparent; text-align: center; }
 .btn-outline { background: transparent; color: var(--cream); border-color: var(--gold); }
 .btn-outline:hover { background: var(--gold); color: var(--navy); }
 .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
-/* ---------- Hero ---------- */
-.insights-hero {
-  padding: 140px 32px 100px;
-  text-align: center;
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.10), transparent 60%),
-    linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
-  border-bottom: 1px solid var(--line);
-}
-.insights-hero .eyebrow {
-  display: block;
-  font-size: 12px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 18px;
-}
-.insights-hero h1 {
-  font-size: clamp(40px, 6vw, 68px);
-  margin-bottom: 24px;
-}
-.insights-hero .subtitle {
-  max-width: 680px;
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: 18px;
-  line-height: 1.7;
-}
-.divider {
-  width: 80px;
-  height: 1px;
-  background: var(--gold);
-  margin: 32px auto 0;
-}
+/* Hero */
+.insights-hero { padding: 140px 32px 100px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.10), transparent 60%), linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%); border-bottom: 1px solid var(--line); }
+.insights-hero .eyebrow { display: block; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+.insights-hero h1 { font-size: clamp(40px, 6vw, 68px); margin-bottom: 24px; }
+.insights-hero .subtitle { max-width: 680px; margin: 0 auto; color: var(--muted); font-size: 18px; line-height: 1.7; }
+.divider { width: 80px; height: 1px; background: var(--gold); margin: 32px auto 0; }
 
-/* ---------- Featured Article ---------- */
+/* Featured */
 .featured-section { padding: 100px 32px 60px; }
-.featured-article {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.featured-link {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 48px;
-  align-items: stretch;
-  background: var(--navy-2);
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  overflow: hidden;
-  transition: border-color .35s ease, transform .35s ease;
-}
-.featured-link:hover {
-  border-color: var(--gold);
-  transform: translateY(-4px);
-}
-.featured-image {
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  background: var(--navy-3);
-}
-.featured-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s cubic-bezier(.2,.65,.3,1);
-}
+.featured-article { max-width: 1200px; margin: 0 auto; }
+.featured-link { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: stretch; background: var(--navy-2); border: 1px solid var(--line); border-radius: 2px; overflow: hidden; transition: border-color .35s ease, transform .35s ease; }
+.featured-link:hover { border-color: var(--gold); transform: translateY(-4px); }
+.featured-image { overflow: hidden; aspect-ratio: 4 / 3; background: var(--navy-3); }
+.featured-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(.2,.65,.3,1); }
 .featured-link:hover .featured-image img { transform: scale(1.05); }
-.featured-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 48px 48px 48px 0;
-}
-.featured-content .article-tag {
-  margin-bottom: 22px;
-  background: transparent;
-  color: var(--gold);
-  border: 1px solid var(--gold);
-  padding: 7px 14px;
-  letter-spacing: 3px;
-}
-.featured-content h2 {
-  font-size: clamp(28px, 3.4vw, 40px);
-  line-height: 1.15;
-  margin-bottom: 18px;
-}
-.featured-content .article-excerpt {
-  color: var(--muted);
-  font-size: 17px;
-  margin-bottom: 24px;
-  line-height: 1.7;
-}
-.article-meta {
-  display: block;
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 28px;
-}
+.featured-content { display: flex; flex-direction: column; justify-content: center; padding: 48px 48px 48px 0; }
+.featured-content .article-tag { margin-bottom: 22px; background: transparent; color: var(--gold); border: 1px solid var(--gold); padding: 7px 14px; letter-spacing: 3px; }
+.featured-content h2 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; margin-bottom: 18px; }
+.featured-content .article-excerpt { color: var(--muted); font-size: 17px; margin-bottom: 24px; line-height: 1.7; }
+.article-meta { display: block; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; }
 
 @media (max-width: 900px) {
   .featured-link { grid-template-columns: 1fr; gap: 0; }
@@ -253,168 +115,59 @@ header {
   .featured-image { aspect-ratio: 16 / 9; }
 }
 
-/* ---------- Articles Grid ---------- */
-.articles-section {
-  padding: 80px 32px 160px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.articles-heading {
-  font-size: 14px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  text-align: center;
-  margin-bottom: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-}
-.articles-heading::before,
-.articles-heading::after {
-  content: '';
-  width: 60px;
-  height: 1px;
-  background: var(--line);
-}
+/* Articles grid */
+.articles-section { padding: 80px 32px 160px; max-width: 1200px; margin: 0 auto; }
+.articles-heading { font-size: 14px; font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 56px; display: flex; align-items: center; justify-content: center; gap: 24px; }
+.articles-heading::before, .articles-heading::after { content: ''; width: 60px; height: 1px; background: var(--line); }
 
-.article-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-
-.article-card {
-  background: var(--navy-2);
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  overflow: hidden;
-  transition: border-color .35s ease, transform .35s ease;
-}
-.article-card:hover {
-  border-color: var(--gold);
-  transform: translateY(-6px);
-}
-.card-link {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.article-image {
-  overflow: hidden;
-  aspect-ratio: 16 / 10;
-  background: var(--navy-3);
-}
-.article-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s cubic-bezier(.2,.65,.3,1);
-}
+.article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.article-card { background: var(--navy-2); border: 1px solid var(--line); border-radius: 2px; overflow: hidden; transition: border-color .35s ease, transform .35s ease; }
+.article-card:hover { border-color: var(--gold); transform: translateY(-6px); }
+.card-link { display: flex; flex-direction: column; height: 100%; }
+.article-image { overflow: hidden; aspect-ratio: 16 / 10; background: var(--navy-3); }
+.article-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(.2,.65,.3,1); }
 .article-card:hover .article-image img { transform: scale(1.06); }
 
-/* Mundial 2026 — cover sin imagen externa (CSS puro, brand-consistent) */
+/* Mundial 2026 cover (CSS only) */
 .article-image-mundial {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.22), transparent 65%),
-    linear-gradient(135deg, #060d3a 0%, #01062c 100%);
+  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.22), transparent 65%), linear-gradient(135deg, #060d3a 0%, #01062c 100%);
 }
 .article-image-mundial::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(201,169,97,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,169,97,0.04) 1px, transparent 1px);
-  background-size: 36px 36px;
-  pointer-events: none;
+  content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(201,169,97,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,97,0.04) 1px, transparent 1px);
+  background-size: 36px 36px; pointer-events: none;
 }
-.mundial-cover-label {
-  position: relative;
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-.mundial-cover-year {
-  position: relative;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(48px, 11vw, 80px);
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: -1px;
-  line-height: 1;
-}
+.mundial-cover-label { position: relative; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); }
+.mundial-cover-year { position: relative; font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 11vw, 80px); font-weight: 700; color: var(--gold); letter-spacing: -1px; line-height: 1; }
 .article-card:hover .article-image-mundial { filter: brightness(1.08); }
 
-.article-body {
-  padding: 28px 28px 32px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+/* LigaPro cover (CSS only) */
+.article-image-ligapro {
+  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(201,169,97,0.28), transparent 60%), linear-gradient(160deg, var(--navy-3) 0%, var(--navy) 100%);
 }
-.article-tag {
-  display: inline-block;
-  align-self: flex-start;
-  padding: 5px 12px;
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--navy);
-  background: var(--gold);
-  border-radius: 2px;
-  font-weight: 500;
-  margin-bottom: 18px;
+.article-image-ligapro::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(90deg, transparent 0%, rgba(201,169,97,0.06) 50%, transparent 100%);
+  background-size: 100% 22px;
+  background-repeat: repeat-y;
+  pointer-events: none;
 }
-.article-title {
-  font-size: 22px;
-  line-height: 1.25;
-  margin: 0 0 14px;
-  color: var(--white);
-}
-.article-excerpt {
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.65;
-  margin: 0 0 24px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.card-cta {
-  display: inline-block;
-  align-self: flex-start;
-  margin-top: auto;
-  padding: 9px 20px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid var(--gold);
-  border-radius: 2px;
-  transition: background .25s ease, color .25s ease;
-}
-.article-card:hover .card-cta,
-.featured-link:hover .card-cta {
-  background: var(--gold);
-  color: var(--navy);
-}
+.ligapro-cover-label { position: relative; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); }
+.ligapro-cover-number { position: relative; font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 12vw, 92px); font-weight: 700; color: var(--gold); letter-spacing: -2px; line-height: 1; }
+.ligapro-cover-caption { position: relative; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--cream); opacity: 0.65; margin-top: 2px; }
+.article-card:hover .article-image-ligapro { filter: brightness(1.08); }
 
-@media (max-width: 900px) {
-  .article-grid { grid-template-columns: repeat(2, 1fr); }
-}
+.article-body { padding: 28px 28px 32px; display: flex; flex-direction: column; flex-grow: 1; }
+.article-tag { display: inline-block; align-self: flex-start; padding: 5px 12px; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); border-radius: 2px; font-weight: 500; margin-bottom: 18px; }
+.article-title { font-size: 22px; line-height: 1.25; margin: 0 0 14px; color: var(--white); }
+.article-excerpt { color: var(--muted); font-size: 15px; line-height: 1.65; margin: 0 0 24px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card-cta { display: inline-block; align-self: flex-start; margin-top: auto; padding: 9px 20px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); border-radius: 2px; transition: background .25s ease, color .25s ease; }
+.article-card:hover .card-cta, .featured-link:hover .card-cta { background: var(--gold); color: var(--navy); }
+
+@media (max-width: 900px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) {
   .article-grid { grid-template-columns: 1fr; gap: 24px; }
   .articles-section { padding: 60px 24px 100px; }
@@ -422,24 +175,13 @@ header {
   .insights-hero { padding: 100px 24px 70px; }
 }
 
-/* ---------- Footer ---------- */
-footer {
-  padding: 50px 32px 30px;
-  text-align: center;
-  border-top: 1px solid var(--line);
-  background: var(--navy);
-}
+footer { padding: 50px 32px 30px; text-align: center; border-top: 1px solid var(--line); background: var(--navy); }
 footer .brand { justify-content: center; margin-bottom: 20px; }
 footer .brand img { mix-blend-mode: screen; }
 footer p { color: var(--muted); font-size: 13px; margin: 4px 0; }
 footer a:hover { color: var(--gold); }
 
-/* ---------- Scroll-triggered reveal ---------- */
-.reveal {
-  opacity: 0;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  will-change: opacity, transform;
-}
+.reveal { opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
 .reveal-up { transform: translateY(40px); }
 .reveal.is-visible { opacity: 1; transform: none; }
 
@@ -450,30 +192,17 @@ footer a:hover { color: var(--gold); }
 .article-grid > .reveal:nth-child(5) { transition-delay: 0.48s; }
 .article-grid > .reveal:nth-child(6) { transition-delay: 0.60s; }
 
-/* Page-load fade for hero */
-.insights-hero .eyebrow,
-.insights-hero h1,
-.insights-hero .subtitle {
-  opacity: 0;
-  animation: heroFadeUp 0.8s ease-out forwards;
-}
+.insights-hero .eyebrow, .insights-hero h1, .insights-hero .subtitle { opacity: 0; animation: heroFadeUp 0.8s ease-out forwards; }
 .insights-hero .eyebrow  { animation-delay: 0.1s; }
 .insights-hero h1        { animation-delay: 0.25s; }
 .insights-hero .subtitle { animation-delay: 0.4s; }
-
-@keyframes heroFadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+@keyframes heroFadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1 !important; transform: none !important; transition: none; }
-  .insights-hero .eyebrow, .insights-hero h1, .insights-hero .subtitle {
-    opacity: 1; animation: none;
-  }
+  .insights-hero .eyebrow, .insights-hero h1, .insights-hero .subtitle { opacity: 1; animation: none; }
 }
 
-/* ---------- Mobile nav ---------- */
 @media (max-width: 768px) {
   .nav-links a:not(.btn) { display: none; }
   .nav { padding: 14px 20px; }
@@ -509,7 +238,6 @@ footer a:hover { color: var(--gold); }
 
 <main>
 
-<!-- Hero -->
 <section class="insights-hero">
   <span class="eyebrow" data-i18n="insights.hero.eyebrow">Sports Business Hub</span>
   <h1 data-i18n="insights.hero.title">Insights: Sports Business</h1>
@@ -534,7 +262,6 @@ footer a:hover { color: var(--gold); }
   </article>
 </section>
 
-<!-- Article grid -->
 <section class="articles-section" aria-label="Más artículos">
   <h2 class="articles-heading reveal reveal-up" data-i18n="insights.moreArticles">Más artículos</h2>
 
@@ -542,9 +269,7 @@ footer a:hover { color: var(--gold); }
 
     <article class="article-card reveal reveal-up">
       <a href="articulo-celta360.html?v=2" class="card-link" aria-label="Leer artículo: Celta360">
-        <div class="article-image">
-          <img src="logo-art1.png" alt="Render arquitectónico del proyecto Celta360 del RC Celta" loading="lazy">
-        </div>
+        <div class="article-image"><img src="logo-art1.png" alt="Render arquitectónico del proyecto Celta360 del RC Celta" loading="lazy"></div>
         <div class="article-body">
           <span class="article-tag">Strategy</span>
           <h3 class="article-title">Celta360: El nuevo estándar del Destino Deportivo</h3>
@@ -556,9 +281,7 @@ footer a:hover { color: var(--gold); }
 
     <article class="article-card reveal reveal-up">
       <a href="articulo-atleti-apollo.html?v=2" class="card-link" aria-label="Leer artículo: Atleti y Apollo">
-        <div class="article-image">
-          <img src="logo-art2.png" alt="Estadio Metropolitano del Atlético de Madrid al atardecer" loading="lazy">
-        </div>
+        <div class="article-image"><img src="logo-art2.png" alt="Estadio Metropolitano del Atlético de Madrid al atardecer" loading="lazy"></div>
         <div class="article-body">
           <span class="article-tag">Strategy</span>
           <h3 class="article-title">Atleti y Apollo: El capital privado llega a LaLiga</h3>
@@ -570,9 +293,7 @@ footer a:hover { color: var(--gold); }
 
     <article class="article-card reveal reveal-up">
       <a href="articulo-moises-caicedo.html?v=2" class="card-link" aria-label="Leer artículo: Moisés Caicedo">
-        <div class="article-image">
-          <img src="logo-art3.png" alt="Moisés Caicedo en una sesión de entrenamiento" loading="lazy">
-        </div>
+        <div class="article-image"><img src="logo-art3.png" alt="Moisés Caicedo en una sesión de entrenamiento" loading="lazy"></div>
         <div class="article-body">
           <span class="article-tag">Ownership</span>
           <h3 class="article-title">Moisés Caicedo: De jugador de élite a dueño de club</h3>
@@ -582,7 +303,7 @@ footer a:hover { color: var(--gold); }
       </a>
     </article>
 
-    <!-- Mundial 2026 — Calendario completo (Herramienta) -->
+    <!-- Mundial 2026 — Calendario completo -->
     <article class="article-card reveal reveal-up">
       <a href="articulo-mundial-2026.html?v=1" class="card-link" aria-label="Abrir: Mundial 2026 — Calendario completo">
         <div class="article-image article-image-mundial" role="img" aria-label="Calendario del Mundial 2026">
@@ -594,6 +315,23 @@ footer a:hover { color: var(--gold); }
           <h3 class="article-title">Mundial 2026 — Calendario Completo</h3>
           <p class="article-excerpt">Añade los 104 partidos del FIFA World Cup 2026 directamente a tu Google Calendar, Apple Calendar u Outlook. Horarios en hora de Madrid.</p>
           <span class="card-cta">Abrir Calendario</span>
+        </div>
+      </a>
+    </article>
+
+    <!-- LigaPro — De administrar una crisis a construir un modelo -->
+    <article class="article-card reveal reveal-up">
+      <a href="articulo-ligapro.html?v=1" class="card-link" aria-label="Leer artículo: LigaPro — de administrar una crisis a construir un modelo">
+        <div class="article-image article-image-ligapro" role="img" aria-label="LigaPro: +456% en promedio anual de ingresos">
+          <span class="ligapro-cover-label">LigaPro · 2018–2025</span>
+          <span class="ligapro-cover-number">+456%</span>
+          <span class="ligapro-cover-caption">Crecimiento en ingresos</span>
+        </div>
+        <div class="article-body">
+          <span class="article-tag">Strategy</span>
+          <h3 class="article-title">LigaPro: de administrar una crisis a construir un modelo</h3>
+          <p class="article-excerpt">Del techo histórico de USD 19,2M a picos de USD 38,3M. 28 de 28 clubes cobrando TV. El caso de gestión que rompió las barreras del fútbol ecuatoriano.</p>
+          <span class="card-cta">Leer Artículo</span>
         </div>
       </a>
     </article>
@@ -612,22 +350,13 @@ footer a:hover { color: var(--gold); }
 </footer>
 
 <script>
-  // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Scroll-triggered reveals
   (function () {
     var targets = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) {
-      targets.forEach(function (el) { el.classList.add('is-visible'); });
-      return;
-    }
+    if (!('IntersectionObserver' in window)) { targets.forEach(function (el) { el.classList.add('is-visible'); }); return; }
     var observer = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); obs.unobserve(entry.target); }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     targets.forEach(function (el) { observer.observe(el); });
