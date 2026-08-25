@@ -9,7 +9,6 @@
 <meta name="author" content="Unisport Events & Consulting">
 <meta name="theme-color" content="#060F26">
 
-<!-- SEO bilingüe (ES / EN) -->
 <link rel="canonical" href="https://unisportec.com/insights" />
 <link rel="alternate" hreflang="es" href="https://unisportec.com/insights" />
 <link rel="alternate" hreflang="en" href="https://unisportec.com/insights?lang=en" />
@@ -64,7 +63,6 @@ h1, h2, h3, h4 {
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
-/* ---------- Header ---------- */
 header { position: sticky; top: 0; z-index: 50; background: rgba(6, 15, 38, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 32px; max-width: 1200px; margin: 0 auto; }
 .brand { display: flex; align-items: center; gap: 14px; }
@@ -76,7 +74,6 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(6, 15, 38, 0.85
 .nav-links a.active { color: var(--gold); }
 .nav-links a.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -8px; height: 1px; background: var(--gold); }
 
-/* Language switcher */
 .lang-switcher { display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 8px; }
 .lang-btn { background: transparent; border: none; padding: 4px 8px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; color: var(--cream); opacity: 0.5; cursor: pointer; transition: opacity 0.2s ease, color 0.2s ease; }
 .lang-btn:hover, .lang-btn:focus-visible { opacity: 1; outline: none; }
@@ -88,14 +85,12 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(6, 15, 38, 0.85
 .btn-outline:hover { background: var(--gold); color: var(--navy); }
 .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
-/* Hero */
 .insights-hero { padding: 140px 32px 100px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.10), transparent 60%), linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%); border-bottom: 1px solid var(--line); }
 .insights-hero .eyebrow { display: block; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
 .insights-hero h1 { font-size: clamp(40px, 6vw, 68px); margin-bottom: 24px; }
 .insights-hero .subtitle { max-width: 680px; margin: 0 auto; color: var(--muted); font-size: 18px; line-height: 1.7; }
 .divider { width: 80px; height: 1px; background: var(--gold); margin: 32px auto 0; }
 
-/* Featured */
 .featured-section { padding: 100px 32px 60px; }
 .featured-article { max-width: 1200px; margin: 0 auto; }
 .featured-link { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: stretch; background: var(--navy-2); border: 1px solid var(--line); border-radius: 2px; overflow: hidden; transition: border-color .35s ease, transform .35s ease; }
@@ -115,7 +110,6 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(6, 15, 38, 0.85
   .featured-image { aspect-ratio: 16 / 9; }
 }
 
-/* Articles grid */
 .articles-section { padding: 80px 32px 160px; max-width: 1200px; margin: 0 auto; }
 .articles-heading { font-size: 14px; font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 56px; display: flex; align-items: center; justify-content: center; gap: 24px; }
 .articles-heading::before, .articles-heading::after { content: ''; width: 60px; height: 1px; background: var(--line); }
@@ -141,24 +135,6 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(6, 15, 38, 0.85
 .mundial-cover-label { position: relative; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); }
 .mundial-cover-year { position: relative; font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 11vw, 80px); font-weight: 700; color: var(--gold); letter-spacing: -1px; line-height: 1; }
 .article-card:hover .article-image-mundial { filter: brightness(1.08); }
-
-/* LigaPro cover (CSS only) */
-.article-image-ligapro {
-  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
-  background: radial-gradient(ellipse at 50% 100%, rgba(201,169,97,0.28), transparent 60%), linear-gradient(160deg, var(--navy-3) 0%, var(--navy) 100%);
-}
-.article-image-ligapro::before {
-  content: ''; position: absolute; inset: 0;
-  background-image:
-    linear-gradient(90deg, transparent 0%, rgba(201,169,97,0.06) 50%, transparent 100%);
-  background-size: 100% 22px;
-  background-repeat: repeat-y;
-  pointer-events: none;
-}
-.ligapro-cover-label { position: relative; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); }
-.ligapro-cover-number { position: relative; font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 12vw, 92px); font-weight: 700; color: var(--gold); letter-spacing: -2px; line-height: 1; }
-.ligapro-cover-caption { position: relative; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--cream); opacity: 0.65; margin-top: 2px; }
-.article-card:hover .article-image-ligapro { filter: brightness(1.08); }
 
 .article-body { padding: 28px 28px 32px; display: flex; flex-direction: column; flex-grow: 1; }
 .article-tag { display: inline-block; align-self: flex-start; padding: 5px 12px; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); background: var(--gold); border-radius: 2px; font-weight: 500; margin-bottom: 18px; }
@@ -303,7 +279,7 @@ footer a:hover { color: var(--gold); }
       </a>
     </article>
 
-    <!-- Mundial 2026 — Calendario completo -->
+    <!-- Mundial 2026 -->
     <article class="article-card reveal reveal-up">
       <a href="articulo-mundial-2026.html?v=1" class="card-link" aria-label="Abrir: Mundial 2026 — Calendario completo">
         <div class="article-image article-image-mundial" role="img" aria-label="Calendario del Mundial 2026">
@@ -319,14 +295,10 @@ footer a:hover { color: var(--gold); }
       </a>
     </article>
 
-    <!-- LigaPro — De administrar una crisis a construir un modelo -->
+    <!-- LigaPro — con portada diseñada -->
     <article class="article-card reveal reveal-up">
-      <a href="articulo-ligapro.html?v=1" class="card-link" aria-label="Leer artículo: LigaPro — de administrar una crisis a construir un modelo">
-        <div class="article-image article-image-ligapro" role="img" aria-label="LigaPro: +456% en promedio anual de ingresos">
-          <span class="ligapro-cover-label">LigaPro · 2018–2025</span>
-          <span class="ligapro-cover-number">+456%</span>
-          <span class="ligapro-cover-caption">Crecimiento en ingresos</span>
-        </div>
+      <a href="articulo-ligapro.html?v=2" class="card-link" aria-label="Leer artículo: LigaPro — de administrar una crisis a construir un modelo">
+        <div class="article-image"><img src="logo-art5.png" alt="LigaPro 2025: Análisis integral del fútbol ecuatoriano — Uni Sport EC" loading="lazy"></div>
         <div class="article-body">
           <span class="article-tag">Strategy</span>
           <h3 class="article-title">LigaPro: de administrar una crisis a construir un modelo</h3>

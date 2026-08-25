@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="LigaPro: de administrar una crisis a construir un modelo — Unisport EC">
 <meta property="og:description" content="El caso de gestión que rompió el techo histórico del fútbol ecuatoriano. +456% en ingresos, +88% mientras la región se contrae.">
-<meta property="og:image" content="logo-unisportec.png?v=2">
+<meta property="og:image" content="logo-art5.png">
 
 <link rel="icon" type="image/png" href="logo-unisportec.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,40 +118,13 @@ header {
   text-transform: uppercase; color: var(--muted);
 }
 
-/* ---------- Cover (CSS-only, brand-consistent) ---------- */
+/* ---------- Cover (imagen diseñada) ---------- */
 .article-cover { max-width: 1100px; margin: 60px auto 0; padding: 0 32px; }
 .article-cover-frame {
   overflow: hidden; border: 1px solid var(--line);
   border-radius: 2px; background: var(--navy-3); aspect-ratio: 16 / 9;
-  position: relative; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 14px;
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.22), transparent 65%),
-    linear-gradient(135deg, var(--navy-2) 0%, var(--navy) 100%);
 }
-.article-cover-frame::before {
-  content: ''; position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(201,169,97,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,169,97,0.04) 1px, transparent 1px);
-  background-size: 44px 44px; pointer-events: none;
-}
-.cover-label {
-  position: relative; font-family: 'Inter', sans-serif;
-  font-size: 11px; font-weight: 700; letter-spacing: 5px;
-  text-transform: uppercase; color: var(--gold);
-}
-.cover-number {
-  position: relative; font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(64px, 15vw, 128px); font-weight: 700;
-  color: var(--gold); letter-spacing: -3px; line-height: 1;
-}
-.cover-caption {
-  position: relative; font-family: 'Inter', sans-serif;
-  font-size: 12px; font-weight: 500; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--cream); opacity: 0.7;
-  max-width: 400px; text-align: center;
-}
+.article-cover-frame img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------- Body ---------- */
 .article-body { max-width: 760px; margin: 0 auto; padding: 80px 32px 60px; }
@@ -295,12 +268,10 @@ footer a:hover { color: var(--gold); }
   <span class="article-meta">5 MIN DE LECTURA · 8 JUNIO 2026</span>
 </section>
 
-<!-- Cover (CSS-only, brand-consistent) -->
+<!-- Cover (imagen diseñada) -->
 <section class="article-cover reveal reveal-up" aria-hidden="false">
-  <div class="article-cover-frame" role="img" aria-label="LigaPro: crecimiento de 456% en promedio anual de ingresos">
-    <span class="cover-label">LigaPro · 2018–2025</span>
-    <span class="cover-number">+456%</span>
-    <span class="cover-caption">Crecimiento en el promedio anual de ingresos</span>
+  <div class="article-cover-frame">
+    <img src="logo-art5.png" alt="LigaPro 2025: Análisis integral del fútbol ecuatoriano — Uni Sport EC">
   </div>
 </section>
 
