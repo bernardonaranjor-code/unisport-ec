@@ -3,7 +3,7 @@
     "home":     { "title": "Uni Sport EC | Strategic Consulting & Sports Management", "description": "Experts in sports consulting, talent management and high-performance event organization across Ecuador and Spain." },
     "services": { "title": "Services | Uni Sport EC — Consulting, Events and Sports Talent", "description": "Three service lines: strategic consulting, end-to-end event management and talent development. Tailored solutions for clubs, federations and institutions." },
     "partners": { "title": "Partners | Uni Sport EC — Sports Consulting Leadership Team", "description": "Uni Sport EC leadership team: Bernardo Naranjo, Fausto Rodríguez and Yoel García. Complementary careers connecting strategy, sport and the global market." },
-    "insights": { "title": "Insights | Uni Sport EC — Sports Business strategic analysis", "description": "Strategic analysis on sports management, marketing and digital transformation. Case studies on Celta360, Apollo Sports Capital, ownership and digital sports business." },
+    "insights": { "title": "Insights | Uni Sport EC — Sports Business strategic analysis", "description": "Strategic analysis on sports management, marketing and digital transformation. Case studies on Celta360, Apollo Sports Capital, LigaPro, ownership and digital sports business." },
     "contact":  { "title": "Contact | Uni Sport EC — Request your situation analysis", "description": "Let's talk about your sports project. Hubs in Madrid and Quito. Request a situation analysis: we reply in under 48 hours." }
   },
   "nav": {
@@ -77,6 +77,11 @@
       "eyebrow": "Let's work together",
       "heading": "Have a project in mind? Our team is ready to listen.",
       "button": "Request a Situation Analysis"
+    },
+    "bio": {
+      "bernardo": "Strategic consultant with a proven track record driving growth at top-tier institutions such as LDU, Ecuador's Ministry of Sport, LaLiga clubs, and sports identity projects like AV25 and NMFC. My experience managing projects with municipal governments in Spain and international organizations allows me to combine technical vision with commercial execution. I specialize in transforming organizational structures into high-performance models, bringing to Unisport EC a unique capacity to scale sports projects and consolidate their leadership in the sector.",
+      "fausto": "Uruguayan with football DNA forged at Club Atlético Peñarol. I hold a degree in Sports Management from Universidad Europea de Madrid, with specializations at CONMEBOL and the Johan Cruyff Institute. I currently lead digital strategy at UniSport and run a personal social media project reaching over 1,000,000 people. My approach blends the rigor of sports management with the ability to connect elite sport to the mass audiences of the digital era.",
+      "yoel": "Lawyer with experience in sports consulting, specialized in Sports Law and holder of a FIFA Agent license (No. 202606-12091). His practical training includes internships at Real Madrid, where he gained direct experience in the legal management of an elite international club; at generalist law firms, which gave him a solid foundation across different areas of law; and at the Triathlon Federation, expanding his knowledge of federated and Olympic sport beyond football. His profile combines expertise in representation and negotiation of contracts, athlete transfers, advisory services to clubs and federations, and resolution of sports disputes, with an integral approach spanning professional, amateur, and federated sport."
     }
   },
   "insights": {

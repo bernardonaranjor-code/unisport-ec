@@ -3,7 +3,7 @@
     "home":     { "title": "Uni Sport EC | Consultoría Estratégica y Gestión Deportiva", "description": "Expertos en consultoría deportiva, gestión de talento y organización de eventos de alto rendimiento en Ecuador y España." },
     "services": { "title": "Servicios | Uni Sport EC — Consultoría, Eventos y Talento Deportivo", "description": "Tres líneas de servicio: consultoría estratégica, gestión integral de eventos y desarrollo de talento. Soluciones a medida para clubes, federaciones e instituciones." },
     "partners": { "title": "Partners | Uni Sport EC — Equipo directivo de consultoría deportiva", "description": "Equipo directivo de Uni Sport EC: Bernardo Naranjo, Fausto Rodríguez y Yoel García. Trayectorias complementarias que unen estrategia, deporte y mercado global." },
-    "insights": { "title": "Insights | Uni Sport EC — Sports Business y análisis estratégicos", "description": "Análisis estratégicos sobre gestión deportiva, marketing y transformación digital. Casos de estudio sobre Celta360, Apollo Sports Capital, ownership y digital sports business." },
+    "insights": { "title": "Insights | Uni Sport EC — Sports Business y análisis estratégicos", "description": "Análisis estratégicos sobre gestión deportiva, marketing y transformación digital. Casos de estudio sobre Celta360, Apollo Sports Capital, LigaPro, ownership y digital sports business." },
     "contact":  { "title": "Contacto | Uni Sport EC — Solicita tu análisis de situación", "description": "Hablemos de tu proyecto deportivo. Hubs en Madrid y Quito. Solicita un análisis de situación: respondemos en menos de 48 horas." }
   },
   "nav": {
@@ -77,6 +77,11 @@
       "eyebrow": "Trabajemos juntos",
       "heading": "¿Tienes un proyecto en mente? Nuestro equipo está listo para escucharlo.",
       "button": "Solicitar Análisis de Situación"
+    },
+    "bio": {
+      "bernardo": "Consultor estratégico con una trayectoria probada impulsando el crecimiento de instituciones de alto nivel como LDU, el Ministerio del Deporte de Ecuador, Clubes de LaLiga y proyectos de identidad deportiva como AV25 y NMFC. Mi experiencia gestionando proyectos con Ayuntamientos en España y entidades internacionales me permite fusionar la visión técnica con la ejecución comercial. Me especializo en transformar estructuras organizativas en modelos de alto rendimiento, aportando a Unisport EC una capacidad única para escalar proyectos deportivos y consolidar su liderazgo en el sector.",
+      "fausto": "Uruguayo con ADN futbolístico formado en el Club Atlético Peñarol. Soy Graduado en Gestión Deportiva por la Universidad Europea de Madrid, con especializaciones en CONMEBOL y el Johan Cruyff Institute. Actualmente, participo en la estrategia digital en UniSport y dirijo un proyecto personal de redes sociales con un impacto superior a 1.000.000 de personas. Mi enfoque fusiona la rigurosidad del management deportivo con la capacidad de conectar el deporte de élite con las audiencias masivas de la era digital.",
+      "yoel": "Abogado con experiencia en consultoría deportiva, especializado en Derecho Deportivo y titular de licencia de Agente FIFA (No. 202606-12091). Su formación práctica incluye pasantías en el Real Madrid, donde adquirió experiencia directa en la gestión jurídica de un club de élite internacional; en despachos de abogados generalistas, que le aportaron una base sólida en distintas áreas del derecho; y en la Federación de Triatlón, ampliando su conocimiento del deporte federado y olímpico más allá del fútbol. Su perfil combina experiencia en representación y negociación de contratos, transferencias y traspasos de deportistas, asesoría a clubes y federaciones, y resolución de conflictos deportivos, con un enfoque integral que abarca tanto el deporte profesional como el amateur y federado."
     }
   },
   "insights": {
