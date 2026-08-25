@@ -9,7 +9,6 @@
 <meta name="author" content="Unisport Events & Consulting">
 <meta name="theme-color" content="#060F26">
 
-<!-- SEO bilingüe (ES / EN) -->
 <link rel="canonical" href="https://unisportec.com/partners" />
 <link rel="alternate" hreflang="es" href="https://unisportec.com/partners" />
 <link rel="alternate" hreflang="en" href="https://unisportec.com/partners?lang=en" />
@@ -64,213 +63,54 @@ h1, h2, h3, h4 {
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
-/* ---------- Header ---------- */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(6, 15, 38, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 32px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+header { position: sticky; top: 0; z-index: 50; background: rgba(6, 15, 38, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 32px; max-width: 1200px; margin: 0 auto; }
 .brand { display: flex; align-items: center; gap: 14px; }
 .brand img { height: 44px; width: auto; mix-blend-mode: screen; }
 .brand-long { height: 112px !important; width: auto; max-width: 640px; mix-blend-mode: screen; }
 .nav-links { display: flex; gap: 32px; align-items: center; }
-.nav-links a {
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--cream);
-  transition: color .2s;
-  position: relative;
-}
+.nav-links a { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cream); transition: color .2s; position: relative; }
 .nav-links a:hover { color: var(--gold); }
 .nav-links a.active { color: var(--gold); }
-.nav-links a.active::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0; bottom: -8px;
-  height: 1px;
-  background: var(--gold);
-}
+.nav-links a.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -8px; height: 1px; background: var(--gold); }
 
-/* ---------- Language switcher ---------- */
-.lang-switcher {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-left: 8px;
-}
-.lang-btn {
-  background: transparent;
-  border: none;
-  padding: 4px 8px;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  color: var(--cream);
-  opacity: 0.5;
-  cursor: pointer;
-  transition: opacity 0.2s ease, color 0.2s ease;
-}
+.lang-switcher { display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 8px; }
+.lang-btn { background: transparent; border: none; padding: 4px 8px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; color: var(--cream); opacity: 0.5; cursor: pointer; transition: opacity 0.2s ease, color 0.2s ease; }
 .lang-btn:hover, .lang-btn:focus-visible { opacity: 1; outline: none; }
 .lang-btn.is-active { opacity: 1; color: var(--gold); }
 .lang-divider { color: var(--cream); opacity: 0.3; font-size: 12px; }
 
-.btn {
-  display: inline-block;
-  padding: 14px 28px;
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: all .25s ease;
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  border: 1px solid transparent;
-  text-align: center;
-}
+.btn { display: inline-block; padding: 14px 28px; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: all .25s ease; font-family: 'Inter', sans-serif; font-weight: 400; border: 1px solid transparent; text-align: center; }
 .btn-primary { background: var(--gold); color: var(--navy); }
 .btn-primary:hover { background: var(--cream); transform: translateY(-1px); }
 .btn-outline { background: transparent; color: var(--cream); border-color: var(--gold); }
 .btn-outline:hover { background: var(--gold); color: var(--navy); }
 .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
-/* ---------- Hero ---------- */
-.partners-hero {
-  padding: 140px 32px 100px;
-  text-align: center;
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.10), transparent 60%),
-    linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
-  border-bottom: 1px solid var(--line);
-}
-.partners-hero .eyebrow {
-  display: block;
-  font-size: 12px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 18px;
-}
-.partners-hero h1 {
-  font-size: clamp(48px, 7vw, 84px);
-  margin-bottom: 24px;
-}
-.partners-hero .subtitle {
-  max-width: 640px;
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: 18px;
-  line-height: 1.7;
-}
-.divider {
-  width: 80px;
-  height: 1px;
-  background: var(--gold);
-  margin: 32px auto 0;
-}
+.partners-hero { padding: 140px 32px 100px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.10), transparent 60%), linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%); border-bottom: 1px solid var(--line); }
+.partners-hero .eyebrow { display: block; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+.partners-hero h1 { font-size: clamp(48px, 7vw, 84px); margin-bottom: 24px; }
+.partners-hero .subtitle { max-width: 640px; margin: 0 auto; color: var(--muted); font-size: 18px; line-height: 1.7; }
+.divider { width: 80px; height: 1px; background: var(--gold); margin: 32px auto 0; }
 
-/* ---------- Profile rows ---------- */
-.partners-list {
-  padding: 80px 32px 40px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
+.partners-list { padding: 80px 32px 40px; max-width: 1100px; margin: 0 auto; }
 
-.partner-profile {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 72px;
-  align-items: center;
-  padding: 80px 0;
-}
+.partner-profile { display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: center; padding: 80px 0; }
 
-.partner-photo-frame {
-  aspect-ratio: 1 / 1;
-  width: 100%;
-  max-width: 320px;
-  overflow: hidden;
-  border-radius: 2px;
-  border: 1px solid var(--line);
-  background: var(--navy-3);
-  position: relative;
-}
-.partner-photo-frame::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgba(201, 169, 97, 0.15);
-  pointer-events: none;
-  border-radius: 2px;
-}
-.partner-photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(100%) brightness(0.95);
-  transition: filter 0.6s ease, transform 0.7s cubic-bezier(.2,.65,.3,1);
-}
-.partner-profile:hover .partner-photo-frame img {
-  filter: grayscale(0) brightness(1);
-  transform: scale(1.04);
-}
+.partner-photo-frame { aspect-ratio: 1 / 1; width: 100%; max-width: 320px; overflow: hidden; border-radius: 2px; border: 1px solid var(--line); background: var(--navy-3); position: relative; }
+.partner-photo-frame::after { content: ''; position: absolute; inset: 0; border: 1px solid rgba(201, 169, 97, 0.15); pointer-events: none; border-radius: 2px; }
+.partner-photo-frame img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) brightness(0.95); transition: filter 0.6s ease, transform 0.7s cubic-bezier(.2,.65,.3,1); }
+.partner-profile:hover .partner-photo-frame img { filter: grayscale(0) brightness(1); transform: scale(1.04); }
 
-.partner-content h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(34px, 4.2vw, 48px);
-  font-weight: 600;
-  color: var(--gold);
-  letter-spacing: 1px;
-  margin: 0 0 6px;
-}
-.partner-content .role {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 3.5px;
-  text-transform: uppercase;
-  color: var(--cream);
-  margin-bottom: 28px;
-}
-.partner-content .accent-line {
-  width: 60px;
-  height: 1px;
-  background: var(--gold);
-  margin-bottom: 28px;
-}
-.partner-content .bio {
-  font-size: 16px;
-  line-height: 1.85;
-  color: var(--cream);
-  margin: 0;
-}
+.partner-content h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 4.2vw, 48px); font-weight: 600; color: var(--gold); letter-spacing: 1px; margin: 0 0 6px; }
+.partner-content .role { display: block; font-size: 11px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--cream); margin-bottom: 28px; }
+.partner-content .accent-line { width: 60px; height: 1px; background: var(--gold); margin-bottom: 28px; }
+.partner-content .bio { font-size: 16px; line-height: 1.85; color: var(--cream); margin: 0; }
 
-.partner-divider {
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.4;
-  max-width: 760px;
-  margin: 0 auto;
-}
+.partner-divider { height: 1px; background: var(--gold); opacity: 0.4; max-width: 760px; margin: 0 auto; }
 
 @media (max-width: 800px) {
-  .partner-profile {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-    padding: 56px 0;
-  }
+  .partner-profile { grid-template-columns: 1fr; gap: 40px; text-align: center; padding: 56px 0; }
   .partner-photo-frame { margin: 0 auto; max-width: 280px; }
   .partner-content .accent-line { margin: 0 auto 24px; }
   .partner-content .bio { text-align: left; }
@@ -280,75 +120,32 @@ header {
   .partners-hero { padding: 100px 24px 70px; }
 }
 
-/* ---------- Closing CTA ---------- */
-.partners-cta {
-  padding: 120px 32px 160px;
-  text-align: center;
-  background: var(--navy-2);
-  border-top: 1px solid var(--line);
-}
-.partners-cta .eyebrow {
-  display: block;
-  font-size: 12px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 18px;
-}
-.partners-cta h2 {
-  font-size: clamp(32px, 4vw, 44px);
-  max-width: 700px;
-  margin: 0 auto 32px;
-}
+.partners-cta { padding: 120px 32px 160px; text-align: center; background: var(--navy-2); border-top: 1px solid var(--line); }
+.partners-cta .eyebrow { display: block; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+.partners-cta h2 { font-size: clamp(32px, 4vw, 44px); max-width: 700px; margin: 0 auto 32px; }
 
-/* ---------- Footer ---------- */
-footer {
-  padding: 50px 32px 30px;
-  text-align: center;
-  border-top: 1px solid var(--line);
-  background: var(--navy);
-}
+footer { padding: 50px 32px 30px; text-align: center; border-top: 1px solid var(--line); background: var(--navy); }
 footer .brand { justify-content: center; margin-bottom: 20px; }
 footer .brand img { mix-blend-mode: screen; }
 footer p { color: var(--muted); font-size: 13px; margin: 4px 0; }
 footer a:hover { color: var(--gold); }
 
-/* ---------- Reveal animations ---------- */
-.reveal {
-  opacity: 0;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  will-change: opacity, transform;
-}
+.reveal { opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
 .reveal-up { transform: translateY(40px); }
 .reveal.is-visible { opacity: 1; transform: none; }
 
-/* Hero load-in */
-.partners-hero .eyebrow,
-.partners-hero h1,
-.partners-hero .subtitle {
-  opacity: 0;
-  animation: heroFadeUp 0.8s ease-out forwards;
-}
+.partners-hero .eyebrow, .partners-hero h1, .partners-hero .subtitle { opacity: 0; animation: heroFadeUp 0.8s ease-out forwards; }
 .partners-hero .eyebrow  { animation-delay: 0.1s; }
 .partners-hero h1        { animation-delay: 0.25s; }
 .partners-hero .subtitle { animation-delay: 0.4s; }
-
-@keyframes heroFadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+@keyframes heroFadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1 !important; transform: none !important; transition: none; }
-  .partners-hero .eyebrow, .partners-hero h1, .partners-hero .subtitle {
-    opacity: 1; animation: none;
-  }
-  .partner-photo-frame img {
-    filter: grayscale(0) !important;
-  }
+  .partners-hero .eyebrow, .partners-hero h1, .partners-hero .subtitle { opacity: 1; animation: none; }
+  .partner-photo-frame img { filter: grayscale(0) !important; }
 }
 
-/* ---------- Mobile nav ---------- */
 @media (max-width: 768px) {
   .nav-links a:not(.btn) { display: none; }
   .nav { padding: 14px 20px; }
@@ -384,7 +181,6 @@ footer a:hover { color: var(--gold); }
 
 <main>
 
-<!-- Hero -->
 <section class="partners-hero">
   <span class="eyebrow" data-i18n="partners.hero.eyebrow">Equipo directivo</span>
   <h1 data-i18n="partners.hero.title">Partners</h1>
@@ -392,7 +188,6 @@ footer a:hover { color: var(--gold); }
   <div class="divider"></div>
 </section>
 
-<!-- Profiles -->
 <section class="partners-list" aria-label="Equipo de partners">
 
   <article class="partner-profile reveal reveal-up">
@@ -403,7 +198,7 @@ footer a:hover { color: var(--gold); }
       <h2>Bernardo Naranjo</h2>
       <span class="role">Founder &amp; Partner</span>
       <div class="accent-line" aria-hidden="true"></div>
-      <p class="bio">Consultor estratégico con una trayectoria probada impulsando el crecimiento de instituciones de alto nivel como LDU, el Ministerio del Deporte de Ecuador, Clubes de LaLiga y proyectos de identidad deportiva como AV25 y NMFC. Mi experiencia gestionando proyectos con Ayuntamientos en España y entidades internacionales me permite fusionar la visión técnica con la ejecución comercial. Me especializo en transformar estructuras organizativas en modelos de alto rendimiento, aportando a Unisport EC una capacidad única para escalar proyectos deportivos y consolidar su liderazgo en el sector.</p>
+      <p class="bio" data-i18n="partners.bio.bernardo">Consultor estratégico con una trayectoria probada impulsando el crecimiento de instituciones de alto nivel como LDU, el Ministerio del Deporte de Ecuador, Clubes de LaLiga y proyectos de identidad deportiva como AV25 y NMFC. Mi experiencia gestionando proyectos con Ayuntamientos en España y entidades internacionales me permite fusionar la visión técnica con la ejecución comercial. Me especializo en transformar estructuras organizativas en modelos de alto rendimiento, aportando a Unisport EC una capacidad única para escalar proyectos deportivos y consolidar su liderazgo en el sector.</p>
     </div>
   </article>
 
@@ -417,7 +212,7 @@ footer a:hover { color: var(--gold); }
       <h2>Fausto Rodríguez</h2>
       <span class="role">Partner</span>
       <div class="accent-line" aria-hidden="true"></div>
-      <p class="bio">Uruguayo con ADN futbolístico formado en el Club Atlético Peñarol. Soy Graduado en Gestión Deportiva por la Universidad Europea de Madrid, con especializaciones en CONMEBOL y el Johan Cruyff Institute. Actualmente, participo en la estrategia digital en UniSport y dirijo un proyecto personal de redes sociales con un impacto superior a 1.000.000 de personas. Mi enfoque fusiona la rigurosidad del management deportivo con la capacidad de conectar el deporte de élite con las audiencias masivas de la era digital.</p>
+      <p class="bio" data-i18n="partners.bio.fausto">Uruguayo con ADN futbolístico formado en el Club Atlético Peñarol. Soy Graduado en Gestión Deportiva por la Universidad Europea de Madrid, con especializaciones en CONMEBOL y el Johan Cruyff Institute. Actualmente, participo en la estrategia digital en UniSport y dirijo un proyecto personal de redes sociales con un impacto superior a 1.000.000 de personas. Mi enfoque fusiona la rigurosidad del management deportivo con la capacidad de conectar el deporte de élite con las audiencias masivas de la era digital.</p>
     </div>
   </article>
 
@@ -431,13 +226,12 @@ footer a:hover { color: var(--gold); }
       <h2>Yoel García</h2>
       <span class="role">Partner</span>
       <div class="accent-line" aria-hidden="true"></div>
-      <p class="bio">Abogado con experiencia en consultoría deportiva, especializado en Derecho Deportivo y titular de licencia de Agente FIFA (No. 202606-12091). Su formación práctica incluye pasantías en el Real Madrid, donde adquirió experiencia directa en la gestión jurídica de un club de élite internacional; en despachos de abogados generalistas, que le aportaron una base sólida en distintas áreas del derecho; y en la Federación de Triatlón, ampliando su conocimiento del deporte federado y olímpico más allá del fútbol. Su perfil combina experiencia en representación y negociación de contratos, transferencias y traspasos de deportistas, asesoría a clubes y federaciones, y resolución de conflictos deportivos, con un enfoque integral que abarca tanto el deporte profesional como el amateur y federado.</p>
+      <p class="bio" data-i18n="partners.bio.yoel">Abogado con experiencia en consultoría deportiva, especializado en Derecho Deportivo y titular de licencia de Agente FIFA (No. 202606-12091). Su formación práctica incluye pasantías en el Real Madrid, donde adquirió experiencia directa en la gestión jurídica de un club de élite internacional; en despachos de abogados generalistas, que le aportaron una base sólida en distintas áreas del derecho; y en la Federación de Triatlón, ampliando su conocimiento del deporte federado y olímpico más allá del fútbol. Su perfil combina experiencia en representación y negociación de contratos, transferencias y traspasos de deportistas, asesoría a clubes y federaciones, y resolución de conflictos deportivos, con un enfoque integral que abarca tanto el deporte profesional como el amateur y federado.</p>
     </div>
   </article>
 
 </section>
 
-<!-- Closing CTA -->
 <section class="partners-cta">
   <span class="eyebrow reveal reveal-up" data-i18n="partners.cta.eyebrow">Trabajemos juntos</span>
   <h2 class="reveal reveal-up" data-i18n="partners.cta.heading">¿Tienes un proyecto en mente? Nuestro equipo está listo para escucharlo.</h2>
@@ -455,22 +249,13 @@ footer a:hover { color: var(--gold); }
 </footer>
 
 <script>
-  // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Scroll-triggered reveals
   (function () {
     var targets = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) {
-      targets.forEach(function (el) { el.classList.add('is-visible'); });
-      return;
-    }
+    if (!('IntersectionObserver' in window)) { targets.forEach(function (el) { el.classList.add('is-visible'); }); return; }
     var observer = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); obs.unobserve(entry.target); }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     targets.forEach(function (el) { observer.observe(el); });
