@@ -33,6 +33,13 @@
       "visionBody": "Ser la firma de consultoría deportiva referente en Iberoamérica, reconocida por conectar el potencial del talento local con los estándares de gestión y capital globales, liderando la transición hacia un modelo de digital sports business sostenible.",
       "valuesTitle": "Valores"
     },
+    "values": {
+      "value1": "Rigor Estratégico <span>(Data-Driven)</span>",
+      "value2": "Excelencia de Élite <span>(Global Standards)</span>",
+      "value3": "Confidencialidad y Ética",
+      "value4": "Innovación Adaptativa",
+      "value5": "Compromiso con el Talento"
+    },
     "partners": { "eyebrow": "Equipo", "title": "Partners" },
     "track": { "eyebrow": "Trayectoria", "title": "Trayectoria comprobada en proyectos para:" }
   },
@@ -50,12 +57,9 @@
       "talentLead": "Asesoramiento, scouting y branding deportivo."
     },
     "panels": {
-      "consultingEyebrow": "I — Consultoría",
-      "consultingTitle": "Consultoría Estratégica",
-      "eventsEyebrow": "II — Eventos",
-      "eventsTitle": "Eventos y Ligas",
-      "talentEyebrow": "III — Talento",
-      "talentTitle": "Personas y Mercado"
+      "consultingEyebrow": "I — Consultoría", "consultingTitle": "Consultoría Estratégica",
+      "eventsEyebrow": "II — Eventos", "eventsTitle": "Eventos y Ligas",
+      "talentEyebrow": "III — Talento", "talentTitle": "Personas y Mercado"
     },
     "list": {
       "consulting": {
@@ -81,10 +85,7 @@
         "item4": { "title": "Gestión de Academias de Alto Rendimiento", "body": "Consultoría especializada para elevar la metodología formativa y la rentabilidad de centros de formación." }
       }
     },
-    "cta": {
-      "lead": "¿Listos para activar este servicio?",
-      "button": "Solicitar Consultoría Especializada"
-    }
+    "cta": { "lead": "¿Listos para activar este servicio?", "button": "Solicitar Consultoría Especializada" }
   },
   "partners": {
     "hero": {
@@ -107,7 +108,33 @@
       "eyebrow": "Sports Business Hub", "title": "Insights: Sports Business",
       "subtitle": "Análisis estratégicos sobre gestión deportiva, marketing y transformación digital en la industria del deporte."
     },
-    "moreArticles": "Más artículos"
+    "moreArticles": "Más artículos",
+    "featured": {
+      "tag": "STRATEGY · DESTACADO",
+      "title": "LigaPro: de administrar una crisis a construir un modelo",
+      "excerpt": "Del techo histórico de USD 19,2M a picos de USD 38,3M. 28 de 28 clubes cobrando TV. El caso de gestión que rompió las barreras del fútbol ecuatoriano.",
+      "meta": "5 MIN DE LECTURA · 8 JUNIO 2026"
+    },
+    "cta": { "read": "Leer Artículo", "open": "Abrir Calendario" },
+    "tag": { "strategy": "Strategy", "ownership": "Ownership", "tools": "Herramientas" },
+    "card": {
+      "celta": {
+        "title": "Celta360: El nuevo estándar del Destino Deportivo",
+        "excerpt": "Descubre cómo el RC Celta transforma 120 millones de euros en un motor económico que redefine la rentabilidad en la industria del fútbol."
+      },
+      "atleti": {
+        "title": "Atleti y Apollo: El capital privado llega a LaLiga",
+        "excerpt": "Analizamos cómo la entrada de Apollo Sports Capital redefine el modelo de propiedad y la estrategia financiera del Atlético de Madrid."
+      },
+      "caicedo": {
+        "title": "Moisés Caicedo: De jugador de élite a dueño de club",
+        "excerpt": "Analizamos cómo Moisés Caicedo profesionaliza el fútbol base en Ecuador a través de un modelo de inversión estratégica y ownership."
+      },
+      "mundial": {
+        "title": "Mundial 2026 — Calendario Completo",
+        "excerpt": "Añade los 104 partidos del FIFA World Cup 2026 directamente a tu Google Calendar, Apple Calendar u Outlook. Horarios en hora de Madrid."
+      }
+    }
   },
   "contact": {
     "hero": {
@@ -117,7 +144,8 @@
     "channels": {
       "eyebrow": "Canales Directos",
       "heading": "Conéctate con nosotros",
-      "phones": "Teléfonos · Hub Madrid / Quito"
+      "phones": "Teléfonos · Hub Madrid / Quito",
+      "email": "Correo"
     },
     "form": {
       "eyebrow": "Estrategia a medida", "heading": "Solicitar Análisis de Situación",

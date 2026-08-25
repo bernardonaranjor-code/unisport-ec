@@ -33,6 +33,13 @@
       "visionBody": "To be the leading sports consulting firm in Latin America, recognized for connecting local talent potential with global management and capital standards, leading the transition toward a sustainable digital sports business model.",
       "valuesTitle": "Values"
     },
+    "values": {
+      "value1": "Strategic Rigor <span>(Data-Driven)</span>",
+      "value2": "Elite Excellence <span>(Global Standards)</span>",
+      "value3": "Confidentiality & Ethics",
+      "value4": "Adaptive Innovation",
+      "value5": "Commitment to Talent"
+    },
     "partners": { "eyebrow": "Team", "title": "Partners" },
     "track": { "eyebrow": "Track Record", "title": "Proven track record on projects for:" }
   },
@@ -50,12 +57,9 @@
       "talentLead": "Advisory, scouting and sports branding."
     },
     "panels": {
-      "consultingEyebrow": "I — Consulting",
-      "consultingTitle": "Strategic Consulting",
-      "eventsEyebrow": "II — Events",
-      "eventsTitle": "Events & Leagues",
-      "talentEyebrow": "III — Talent",
-      "talentTitle": "People and Market"
+      "consultingEyebrow": "I — Consulting", "consultingTitle": "Strategic Consulting",
+      "eventsEyebrow": "II — Events", "eventsTitle": "Events & Leagues",
+      "talentEyebrow": "III — Talent", "talentTitle": "People and Market"
     },
     "list": {
       "consulting": {
@@ -81,10 +85,7 @@
         "item4": { "title": "High-Performance Academy Management", "body": "Specialized consulting to elevate training methodology and profitability of academies." }
       }
     },
-    "cta": {
-      "lead": "Ready to activate this service?",
-      "button": "Request Specialized Consulting"
-    }
+    "cta": { "lead": "Ready to activate this service?", "button": "Request Specialized Consulting" }
   },
   "partners": {
     "hero": {
@@ -107,7 +108,33 @@
       "eyebrow": "Sports Business Hub", "title": "Insights: Sports Business",
       "subtitle": "Strategic analysis on sports management, marketing and digital transformation in the sports industry."
     },
-    "moreArticles": "More articles"
+    "moreArticles": "More articles",
+    "featured": {
+      "tag": "STRATEGY · FEATURED",
+      "title": "LigaPro: from managing a crisis to building a model",
+      "excerpt": "From the historical USD 19.2M ceiling to peaks of USD 38.3M. 28 out of 28 clubs receiving TV revenue. The management case that broke Ecuadorian football's barriers.",
+      "meta": "5 MIN READ · JUNE 8, 2026"
+    },
+    "cta": { "read": "Read Article", "open": "Open Calendar" },
+    "tag": { "strategy": "Strategy", "ownership": "Ownership", "tools": "Tools" },
+    "card": {
+      "celta": {
+        "title": "Celta360: The new standard for Sports Destinations",
+        "excerpt": "Discover how RC Celta turns 120 million euros into an economic engine that redefines profitability in the football industry."
+      },
+      "atleti": {
+        "title": "Atleti and Apollo: Private capital arrives at LaLiga",
+        "excerpt": "We analyze how Apollo Sports Capital's arrival redefines the ownership model and financial strategy of Atlético de Madrid."
+      },
+      "caicedo": {
+        "title": "Moisés Caicedo: From elite player to club owner",
+        "excerpt": "We analyze how Moisés Caicedo is professionalizing grassroots football in Ecuador through a strategic investment and ownership model."
+      },
+      "mundial": {
+        "title": "World Cup 2026 — Full Calendar",
+        "excerpt": "Add all 104 FIFA World Cup 2026 matches directly to your Google Calendar, Apple Calendar or Outlook. Times in Madrid local time."
+      }
+    }
   },
   "contact": {
     "hero": {
@@ -117,7 +144,8 @@
     "channels": {
       "eyebrow": "Direct channels",
       "heading": "Connect with us",
-      "phones": "Phones · Madrid / Quito Hub"
+      "phones": "Phones · Madrid / Quito Hub",
+      "email": "Email"
     },
     "form": {
       "eyebrow": "Tailored strategy", "heading": "Request a Situation Analysis",
