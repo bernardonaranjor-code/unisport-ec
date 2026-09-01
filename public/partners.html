@@ -102,10 +102,21 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(6, 15, 38, 0.85
 .partner-photo-frame img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) brightness(0.95); transition: filter 0.6s ease, transform 0.7s cubic-bezier(.2,.65,.3,1); }
 .partner-profile:hover .partner-photo-frame img { filter: grayscale(0) brightness(1); transform: scale(1.04); }
 
+.partner-content { min-width: 0; }
 .partner-content h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 4.2vw, 48px); font-weight: 600; color: var(--gold); letter-spacing: 1px; margin: 0 0 6px; }
 .partner-content .role { display: block; font-size: 11px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--cream); margin-bottom: 28px; }
 .partner-content .accent-line { width: 60px; height: 1px; background: var(--gold); margin-bottom: 28px; }
-.partner-content .bio { font-size: 16px; line-height: 1.85; color: var(--cream); margin: 0; }
+.partner-content .bio { font-size: 16px; line-height: 1.85; color: var(--cream); margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.partner-content .bio.is-expanded { display: block; -webkit-line-clamp: unset; overflow: visible; }
+
+.bio-toggle { margin-top: 18px; background: transparent; border: none; padding: 0; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: color .2s ease; }
+.bio-toggle:hover { color: var(--cream); }
+.bio-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.bio-toggle .chevron { font-size: 9px; transition: transform .3s ease; display: inline-block; }
+.bio-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+.bio-toggle .label-less { display: none; }
+.bio-toggle[aria-expanded="true"] .label-more { display: none; }
+.bio-toggle[aria-expanded="true"] .label-less { display: inline; }
 
 .partner-divider { height: 1px; background: var(--gold); opacity: 0.4; max-width: 760px; margin: 0 auto; }
 
@@ -198,7 +209,12 @@ footer a:hover { color: var(--gold); }
       <h2>Bernardo Naranjo</h2>
       <span class="role">Founder &amp; Partner</span>
       <div class="accent-line" aria-hidden="true"></div>
-      <p class="bio" data-i18n="partners.bio.bernardo">Consultor estratégico con una trayectoria probada impulsando el crecimiento de instituciones de alto nivel como LDU, el Ministerio del Deporte de Ecuador, Clubes de LaLiga y proyectos de identidad deportiva como AV25 y NMFC. Mi experiencia gestionando proyectos con Ayuntamientos en España y entidades internacionales me permite fusionar la visión técnica con la ejecución comercial. Me especializo en transformar estructuras organizativas en modelos de alto rendimiento, aportando a Unisport EC una capacidad única para escalar proyectos deportivos y consolidar su liderazgo en el sector.</p>
+      <p class="bio" id="bio-bernardo" data-i18n="partners.bio.bernardo">Consultor estratégico con una trayectoria probada impulsando el crecimiento de instituciones de alto nivel como LDU, el Ministerio del Deporte de Ecuador, Clubes de LaLiga y proyectos de identidad deportiva como AV25 y NMFC. Mi experiencia gestionando proyectos con Ayuntamientos en España y entidades internacionales me permite fusionar la visión técnica con la ejecución comercial. Me especializo en transformar estructuras organizativas en modelos de alto rendimiento, aportando a Unisport EC una capacidad única para escalar proyectos deportivos y consolidar su liderazgo en el sector.</p>
+      <button type="button" class="bio-toggle" aria-expanded="false" aria-controls="bio-bernardo">
+        <span class="label-more" data-i18n="partners.bio.readMore">Leer sobre su experiencia</span>
+        <span class="label-less" data-i18n="partners.bio.readLess">Ver menos</span>
+        <span class="chevron" aria-hidden="true">▾</span>
+      </button>
     </div>
   </article>
 
@@ -212,7 +228,12 @@ footer a:hover { color: var(--gold); }
       <h2>Fausto Rodríguez</h2>
       <span class="role">Partner</span>
       <div class="accent-line" aria-hidden="true"></div>
-      <p class="bio" data-i18n="partners.bio.fausto">Uruguayo con ADN futbolístico formado en el Club Atlético Peñarol. Soy Graduado en Gestión Deportiva por la Universidad Europea de Madrid, con especializaciones en CONMEBOL y el Johan Cruyff Institute. Actualmente, participo en la estrategia digital en UniSport y dirijo un proyecto personal de redes sociales con un impacto superior a 1.000.000 de personas. Mi enfoque fusiona la rigurosidad del management deportivo con la capacidad de conectar el deporte de élite con las audiencias masivas de la era digital.</p>
+      <p class="bio" id="bio-fausto" data-i18n="partners.bio.fausto">Uruguayo con ADN futbolístico formado en el Club Atlético Peñarol. Soy Graduado en Gestión Deportiva por la Universidad Europea de Madrid, con especializaciones en CONMEBOL y el Johan Cruyff Institute. Actualmente, participo en la estrategia digital en UniSport y dirijo un proyecto personal de redes sociales con un impacto superior a 1.000.000 de personas. Mi enfoque fusiona la rigurosidad del management deportivo con la capacidad de conectar el deporte de élite con las audiencias masivas de la era digital.</p>
+      <button type="button" class="bio-toggle" aria-expanded="false" aria-controls="bio-fausto">
+        <span class="label-more" data-i18n="partners.bio.readMore">Leer sobre su experiencia</span>
+        <span class="label-less" data-i18n="partners.bio.readLess">Ver menos</span>
+        <span class="chevron" aria-hidden="true">▾</span>
+      </button>
     </div>
   </article>
 
@@ -226,7 +247,12 @@ footer a:hover { color: var(--gold); }
       <h2>Yoel García</h2>
       <span class="role">Partner</span>
       <div class="accent-line" aria-hidden="true"></div>
-      <p class="bio" data-i18n="partners.bio.yoel">Abogado con experiencia en consultoría deportiva, especializado en Derecho Deportivo y titular de licencia de Agente FIFA (No. 202606-12091). Su formación práctica incluye pasantías en el Real Madrid, donde adquirió experiencia directa en la gestión jurídica de un club de élite internacional; en despachos de abogados generalistas, que le aportaron una base sólida en distintas áreas del derecho; y en la Federación de Triatlón, ampliando su conocimiento del deporte federado y olímpico más allá del fútbol. Su perfil combina experiencia en representación y negociación de contratos, transferencias y traspasos de deportistas, asesoría a clubes y federaciones, y resolución de conflictos deportivos, con un enfoque integral que abarca tanto el deporte profesional como el amateur y federado.</p>
+      <p class="bio" id="bio-yoel" data-i18n="partners.bio.yoel">Abogado con experiencia en consultoría deportiva, especializado en Derecho Deportivo y titular de licencia de Agente FIFA (No. 202606-12091). Su formación práctica incluye pasantías en el Real Madrid, donde adquirió experiencia directa en la gestión jurídica de un club de élite internacional; en despachos de abogados generalistas, que le aportaron una base sólida en distintas áreas del derecho; y en la Federación de Triatlón, ampliando su conocimiento del deporte federado y olímpico más allá del fútbol. Su perfil combina experiencia en representación y negociación de contratos, transferencias y traspasos de deportistas, asesoría a clubes y federaciones, y resolución de conflictos deportivos, con un enfoque integral que abarca tanto el deporte profesional como el amateur y federado.</p>
+      <button type="button" class="bio-toggle" aria-expanded="false" aria-controls="bio-yoel">
+        <span class="label-more" data-i18n="partners.bio.readMore">Leer sobre su experiencia</span>
+        <span class="label-less" data-i18n="partners.bio.readLess">Ver menos</span>
+        <span class="chevron" aria-hidden="true">▾</span>
+      </button>
     </div>
   </article>
 
@@ -259,6 +285,20 @@ footer a:hover { color: var(--gold); }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     targets.forEach(function (el) { observer.observe(el); });
+  })();
+
+  (function () {
+    var toggles = document.querySelectorAll('.bio-toggle');
+    toggles.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        var bioId = btn.getAttribute('aria-controls');
+        var bio = document.getElementById(bioId);
+        if (!bio) return;
+        btn.setAttribute('aria-expanded', String(!expanded));
+        bio.classList.toggle('is-expanded', !expanded);
+      });
+    });
   })();
 </script>
 
