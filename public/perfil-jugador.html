@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluación de Perfil de Jugador — Uni Sport EC</title>
+<meta name="description" content="Formulario oficial de Uni Sport EC para jugadores interesados en incorporarse a clubes en España.">
+
+<!-- Vista previa al compartir el enlace en redes sociales (WhatsApp, Instagram, Facebook, LinkedIn, X...).
+     IMPORTANTE: reemplaza los dos valores "content" de abajo (og:url y og:image) en cuanto subas
+     esta página a unisportec.es, con la URL final donde quede publicada y con la URL de una imagen
+     (logo o foto de marca, idealmente 1200x630px) también alojada en unisportec.es. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Uni Sport EC">
+<meta property="og:title" content="Evaluación de Perfil de Jugador — Uni Sport EC">
+<meta property="og:description" content="¿Eres jugador y quieres que Uni Sport EC evalúe tu perfil? Completa el formulario oficial en un par de minutos.">
+<meta property="og:url" content="https://unisportec.es/perfil-jugador.html">
+<meta property="og:image" content="https://unisportec.es/assets/og-perfil-jugador.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Evaluación de Perfil de Jugador — Uni Sport EC">
+<meta name="twitter:description" content="¿Eres jugador y quieres que Uni Sport EC evalúe tu perfil? Completa el formulario oficial en un par de minutos.">
+<meta name="twitter:image" content="https://unisportec.es/assets/og-perfil-jugador.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#01062C;
+    --navy-2:#060F26;
+    --navy-3:#0A1535;
+    --gold:#C9A961;
+    --gold-soft:#B8924A;
+    --cream:#F5F1E8;
+    --white:#FFFFFF;
+    --ink:#1C2340;
+    --ink-soft:#4A5170;
+    --line:rgba(1,6,44,0.14);
+    --line-strong:rgba(1,6,44,0.30);
+    --danger:#9A3B3B;
+    --focus:#0A1535;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Montserrat","Raleway","Nunito",Arial,Helvetica,sans-serif;
+    font-weight:400;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold);color:var(--navy);}
+
+  h1,h2,h3,legend{
+    font-family:"Montserrat","Raleway",Arial,sans-serif;
+    text-wrap:balance;
+    margin:0;
+  }
+
+  a{color:var(--navy-3);}
+
+  /* ---------- progress rail ---------- */
+  #progress-rail{
+    position:fixed;
+    top:0; left:0; right:0;
+    height:4px;
+    background:rgba(1,6,44,0.10);
+    z-index:50;
+  }
+  #progress-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,var(--gold-soft),var(--gold));
+    transition:width .12s linear;
+  }
+
+  /* ---------- header ---------- */
+  header.masthead{
+    background:var(--navy);
+    background-image:
+      radial-gradient(1100px 420px at 12% -20%, rgba(201,169,97,0.10), transparent 60%),
+      linear-gradient(180deg,var(--navy) 0%, var(--navy-2) 100%);
+    color:var(--white);
+    padding:44px 24px 40px;
+  }
+  .masthead-inner{
+    max-width:760px;
+    margin:0 auto;
+  }
+  .brand-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding-bottom:26px;
+    margin-bottom:26px;
+    border-bottom:1px solid rgba(245,241,232,0.16);
+    flex-wrap:wrap;
+  }
+  .wordmark{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .compass{
+    width:30px;height:30px;flex:none;
+  }
+  .wordmark-text{
+    font-weight:700;
+    font-size:16px;
+    letter-spacing:2.5px;
+    color:var(--white);
+  }
+  .wordmark-tag{
+    font-weight:200;
+    font-size:10px;
+    letter-spacing:2px;
+    color:rgba(245,241,232,0.62);
+    text-transform:uppercase;
+    margin-top:2px;
+  }
+  .org-tag{
+    font-weight:200;
+    font-size:10.5px;
+    letter-spacing:1.6px;
+    color:rgba(245,241,232,0.5);
+    text-transform:uppercase;
+    text-align:right;
+  }
+  h1.title{
+    font-weight:800;
+    font-size:clamp(26px,4.4vw,36px);
+    letter-spacing:0.2px;
+    line-height:1.14;
+    color:var(--white);
+  }
+  .title-rule{
+    width:64px;height:3px;background:var(--gold);
+    margin:16px 0 16px;
+    border-radius:2px;
+  }
+  p.intro{
+    font-weight:300;
+    font-size:15px;
+    color:rgba(245,241,232,0.82);
+    max-width:62ch;
+    margin:0 0 20px;
+  }
+  .meta-chip-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .meta-chip{
+    font-size:10.5px;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    font-weight:500;
+    color:var(--navy);
+    background:var(--gold);
+    padding:6px 12px;
+    border-radius:3px;
+  }
+  .meta-chip.outline{
+    background:transparent;
+    color:rgba(245,241,232,0.85);
+    border:1px solid rgba(245,241,232,0.35);
+  }
+
+  /* ---------- layout ---------- */
+  main{
+    max-width:760px;
+    margin:0 auto;
+    padding:40px 24px 16px;
+  }
+
+  .lead-note{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-left:3px solid var(--gold);
+    border-radius:4px;
+    padding:16px 18px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    font-weight:400;
+    margin-bottom:36px;
+  }
+  .lead-note strong{color:var(--ink);font-weight:600;}
+
+  fieldset{
+    border:none;
+    margin:0 0 44px;
+    padding:0;
+  }
+  fieldset legend{
+    width:100%;
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    padding:0 0 10px;
+    margin-bottom:22px;
+    border-bottom:2px solid var(--gold);
+  }
+  .sec-num{
+    font-weight:800;
+    font-size:20px;
+    color:var(--gold-soft);
+    flex:none;
+  }
+  .sec-title{
+    font-weight:700;
+    font-size:16.5px;
+    letter-spacing:0.6px;
+    text-transform:uppercase;
+    color:var(--navy);
+  }
+  .sec-help{
+    font-weight:400;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin:-14px 0 20px;
+    max-width:64ch;
+  }
+
+  .field{
+    margin-bottom:20px;
+  }
+  .field label.q{
+    display:block;
+    font-weight:600;
+    font-size:13.5px;
+    color:var(--ink);
+    margin-bottom:8px;
+  }
+  .field label.q .req{
+    color:var(--danger);
+    margin-left:2px;
+    font-weight:700;
+  }
+  .field .hint{
+    display:block;
+    font-weight:300;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea{
+    width:100%;
+    font-family:inherit;
+    font-size:14.5px;
+    font-weight:400;
+    color:var(--ink);
+    background:var(--white);
+    border:1px solid var(--line-strong);
+    border-radius:4px;
+    padding:11px 13px;
+    line-height:1.4;
+  }
+  textarea{resize:vertical;min-height:88px;}
+  input::placeholder,textarea::placeholder{color:#9AA0B4;font-weight:300;}
+  input:focus,select:focus,textarea:focus{
+    outline:2px solid var(--focus);
+    outline-offset:1px;
+    border-color:var(--focus);
+  }
+  input.touched:invalid,textarea.touched:invalid,select.touched:invalid{border-color:var(--danger);}
+
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+  @media (max-width:560px){
+    .row2,.row3{grid-template-columns:1fr;}
+  }
+
+  /* radio / choice pills */
+  .choice-group{display:flex;gap:10px;flex-wrap:wrap;}
+  .choice-group label{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    font-size:13.5px;
+    font-weight:500;
+    color:var(--ink);
+    background:var(--white);
+    border:1px solid var(--line-strong);
+    border-radius:20px;
+    padding:8px 16px;
+    cursor:pointer;
+    transition:border-color .12s, background .12s;
+  }
+  .choice-group input[type="radio"],
+  .choice-group input[type="checkbox"]{
+    accent-color:var(--navy);
+    width:14px;height:14px;
+    margin:0;
+  }
+  .choice-group label:has(input:checked){
+    border-color:var(--navy);
+    background:rgba(1,6,44,0.05);
+  }
+  .choice-group label:has(input:focus-visible){
+    outline:2px solid var(--focus);
+    outline-offset:2px;
+  }
+
+  .conditional{
+    margin-top:12px;
+    padding:14px 16px;
+    background:rgba(201,169,97,0.08);
+    border:1px dashed var(--line-strong);
+    border-radius:4px;
+    display:none;
+  }
+  .conditional.show{display:block;}
+
+  /* trajectory table */
+  .table-wrap{overflow-x:auto;border:1px solid var(--line-strong);border-radius:4px;}
+  table.traj{width:100%;border-collapse:collapse;min-width:640px;background:var(--white);}
+  table.traj th{
+    background:var(--navy);
+    color:var(--white);
+    font-size:10.5px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-weight:600;
+    text-align:left;
+    padding:10px 10px;
+  }
+  table.traj td{
+    padding:6px;
+    border-top:1px solid var(--line);
+  }
+  table.traj input{border:1px solid var(--line);padding:8px 9px;font-size:13px;border-radius:3px;}
+  .traj-actions{display:flex;justify-content:space-between;align-items:center;margin-top:10px;}
+  .row-remove{
+    background:none;border:none;color:var(--danger);font-size:12px;font-weight:600;
+    cursor:pointer;padding:6px;text-decoration:underline;
+  }
+  .btn-ghost{
+    background:none;
+    border:1px solid var(--line-strong);
+    color:var(--navy);
+    font-family:inherit;
+    font-weight:600;
+    font-size:12.5px;
+    letter-spacing:0.4px;
+    padding:9px 16px;
+    border-radius:4px;
+    cursor:pointer;
+  }
+  .btn-ghost:hover{border-color:var(--navy);background:rgba(1,6,44,0.04);}
+
+  /* consent */
+  .consent-block{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    background:var(--white);
+    border:1px solid var(--line-strong);
+    border-radius:4px;
+    padding:16px;
+    margin-bottom:14px;
+  }
+  .consent-block input[type="checkbox"]{
+    accent-color:var(--navy);
+    width:17px;height:17px;
+    margin-top:2px;
+    flex:none;
+  }
+  .consent-block p{margin:0;font-size:13.5px;color:var(--ink);}
+
+  /* submit zone */
+  .submit-zone{
+    background:var(--navy);
+    border-radius:6px;
+    padding:30px 26px;
+    margin-top:8px;
+  }
+  .submit-zone h3{
+    color:var(--white);
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:0.4px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .submit-zone p{
+    color:rgba(245,241,232,0.75);
+    font-size:13px;
+    font-weight:300;
+    margin:0 0 18px;
+    max-width:60ch;
+  }
+  #validation-msg{
+    color:#E7B9B9;
+    font-size:13px;
+    font-weight:500;
+    margin:0 0 14px;
+    display:none;
+  }
+  #validation-msg.show{display:block;}
+  .btn-primary{
+    background:var(--gold);
+    color:var(--navy);
+    border:none;
+    font-family:inherit;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:0.4px;
+    padding:14px 26px;
+    border-radius:4px;
+    cursor:pointer;
+  }
+  .btn-primary:hover{background:#D8BC7C;}
+  .btn-primary:focus-visible{outline:2px solid var(--white);outline-offset:2px;}
+
+  /* review panel */
+  #review-panel{display:none;margin-top:22px;}
+  #review-panel.show{display:block;}
+  #review-panel .summary-box{
+    background:var(--white);
+    border-radius:4px;
+    padding:4px;
+  }
+  #review-text{
+    width:100%;
+    min-height:260px;
+    font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+    font-size:11.5px;
+    line-height:1.6;
+    color:var(--ink);
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:14px;
+  }
+  .action-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:14px;
+  }
+  .btn-secondary{
+    background:transparent;
+    color:var(--white);
+    border:1px solid rgba(245,241,232,0.4);
+    font-family:inherit;
+    font-weight:600;
+    font-size:12.5px;
+    padding:11px 18px;
+    border-radius:4px;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
+  #copy-feedback,#download-feedback{
+    font-size:12px;color:var(--gold);font-weight:600;margin-left:2px;display:none;
+  }
+
+  footer{
+    max-width:760px;
+    margin:44px auto 0;
+    padding:22px 24px 40px;
+    border-top:1px solid var(--line);
+  }
+  footer .foot-row{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+    font-size:10.5px;letter-spacing:0.6px;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:500;
+  }
+  footer .privacy{
+    margin-top:14px;font-size:12px;color:var(--ink-soft);font-weight:300;line-height:1.6;max-width:66ch;
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    #progress-fill{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-rail"><div id="progress-fill"></div></div>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand-row">
+      <div class="wordmark">
+        <svg class="compass" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="18.5" stroke="#C9A961" stroke-width="1.4"/>
+          <path d="M20 7 L24.5 20 L20 33 L15.5 20 Z" fill="none" stroke="#F5F1E8" stroke-width="1.1"/>
+          <path d="M20 7 L22.3 20 L20 20 Z" fill="#C9A961"/>
+          <circle cx="20" cy="20" r="2.4" fill="#C9A961"/>
+        </svg>
+        <div>
+          <div class="wordmark-text">UNI SPORT EC</div>
+          <div class="wordmark-tag">Events &amp; Consulting</div>
+        </div>
+      </div>
+      <div class="org-tag">Unisport Events &amp; Consulting</div>
+    </div>
+
+    <h1 class="title">Evaluación de Perfil<br/>Profesional de Jugador</h1>
+    <div class="title-rule"></div>
+    <p class="intro">Formulario oficial de Uni Sport EC para jugadores interesados en incorporarse a clubes en España. La información que compartas aquí es la base con la que gestionamos tu representación ante clubes y agentes.</p>
+
+    <div class="meta-chip-row">
+      <span class="meta-chip">9 secciones</span>
+      <span class="meta-chip outline" id="chip-time">≈ 12–15 min</span>
+      <span class="meta-chip outline">Confidencial</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <p class="lead-note"><strong>Antes de empezar:</strong> responde con la mayor precisión posible. Los datos deportivos y contractuales que declares aquí son los que Uni Sport EC presenta a clubes y agentes en tu nombre — la precisión juega a tu favor.</p>
+
+  <form id="player-form" novalidate>
+
+    <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+      <label for="f-website">No completar este campo</label>
+      <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <!-- 1. INFORMACIÓN PERSONAL -->
+    <fieldset>
+      <legend><span class="sec-num">1.</span><span class="sec-title">Información personal</span></legend>
+
+      <div class="field">
+        <label class="q" for="f-nombre">Nombre completo<span class="req">*</span></label>
+        <input type="text" id="f-nombre" name="nombre" required autocomplete="name">
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label class="q" for="f-nacimiento">Fecha de nacimiento<span class="req">*</span></label>
+          <input type="date" id="f-nacimiento" name="nacimiento" required>
+        </div>
+        <div class="field">
+          <label class="q" for="f-nacionalidad">Nacionalidad<span class="req">*</span></label>
+          <input type="text" id="f-nacionalidad" name="nacionalidad" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q" for="f-segunda-nac">Segunda nacionalidad / ascendencia UE en trámite</label>
+        <input type="text" id="f-segunda-nac" name="segunda_nacionalidad" placeholder="Déjalo en blanco si no aplica">
+        <span class="hint">Relevante si no cuentas con pasaporte comunitario — nos ayuda a identificar vías de nacionalización.</span>
+      </div>
+
+      <div class="field">
+        <label class="q">¿Tienes pasaporte o permiso de trabajo para España o la Unión Europea?<span class="req">*</span></label>
+        <div class="choice-group" role="radiogroup">
+          <label><input type="radio" name="pasaporte_ue" value="Sí" required> Sí</label>
+          <label><input type="radio" name="pasaporte_ue" value="No"> No</label>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label class="q" for="f-telefono">Número de teléfono de contacto<span class="req">*</span></label>
+          <input type="tel" id="f-telefono" name="telefono" required autocomplete="tel" placeholder="+34 600 000 000">
+        </div>
+        <div class="field">
+          <label class="q" for="f-email">Correo electrónico<span class="req">*</span></label>
+          <input type="email" id="f-email" name="email" required autocomplete="email">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 2. SITUACIÓN DE REPRESENTACIÓN -->
+    <fieldset>
+      <legend><span class="sec-num">2.</span><span class="sec-title">Situación de representación</span></legend>
+      <p class="sec-help">Necesitamos confirmar esto antes de gestionar tu traspaso con cualquier club o agente.</p>
+
+      <div class="field">
+        <label class="q">¿Actualmente tienes agente o representante?<span class="req">*</span></label>
+        <div class="choice-group" role="radiogroup">
+          <label><input type="radio" name="tiene_agente" value="Sí" required data-toggle="cond-agente"> Sí</label>
+          <label><input type="radio" name="tiene_agente" value="No" data-toggle="cond-agente"> No</label>
+        </div>
+      </div>
+
+      <div class="conditional" id="cond-agente">
+        <div class="field">
+          <label class="q">¿La representación es exclusiva o no exclusiva?</label>
+          <div class="choice-group" role="radiogroup">
+            <label><input type="radio" name="tipo_representacion" value="Exclusiva"> Exclusiva</label>
+            <label><input type="radio" name="tipo_representacion" value="No exclusiva"> No exclusiva</label>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label class="q" for="f-agente-contacto">Nombre y contacto del agente</label>
+          <input type="text" id="f-agente-contacto" name="agente_contacto">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 3. PERFIL DEPORTIVO -->
+    <fieldset>
+      <legend><span class="sec-num">3.</span><span class="sec-title">Perfil deportivo</span></legend>
+
+      <div class="row2">
+        <div class="field">
+          <label class="q" for="f-pos-principal">Posición principal<span class="req">*</span></label>
+          <input type="text" id="f-pos-principal" name="posicion_principal" required placeholder="Ej. Defensa central">
+        </div>
+        <div class="field">
+          <label class="q" for="f-pos-secundaria">Posición(es) secundaria(s)</label>
+          <input type="text" id="f-pos-secundaria" name="posicion_secundaria">
+        </div>
+      </div>
+
+      <div class="row3">
+        <div class="field">
+          <label class="q" for="f-altura">Altura (cm)</label>
+          <input type="number" id="f-altura" name="altura" min="120" max="230">
+        </div>
+        <div class="field">
+          <label class="q" for="f-peso">Peso (kg)</label>
+          <input type="number" id="f-peso" name="peso" min="30" max="150">
+        </div>
+        <div class="field">
+          <label class="q">Pie dominante</label>
+          <div class="choice-group" role="radiogroup">
+            <label><input type="radio" name="pie" value="Derecho"> Derecho</label>
+            <label><input type="radio" name="pie" value="Izquierdo"> Izquierdo</label>
+            <label><input type="radio" name="pie" value="Ambos"> Ambos</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q" for="f-estilo">¿Cómo describirías tu estilo de juego y tus 4 principales fortalezas?</label>
+        <textarea id="f-estilo" name="estilo_juego" placeholder="Respuesta abierta + 4 atributos principales"></textarea>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label class="q" for="f-liga-equipo">¿En qué liga y equipo juegas actualmente?<span class="req">*</span></label>
+          <input type="text" id="f-liga-equipo" name="liga_equipo" required>
+        </div>
+        <div class="field">
+          <label class="q" for="f-nivel-liga">Nivel competitivo de tu liga actual</label>
+          <select id="f-nivel-liga" name="nivel_liga">
+            <option value="">Selecciona...</option>
+            <option>Profesional</option>
+            <option>Semiprofesional</option>
+            <option>Amateur</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="sec-help" style="margin-top:4px;">Estadísticas de la temporada pasada</p>
+      <div class="row2">
+        <div class="field">
+          <label class="q" for="f-partidos">Partidos jugados</label>
+          <input type="number" id="f-partidos" name="partidos" min="0">
+        </div>
+        <div class="field">
+          <label class="q" for="f-minutos">Minutos jugados</label>
+          <input type="number" id="f-minutos" name="minutos" min="0">
+        </div>
+      </div>
+      <div class="row3">
+        <div class="field">
+          <label class="q" for="f-goles">Goles</label>
+          <input type="number" id="f-goles" name="goles" min="0">
+        </div>
+        <div class="field">
+          <label class="q" for="f-asistencias">Asistencias</label>
+          <input type="number" id="f-asistencias" name="asistencias" min="0">
+        </div>
+        <div class="field">
+          <label class="q" for="f-amarillas">Tarjetas amarillas</label>
+          <input type="number" id="f-amarillas" name="amarillas" min="0">
+        </div>
+      </div>
+      <div class="field" style="max-width:33%;">
+        <label class="q" for="f-rojas">Tarjetas rojas</label>
+        <input type="number" id="f-rojas" name="rojas" min="0">
+      </div>
+
+      <div class="field">
+        <label class="q">Trayectoria del jugador (temporada por temporada)</label>
+        <div class="table-wrap">
+          <table class="traj" id="traj-table">
+            <thead>
+              <tr>
+                <th>Temporada</th><th>Equipo</th><th>División</th><th>Partidos</th><th>Minutos</th><th>Goles / Asist.</th><th></th>
+              </tr>
+            </thead>
+            <tbody id="traj-body"></tbody>
+          </table>
+        </div>
+        <div class="traj-actions">
+          <button type="button" class="btn-ghost" id="add-row">+ Añadir temporada</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q">¿Has jugado en selecciones nacionales o torneos internacionales?</label>
+        <div class="choice-group" role="radiogroup">
+          <label><input type="radio" name="selecciones" value="Sí" data-toggle="cond-selecciones"> Sí</label>
+          <label><input type="radio" name="selecciones" value="No" data-toggle="cond-selecciones"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="cond-selecciones">
+        <div class="field" style="margin-bottom:0;">
+          <label class="q" for="f-selecciones-detalle">Especifica: país, equipo principal o categoría Sub</label>
+          <textarea id="f-selecciones-detalle" name="selecciones_detalle"></textarea>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 4. ESTADO FÍSICO E HISTORIAL DE LESIONES -->
+    <fieldset>
+      <legend><span class="sec-num">4.</span><span class="sec-title">Estado físico e historial de lesiones</span></legend>
+
+      <div class="field">
+        <label class="q">¿Actualmente estás al 100% apto para competir?<span class="req">*</span></label>
+        <div class="choice-group" role="radiogroup">
+          <label><input type="radio" name="apto" value="Sí" required> Sí</label>
+          <label><input type="radio" name="apto" value="No"> No</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q">¿Has tenido lesiones graves durante tu carrera?</label>
+        <div class="choice-group" role="radiogroup">
+          <label><input type="radio" name="lesiones" value="Sí" data-toggle="cond-lesiones"> Sí</label>
+          <label><input type="radio" name="lesiones" value="No" data-toggle="cond-lesiones"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="cond-lesiones">
+        <div class="field">
+          <label class="q" for="f-lesiones-detalle">Detalla tipo de lesión, fecha, duración de la recuperación y estado actual</label>
+          <textarea id="f-lesiones-detalle" name="lesiones_detalle"></textarea>
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label class="q">¿Recuperación totalmente confirmada por el cuerpo médico / informe médico más reciente disponible?</label>
+          <div class="choice-group" role="radiogroup" style="margin-bottom:10px;">
+            <label><input type="radio" name="recuperacion_confirmada" value="Sí"> Sí</label>
+            <label><input type="radio" name="recuperacion_confirmada" value="No"> No</label>
+          </div>
+          <label class="q" for="f-recuperacion-fecha">Fecha del informe (si aplica)</label>
+          <input type="date" id="f-recuperacion-fecha" name="recuperacion_fecha">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 5. ASPECTOS CONTRACTUALES -->
+    <fieldset>
+      <legend><span class="sec-num">5.</span><span class="sec-title">Aspectos contractuales</span></legend>
+
+      <div class="field">
+        <label class="q">¿Actualmente tienes contrato con algún club?</label>
+        <div class="choice-group" role="radiogroup">
+          <label><input type="radio" name="tiene_contrato" value="Sí" data-toggle="cond-contrato"> Sí</label>
+          <label><input type="radio" name="tiene_contrato" value="No" data-toggle="cond-contrato"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="cond-contrato">
+        <div class="field">
+          <label class="q" for="f-contrato-fin">¿Cuándo finaliza?</label>
+          <input type="date" id="f-contrato-fin" name="contrato_fin">
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label class="q">¿Existe alguna cláusula de rescisión?</label>
+          <div class="choice-group" role="radiogroup" style="margin-bottom:10px;">
+            <label><input type="radio" name="clausula" value="Sí" data-toggle="cond-clausula"> Sí</label>
+            <label><input type="radio" name="clausula" value="No" data-toggle="cond-clausula"> No</label>
+          </div>
+          <div class="conditional" id="cond-clausula" style="background:transparent;border:none;padding:0;margin-top:0;">
+            <label class="q" for="f-clausula-monto">¿Cuál es el monto (EUR)?</label>
+            <input type="text" id="f-clausula-monto" name="clausula_monto" placeholder="Ej. 500.000 €">
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q">¿Estarías disponible para incorporarte a un club en España en los próximos meses?<span class="req">*</span></label>
+        <div class="choice-group" role="radiogroup">
+          <label><input type="radio" name="disponible" value="Sí" required> Sí</label>
+          <label><input type="radio" name="disponible" value="No"> No</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 6. DESTINO OBJETIVO -->
+    <fieldset>
+      <legend><span class="sec-num">6.</span><span class="sec-title">Destino objetivo</span></legend>
+
+      <div class="field">
+        <label class="q" for="f-destino-pais">País(es) / liga(s) / categoría de preferencia</label>
+        <input type="text" id="f-destino-pais" name="destino_pais">
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <label class="q" for="f-destino-clubes">Clubes específicos de interés</label>
+        <input type="text" id="f-destino-clubes" name="destino_clubes" placeholder="Si aplica">
+      </div>
+    </fieldset>
+
+    <!-- 7. INFORMACIÓN ADICIONAL -->
+    <fieldset>
+      <legend><span class="sec-num">7.</span><span class="sec-title">Información adicional</span></legend>
+
+      <div class="field">
+        <label class="q" for="f-idiomas">¿Qué idiomas hablas y cuál es tu nivel de dominio?</label>
+        <textarea id="f-idiomas" name="idiomas"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="q">¿Tienes experiencia previa en Europa o en clubes españoles?</label>
+        <div class="choice-group" role="radiogroup">
+          <label><input type="radio" name="exp_europa" value="Sí" data-toggle="cond-exp-europa"> Sí</label>
+          <label><input type="radio" name="exp_europa" value="No" data-toggle="cond-exp-europa"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="cond-exp-europa">
+        <div class="field" style="margin-bottom:0;">
+          <label class="q" for="f-exp-europa-detalle">Explica brevemente</label>
+          <textarea id="f-exp-europa-detalle" name="exp_europa_detalle"></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q" for="f-salario">¿Cuál es tu expectativa salarial aproximada? (en euros)</label>
+        <input type="text" id="f-salario" name="salario" placeholder="Ej. 3.000 €/mes">
+        <div class="choice-group" role="radiogroup" style="margin-top:10px;">
+          <label><input type="radio" name="salario_tipo" value="Bruto"> Bruto</label>
+          <label><input type="radio" name="salario_tipo" value="Neto"> Neto</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q" for="f-videos-links">Enlaces a tus videos / highlights</label>
+        <textarea id="f-videos-links" name="videos_links" placeholder="YouTube, Instagram, Google Drive, WeTransfer... — un enlace por línea. Incluye highlights y, si puedes, un partido completo reciente."></textarea>
+        <span class="hint">Es uno de los datos que más ayuda a un club a decidir rápido — inclúyelo si lo tienes.</span>
+      </div>
+
+      <div class="field">
+        <label class="q">¿Tienes contactos o recomendaciones de entrenadores, agentes o clubes?</label>
+        <div class="choice-group" role="radiogroup">
+          <label><input type="radio" name="tiene_contactos" value="Sí" data-toggle="cond-contactos"> Sí</label>
+          <label><input type="radio" name="tiene_contactos" value="No" data-toggle="cond-contactos"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="cond-contactos">
+        <div class="field" style="margin-bottom:0;">
+          <label class="q" for="f-contactos-detalle">Proporciona los detalles</label>
+          <textarea id="f-contactos-detalle" name="contactos_detalle"></textarea>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 8. MENTALIDAD Y PROFESIONALISMO -->
+    <fieldset>
+      <legend><span class="sec-num">8.</span><span class="sec-title">Mentalidad y profesionalismo</span></legend>
+
+      <div class="field">
+        <label class="q" for="f-motivacion">¿Cuál consideras que es tu principal motivación para jugar en España?</label>
+        <textarea id="f-motivacion" name="motivacion"></textarea>
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <label class="q" for="f-etica">¿Cómo describirías tu ética de trabajo y compromiso con el equipo?</label>
+        <textarea id="f-etica" name="etica"></textarea>
+      </div>
+    </fieldset>
+
+    <!-- 9. CONSENTIMIENTO Y DECLARACIÓN -->
+    <fieldset>
+      <legend><span class="sec-num">9.</span><span class="sec-title">Consentimiento y declaración</span></legend>
+
+      <div class="consent-block">
+        <input type="checkbox" id="f-consent-share" name="consent_share" required>
+        <p>Autorizo a Uni Sport EC a usar y compartir esta información, incluyendo enlaces de video y datos personales, con clubes y agentes con fines de representación.<span class="req">*</span></p>
+      </div>
+      <div class="consent-block" style="margin-bottom:24px;">
+        <input type="checkbox" id="f-consent-veraz" name="consent_veraz" required>
+        <p>Declaro que la información proporcionada en este documento es verdadera y precisa según mi leal saber y entender.<span class="req">*</span></p>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label class="q" for="f-firma">Firma (nombre completo)<span class="req">*</span></label>
+          <input type="text" id="f-firma" name="firma" required>
+        </div>
+        <div class="field">
+          <label class="q" for="f-fecha-firma">Fecha</label>
+          <input type="date" id="f-fecha-firma" name="fecha_firma">
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="submit-zone">
+      <h3>Enviar a Uni Sport EC</h3>
+      <p>Al enviar, tus datos se guardan automáticamente en el sistema interno de Uni Sport EC. Además generamos un resumen de tus respuestas por si quieres conservarlo, reenviarlo por correo o verificar que todo llegó bien.</p>
+      <p id="validation-msg"></p>
+      <button type="submit" class="btn-primary" id="submit-btn">Revisar y enviar mi perfil</button>
+    </div>
+
+    <div id="review-panel">
+      <div class="submit-zone" style="margin-top:18px;">
+        <h3 id="review-title">Tu perfil fue enviado</h3>
+        <p id="send-status">Enviando tus respuestas a la cartera de jugadores de Uni Sport EC…</p>
+        <div class="summary-box">
+          <textarea id="review-text" readonly></textarea>
+        </div>
+        <div class="action-row">
+          <a class="btn-secondary" id="mailto-btn" href="#">✉ Enviar por correo</a>
+          <button type="button" class="btn-secondary" id="download-btn">⬇ Descargar (.txt)</button>
+          <button type="button" class="btn-secondary" id="copy-btn">⧉ Copiar todo</button>
+          <span id="copy-feedback">Copiado ✓</span>
+          <span id="download-feedback">Descargado ✓</span>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</main>
+
+<footer>
+  <div class="foot-row">
+    <span>Uni Sport EC — Documento confidencial</span>
+    <span>unisportec.es</span>
+  </div>
+  <p class="privacy">Al enviarlo, este formulario añade tus respuestas directamente a una hoja de cálculo interna de Uni Sport EC, de uso privado del equipo. También puedes descargar o copiar un resumen de tus respuestas para tu propio archivo.</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var DEST_EMAIL = "bnaranjo@unisportec.es";
+
+  // Pega aquí la URL del Web App de Apps Script (termina en /exec) una vez
+  // desplegado — ver instrucciones en codigo_apps_script.gs.
+  var SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzp8ELWy3FI5-KZpEJI8tW3w_jniBvBZxSy3ZHvyvOupLSU3H0GunSb7rB2dqZJHjPr6A/exec";
+
+  function sendToSheet(payload){
+    if(!SHEET_WEBAPP_URL || SHEET_WEBAPP_URL.indexOf("https://script.google.com") !== 0){
+      return Promise.resolve({ok:false, reason:"not_configured"});
+    }
+    return fetch(SHEET_WEBAPP_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {"Content-Type": "text/plain;charset=utf-8"},
+      body: JSON.stringify(payload)
+    }).then(function(){
+      return {ok:true};
+    }).catch(function(){
+      return {ok:false, reason:"network"};
+    });
+  }
+
+  /* ---------------- progress rail ---------------- */
+  function updateProgress(){
+    var doc = document.documentElement;
+    var scrollTop = window.scrollY || doc.scrollTop;
+    var height = (doc.scrollHeight - doc.clientHeight) || 1;
+    var pct = Math.min(100, Math.max(0,(scrollTop/height)*100));
+    document.getElementById("progress-fill").style.width = pct+"%";
+  }
+  window.addEventListener("scroll", updateProgress, {passive:true});
+  window.addEventListener("resize", updateProgress);
+  updateProgress();
+
+  /* ---------------- touched-state validity styling ---------------- */
+  document.querySelectorAll("input, textarea, select").forEach(function(el){
+    el.addEventListener("blur", function(){ el.classList.add("touched"); });
+  });
+
+  /* ---------------- conditional sections ---------------- */
+  var toggles = document.querySelectorAll("[data-toggle]");
+  toggles.forEach(function(el){
+    el.addEventListener("change", function(){
+      var targetId = el.getAttribute("data-toggle");
+      var target = document.getElementById(targetId);
+      if(!target) return;
+      if(el.value === "Sí"){
+        target.classList.add("show");
+      } else {
+        target.classList.remove("show");
+      }
+    });
+  });
+
+  /* ---------------- trajectory table ---------------- */
+  var trajBody = document.getElementById("traj-body");
+  var trajCols = ["temporada","equipo","division","partidos","minutos","goles_asist"];
+  var trajPlaceholders = ["2023/24","Club FC","1ª RFEF","28","2340","6 / 4"];
+
+  function addTrajRow(){
+    var tr = document.createElement("tr");
+    trajCols.forEach(function(col, i){
+      var td = document.createElement("td");
+      var input = document.createElement("input");
+      input.type = "text";
+      input.name = "traj_"+col;
+      input.placeholder = trajPlaceholders[i];
+      td.appendChild(input);
+      tr.appendChild(td);
+    });
+    var tdBtn = document.createElement("td");
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "row-remove";
+    btn.textContent = "Quitar";
+    btn.addEventListener("click", function(){ tr.remove(); });
+    tdBtn.appendChild(btn);
+    tr.appendChild(tdBtn);
+    trajBody.appendChild(tr);
+  }
+  for(var i=0;i<4;i++){ addTrajRow(); }
+  document.getElementById("add-row").addEventListener("click", addTrajRow);
+
+  /* ---------------- helpers ---------------- */
+  function val(name){
+    var els = document.getElementsByName(name);
+    if(!els.length) return "";
+    if(els[0].type === "radio"){
+      for(var i=0;i<els.length;i++){ if(els[i].checked) return els[i].value; }
+      return "";
+    }
+    if(els[0].type === "checkbox"){
+      return els[0].checked ? "Sí" : "No";
+    }
+    return els[0].value.trim();
+  }
+
+  function fmtDate(iso){
+    if(!iso) return "";
+    var parts = iso.split("-");
+    if(parts.length !== 3) return iso;
+    return parts[2]+"/"+parts[1]+"/"+parts[0];
+  }
+
+  function line(label, value){
+    if(!value) value = "—";
+    return label+": "+value;
+  }
+
+  function buildTrajectoryLines(){
+    var rows = trajBody.querySelectorAll("tr");
+    var out = [];
+    rows.forEach(function(tr){
+      var inputs = tr.querySelectorAll("input");
+      var vals = [];
+      inputs.forEach(function(inp){ vals.push(inp.value.trim()); });
+      if(vals.some(function(v){ return v; })){
+        out.push("  · "+(vals[0]||"—")+" — "+(vals[1]||"—")+" ("+(vals[2]||"—")+") · "+(vals[3]||"—")+" PJ · "+(vals[4]||"—")+" min · "+(vals[5]||"—"));
+      }
+    });
+    return out.length ? out.join("\n") : "  · (sin registrar)";
+  }
+
+  function buildSummary(){
+    var L = [];
+    L.push("EVALUACIÓN DE PERFIL PROFESIONAL DE JUGADOR");
+    L.push("Uni Sport EC — Events & Consulting");
+    L.push("Fecha de envío: "+fmtDate(new Date().toISOString().slice(0,10)));
+    L.push("");
+    L.push("1. INFORMACIÓN PERSONAL");
+    L.push(line("Nombre completo", val("nombre")));
+    L.push(line("Fecha de nacimiento", fmtDate(val("nacimiento"))));
+    L.push(line("Nacionalidad", val("nacionalidad")));
+    L.push(line("Segunda nacionalidad / ascendencia UE", val("segunda_nacionalidad")));
+    L.push(line("Pasaporte / permiso UE", val("pasaporte_ue")));
+    L.push(line("Teléfono", val("telefono")));
+    L.push(line("Correo electrónico", val("email")));
+    L.push("");
+    L.push("2. SITUACIÓN DE REPRESENTACIÓN");
+    L.push(line("¿Tiene agente?", val("tiene_agente")));
+    L.push(line("Tipo de representación", val("tipo_representacion")));
+    L.push(line("Agente / contacto", val("agente_contacto")));
+    L.push("");
+    L.push("3. PERFIL DEPORTIVO");
+    L.push(line("Posición principal", val("posicion_principal")));
+    L.push(line("Posición(es) secundaria(s)", val("posicion_secundaria")));
+    L.push(line("Altura (cm)", val("altura")));
+    L.push(line("Peso (kg)", val("peso")));
+    L.push(line("Pie dominante", val("pie")));
+    L.push(line("Estilo de juego / fortalezas", val("estilo_juego")));
+    L.push(line("Liga y equipo actual", val("liga_equipo")));
+    L.push(line("Nivel competitivo", val("nivel_liga")));
+    L.push(line("Partidos jugados (temp. pasada)", val("partidos")));
+    L.push(line("Minutos jugados (temp. pasada)", val("minutos")));
+    L.push(line("Goles", val("goles")));
+    L.push(line("Asistencias", val("asistencias")));
+    L.push(line("Tarjetas amarillas", val("amarillas")));
+    L.push(line("Tarjetas rojas", val("rojas")));
+    L.push("Trayectoria (temporada — equipo (división) · PJ · min · G/A):");
+    L.push(buildTrajectoryLines());
+    L.push(line("Selecciones / torneos internacionales", val("selecciones")));
+    L.push(line("Detalle selecciones", val("selecciones_detalle")));
+    L.push("");
+    L.push("4. ESTADO FÍSICO E HISTORIAL DE LESIONES");
+    L.push(line("¿100% apto para competir?", val("apto")));
+    L.push(line("¿Lesiones graves en su carrera?", val("lesiones")));
+    L.push(line("Detalle de lesiones", val("lesiones_detalle")));
+    L.push(line("Recuperación confirmada por informe médico", val("recuperacion_confirmada")));
+    L.push(line("Fecha del informe", fmtDate(val("recuperacion_fecha"))));
+    L.push("");
+    L.push("5. ASPECTOS CONTRACTUALES");
+    L.push(line("¿Contrato vigente con un club?", val("tiene_contrato")));
+    L.push(line("Fecha de finalización", fmtDate(val("contrato_fin"))));
+    L.push(line("¿Cláusula de rescisión?", val("clausula")));
+    L.push(line("Monto de la cláusula (EUR)", val("clausula_monto")));
+    L.push(line("¿Disponible próximos meses?", val("disponible")));
+    L.push("");
+    L.push("6. DESTINO OBJETIVO");
+    L.push(line("País(es) / liga(s) / categoría de preferencia", val("destino_pais")));
+    L.push(line("Clubes específicos de interés", val("destino_clubes")));
+    L.push("");
+    L.push("7. INFORMACIÓN ADICIONAL");
+    L.push(line("Idiomas y nivel de dominio", val("idiomas")));
+    L.push(line("Experiencia previa en Europa / España", val("exp_europa")));
+    L.push(line("Detalle experiencia", val("exp_europa_detalle")));
+    L.push(line("Expectativa salarial", val("salario")+(val("salario_tipo")?" ("+val("salario_tipo")+")":"")));
+    L.push(line("Enlaces de video / highlights", val("videos_links")));
+    L.push(line("¿Contactos / recomendaciones?", val("tiene_contactos")));
+    L.push(line("Detalle de contactos", val("contactos_detalle")));
+    L.push("");
+    L.push("8. MENTALIDAD Y PROFESIONALISMO");
+    L.push(line("Motivación principal", val("motivacion")));
+    L.push(line("Ética de trabajo y compromiso", val("etica")));
+    L.push("");
+    L.push("9. CONSENTIMIENTO Y DECLARACIÓN");
+    L.push(line("Autoriza uso y difusión con clubes/agentes", document.getElementById("f-consent-share").checked ? "Sí" : "No"));
+    L.push(line("Declara veracidad de la información", document.getElementById("f-consent-veraz").checked ? "Sí" : "No"));
+    L.push(line("Firma", val("firma")));
+    L.push(line("Fecha", fmtDate(val("fecha_firma")) || fmtDate(new Date().toISOString().slice(0,10))));
+    L.push("");
+    L.push("— Documento generado desde el formulario público de Uni Sport EC —");
+    return L.join("\n");
+  }
+
+  /* ---------------- submit / review ---------------- */
+  var form = document.getElementById("player-form");
+  var reviewPanel = document.getElementById("review-panel");
+  var validationMsg = document.getElementById("validation-msg");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function buildPayload(summary){
+    return {
+      website: val("website"), // honeypot — debe llegar vacío
+      nombre: val("nombre"),
+      nacimiento: val("nacimiento"),
+      nacionalidad: val("nacionalidad"),
+      segunda_nacionalidad: val("segunda_nacionalidad"),
+      pasaporte_ue: val("pasaporte_ue"),
+      telefono: val("telefono"),
+      email: val("email"),
+      tiene_agente: val("tiene_agente"),
+      tipo_representacion: val("tipo_representacion"),
+      agente_contacto: val("agente_contacto"),
+      posicion_principal: val("posicion_principal"),
+      posicion_secundaria: val("posicion_secundaria"),
+      altura: val("altura"),
+      peso: val("peso"),
+      pie: val("pie"),
+      estilo_juego: val("estilo_juego"),
+      liga_equipo: val("liga_equipo"),
+      nivel_liga: val("nivel_liga"),
+      partidos: val("partidos"),
+      minutos: val("minutos"),
+      goles: val("goles"),
+      asistencias: val("asistencias"),
+      amarillas: val("amarillas"),
+      rojas: val("rojas"),
+      trayectoria: buildTrajectoryLines(),
+      selecciones: val("selecciones"),
+      selecciones_detalle: val("selecciones_detalle"),
+      apto: val("apto"),
+      lesiones: val("lesiones"),
+      lesiones_detalle: val("lesiones_detalle"),
+      recuperacion_confirmada: val("recuperacion_confirmada"),
+      recuperacion_fecha: val("recuperacion_fecha"),
+      tiene_contrato: val("tiene_contrato"),
+      contrato_fin: val("contrato_fin"),
+      clausula: val("clausula"),
+      clausula_monto: val("clausula_monto"),
+      disponible: val("disponible"),
+      destino_pais: val("destino_pais"),
+      destino_clubes: val("destino_clubes"),
+      idiomas: val("idiomas"),
+      exp_europa: val("exp_europa"),
+      exp_europa_detalle: val("exp_europa_detalle"),
+      salario: val("salario"),
+      salario_tipo: val("salario_tipo"),
+      videos_links: val("videos_links"),
+      tiene_contactos: val("tiene_contactos"),
+      contactos_detalle: val("contactos_detalle"),
+      motivacion: val("motivacion"),
+      etica: val("etica"),
+      consent_share: val("consent_share"),
+      consent_veraz: val("consent_veraz"),
+      firma: val("firma"),
+      fecha_firma: val("fecha_firma"),
+      notes_full: summary
+    };
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){
+      document.querySelectorAll("input, textarea, select").forEach(function(el){ el.classList.add("touched"); });
+      form.reportValidity();
+      validationMsg.textContent = "Faltan campos obligatorios (marcados con *). Complétalos para continuar.";
+      validationMsg.classList.add("show");
+      return;
+    }
+    validationMsg.classList.remove("show");
+
+    var summary = buildSummary();
+    document.getElementById("review-text").value = summary;
+    reviewPanel.classList.add("show");
+    submitBtn.textContent = "Resumen actualizado ↓";
+    submitBtn.disabled = true;
+
+    var nombre = val("nombre") || "jugador";
+    var subject = "Perfil de jugador — "+nombre;
+    var MAX_MAILTO = 1600;
+    var body = summary.length > MAX_MAILTO
+      ? summary.slice(0, MAX_MAILTO) + "\n\n[Texto truncado por límite del cliente de correo — descarga o copia el resumen completo desde la página y adjúntalo/pégalo aquí.]"
+      : summary;
+    var mailto = "mailto:"+DEST_EMAIL+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+    document.getElementById("mailto-btn").setAttribute("href", mailto);
+
+    reviewPanel.scrollIntoView({behavior:"smooth", block:"start"});
+
+    var statusEl = document.getElementById("send-status");
+    sendToSheet(buildPayload(summary)).then(function(result){
+      submitBtn.disabled = false;
+      if(result.ok){
+        statusEl.textContent = "Tus respuestas se guardaron automáticamente en el sistema interno de Uni Sport EC.";
+      } else {
+        statusEl.textContent = "No pudimos confirmar el envío automático. Usa el botón de correo o descarga el resumen de abajo para hacerlo llegar de todas formas.";
+      }
+    });
+  });
+
+  document.getElementById("copy-btn").addEventListener("click", function(){
+    var text = document.getElementById("review-text").value;
+    var fb = document.getElementById("copy-feedback");
+    function shown(){ fb.style.display="inline"; setTimeout(function(){fb.style.display="none";},2200); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(shown, function(){
+        var ta = document.getElementById("review-text");
+        ta.focus(); ta.select();
+        try{ document.execCommand("copy"); shown(); }catch(err){}
+      });
+    } else {
+      var ta = document.getElementById("review-text");
+      ta.focus(); ta.select();
+      try{ document.execCommand("copy"); shown(); }catch(err){}
+    }
+  });
+
+  document.getElementById("download-btn").addEventListener("click", function(){
+    var text = document.getElementById("review-text").value;
+    var nombre = (val("nombre")||"jugador").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-zA-Z0-9]+/g,"_").replace(/^_+|_+$/g,"");
+    var filename = "perfil_jugador_"+(nombre||"jugador")+".txt";
+    var fb = document.getElementById("download-feedback");
+    try{
+      var blob = new Blob([text], {type:"text/plain;charset=utf-8"});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+      fb.style.display="inline"; setTimeout(function(){fb.style.display="none";},2200);
+    }catch(err){
+      var ta = document.getElementById("review-text");
+      ta.focus(); ta.select();
+      alert("No se pudo generar la descarga automáticamente. Se seleccionó el texto — cópialo (Ctrl/Cmd+C) y pégalo en un archivo o en el correo.");
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
