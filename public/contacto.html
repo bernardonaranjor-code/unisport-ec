@@ -109,6 +109,10 @@ textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
 .form-submit { width: 100%; margin-top: 8px; padding: 18px 28px; font-size: 13px; letter-spacing: 2px; }
 .form-note { margin-top: 18px; text-align: center; font-size: 12px; letter-spacing: 1px; color: var(--muted); }
 
+.player-cta { margin-top: 28px; padding: 22px 24px; background: rgba(201,169,97,0.08); border: 1px solid var(--line); border-radius: 2px; text-align: center; }
+.player-cta p { margin: 0 0 14px; font-size: 14px; color: var(--cream); }
+.player-cta .btn { display: inline-block; }
+
 @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .form-wrap, .channels { padding: 40px 28px; } }
 
 footer { padding: 50px 32px 30px; text-align: center; border-top: 1px solid var(--line); background: var(--navy); }
@@ -211,6 +215,12 @@ footer a:hover { color: var(--gold); }
             <span><span class="channel-label" data-i18n="contact.channels.email">Correo</span><span class="channel-value">info@unisportec.com</span></span>
           </a>
         </li>
+        <li>
+          <a href="perfil-jugador.html">
+            <span class="channel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg></span>
+            <span><span class="channel-label">¿Eres jugador?</span><span class="channel-value">Completa tu perfil profesional</span></span>
+          </a>
+        </li>
       </ul>
 
       <span class="phone-hub-title" data-i18n="contact.channels.phones">Teléfonos · Hub Madrid / Quito</span>
@@ -236,6 +246,11 @@ footer a:hover { color: var(--gold); }
         <button type="submit" class="btn btn-primary form-submit" data-i18n="contact.form.submit">Enviar Solicitud</button>
         <p class="form-note" data-i18n="contact.form.note">Respondemos en menos de 48 horas.</p>
       </form>
+
+      <div class="player-cta">
+        <p>¿Eres jugador y buscas dar el salto a España? Completa tu evaluación de perfil profesional.</p>
+        <a href="perfil-jugador.html" class="btn btn-outline">Formulario de Perfil de Jugador</a>
+      </div>
     </div>
 
   </div>
