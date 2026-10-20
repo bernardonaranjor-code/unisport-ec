@@ -7,7 +7,7 @@
     "contact":  { "title": "Contact | Uni Sport EC — Request your situation analysis", "description": "Let's talk about your sports project. Hubs in Madrid and Quito. Request a situation analysis: we reply in under 48 hours." }
   },
   "nav": {
-    "home": "Home", "services": "Services", "insights": "Insights", "partners": "Partners", "contact": "Contact", "language": "Switch language"
+    "home": "Home", "services": "Services", "insights": "Insights", "partners": "Partners", "portal": "Portal", "contact": "Contact", "language": "Switch language"
   },
   "home": {
     "hero": {
@@ -155,6 +155,16 @@
       "message": "Tell us about your project",
       "submit": "Send Request",
       "note": "We reply in under 48 hours."
+    },
+    "player": {
+      "eyebrow": "For players",
+      "heading": "Player Profile Assessment",
+      "lead": "Are you a player looking to make the leap to Spain? Complete your professional profile assessment and our team will review it.",
+      "item1": "9 sections, about 12–15 minutes.",
+      "item2": "Have your statistics, career history and video links at hand.",
+      "item3": "Available in Spanish and English.",
+      "button": "Complete my profile",
+      "note": "Your data is confidential."
     }
   },
   "footer": { "rights": "All rights reserved." }
