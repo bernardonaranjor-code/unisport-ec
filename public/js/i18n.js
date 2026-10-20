@@ -137,6 +137,22 @@
     });
   }
 
+  /**
+   * Garantiza que el menú principal tenga la pestaña "Portal" (Portal Consultores)
+   * en todas las páginas. Si la página ya la trae en su HTML, no hace nada.
+   */
+  function ensurePortalLink() {
+    const nav = document.querySelector('.nav-links');
+    if (!nav || nav.querySelector('a[href="portal-consultores.html"]')) return;
+    const a = document.createElement('a');
+    a.href = 'portal-consultores.html';
+    a.setAttribute('data-i18n', 'nav.portal');
+    a.title = 'Portal Consultores';
+    a.textContent = 'Portal';
+    const contact = nav.querySelector('a[href="contacto.html"]');
+    nav.insertBefore(a, contact || nav.querySelector('.lang-switcher'));
+  }
+
   // -------------------- API pública --------------------
 
   async function setLanguage(lang, opts = {}) {
@@ -167,6 +183,8 @@
   }
 
   function init() {
+    ensurePortalLink();
+
     const initial = detectLanguage();
     setLanguage(initial);
 
