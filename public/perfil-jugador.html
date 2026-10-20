@@ -484,6 +484,14 @@
     margin-top:14px;font-size:12px;color:var(--ink-soft);font-weight:300;line-height:1.6;max-width:66ch;
   }
 
+  /* ---------- language switcher ---------- */
+  .brand-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  .lang-switcher{display:inline-flex;align-items:center;gap:2px;}
+  .lang-btn{background:transparent;border:none;padding:4px 8px;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:1.5px;color:var(--cream);opacity:.5;cursor:pointer;transition:opacity .2s,color .2s;}
+  .lang-btn:hover,.lang-btn:focus-visible{opacity:1;outline:none;}
+  .lang-btn.is-active{opacity:1;color:var(--gold);}
+  .lang-divider{color:var(--cream);opacity:.3;font-size:12px;}
+
   @media (prefers-reduced-motion:reduce){
     #progress-fill{transition:none;}
   }
@@ -508,7 +516,14 @@
           <div class="wordmark-tag">Events &amp; Consulting</div>
         </div>
       </div>
-      <div class="org-tag">Unisport Events &amp; Consulting</div>
+      <div class="brand-right">
+        <div class="lang-switcher" role="group" aria-label="Idioma / Language">
+          <button type="button" class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+          <span class="lang-divider" aria-hidden="true">/</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <div class="org-tag">Unisport Events &amp; Consulting</div>
+      </div>
     </div>
 
     <h1 class="title">Evaluación de Perfil<br/>Profesional de Jugador</h1>
@@ -949,6 +964,93 @@
   // desplegado — ver instrucciones en codigo_apps_script.gs.
   var SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzp8ELWy3FI5-KZpEJI8tW3w_jniBvBZxSy3ZHvyvOupLSU3H0GunSb7rB2dqZJHjPr6A/exec";
 
+
+  /* ---------------- i18n (ES / EN) ---------------- */
+  var I18N_KEY = "unisport-lang";
+  var EN_TEXT = {"Events & Consulting": "Events & Consulting", "Evaluación de Perfil": "Professional Player", "Profesional de Jugador": "Profile Assessment", "Formulario oficial de Uni Sport EC para jugadores interesados en incorporarse a clubes en España. La información que compartas aquí es la base con la que gestionamos tu representación ante clubes y agentes.": "Official Uni Sport EC form for players interested in joining clubs in Spain. The information you share here is the foundation on which we manage your representation with clubs and agents.", "9 secciones": "9 sections", "≈ 12–15 min": "≈ 12–15 min", "Confidencial": "Confidential", "Antes de empezar:": "Before you start:", "responde con la mayor precisión posible. Los datos deportivos y contractuales que declares aquí son los que Uni Sport EC presenta a clubes y agentes en tu nombre — la precisión juega a tu favor.": "answer as accurately as possible. The sporting and contractual data you declare here is what Uni Sport EC presents to clubs and agents on your behalf — accuracy works in your favour.", "No completar este campo": "Do not fill in this field", "Información personal": "Personal information", "Nombre completo": "Full name", "Fecha de nacimiento": "Date of birth", "Nacionalidad": "Nationality", "Segunda nacionalidad / ascendencia UE en trámite": "Second nationality / EU ancestry in process", "Relevante si no cuentas con pasaporte comunitario — nos ayuda a identificar vías de nacionalización.": "Relevant if you do not hold an EU passport — it helps us identify routes to citizenship.", "¿Tienes pasaporte o permiso de trabajo para España o la Unión Europea?": "Do you hold a passport or work permit for Spain or the European Union?", "Sí": "Yes", "No": "No", "Número de teléfono de contacto": "Contact phone number", "Correo electrónico": "Email address", "Situación de representación": "Representation status", "Necesitamos confirmar esto antes de gestionar tu traspaso con cualquier club o agente.": "We need to confirm this before handling your transfer with any club or agent.", "¿Actualmente tienes agente o representante?": "Do you currently have an agent or representative?", "¿La representación es exclusiva o no exclusiva?": "Is the representation exclusive or non-exclusive?", "Exclusiva": "Exclusive", "No exclusiva": "Non-exclusive", "Nombre y contacto del agente": "Agent's name and contact details", "Perfil deportivo": "Sporting profile", "Posición principal": "Main position", "Posición(es) secundaria(s)": "Secondary position(s)", "Altura (cm)": "Height (cm)", "Peso (kg)": "Weight (kg)", "Pie dominante": "Dominant foot", "Derecho": "Right", "Izquierdo": "Left", "Ambos": "Both", "¿Cómo describirías tu estilo de juego y tus 4 principales fortalezas?": "How would you describe your playing style and your 4 main strengths?", "¿En qué liga y equipo juegas actualmente?": "Which league and team do you currently play for?", "Nivel competitivo de tu liga actual": "Competitive level of your current league", "Selecciona...": "Select...", "Profesional": "Professional", "Semiprofesional": "Semi-professional", "Amateur": "Amateur", "Estadísticas de la temporada pasada": "Last season's statistics", "Partidos jugados": "Matches played", "Minutos jugados": "Minutes played", "Goles": "Goals", "Asistencias": "Assists", "Tarjetas amarillas": "Yellow cards", "Tarjetas rojas": "Red cards", "Trayectoria del jugador (temporada por temporada)": "Player career history (season by season)", "Temporada": "Season", "Equipo": "Team", "División": "Division", "Partidos": "Matches", "Minutos": "Minutes", "Goles / Asist.": "Goals / Assists", "+ Añadir temporada": "+ Add season", "¿Has jugado en selecciones nacionales o torneos internacionales?": "Have you played for national teams or in international tournaments?", "Especifica: país, equipo principal o categoría Sub": "Specify: country, senior team or youth (Under-) category", "Estado físico e historial de lesiones": "Physical condition and injury history", "¿Actualmente estás al 100% apto para competir?": "Are you currently 100% fit to compete?", "¿Has tenido lesiones graves durante tu carrera?": "Have you had serious injuries during your career?", "Detalla tipo de lesión, fecha, duración de la recuperación y estado actual": "Give details: type of injury, date, recovery time and current status", "¿Recuperación totalmente confirmada por el cuerpo médico / informe médico más reciente disponible?": "Is your recovery fully confirmed by the medical staff / most recent medical report available?", "Fecha del informe (si aplica)": "Report date (if applicable)", "Aspectos contractuales": "Contractual matters", "¿Actualmente tienes contrato con algún club?": "Do you currently have a contract with a club?", "¿Cuándo finaliza?": "When does it end?", "¿Existe alguna cláusula de rescisión?": "Is there a release clause?", "¿Cuál es el monto (EUR)?": "What is the amount (EUR)?", "¿Estarías disponible para incorporarte a un club en España en los próximos meses?": "Would you be available to join a club in Spain in the coming months?", "Destino objetivo": "Target destination", "País(es) / liga(s) / categoría de preferencia": "Preferred country(ies) / league(s) / category", "Clubes específicos de interés": "Specific clubs of interest", "Información adicional": "Additional information", "¿Qué idiomas hablas y cuál es tu nivel de dominio?": "Which languages do you speak and what is your proficiency level?", "¿Tienes experiencia previa en Europa o en clubes españoles?": "Do you have previous experience in Europe or at Spanish clubs?", "Explica brevemente": "Briefly explain", "¿Cuál es tu expectativa salarial aproximada? (en euros)": "What is your approximate salary expectation? (in euros)", "Bruto": "Gross", "Neto": "Net", "Enlaces a tus videos / highlights": "Links to your videos / highlights", "Es uno de los datos que más ayuda a un club a decidir rápido — inclúyelo si lo tienes.": "It is one of the items that helps a club decide quickly — include it if you have it.", "¿Tienes contactos o recomendaciones de entrenadores, agentes o clubes?": "Do you have contacts or recommendations from coaches, agents or clubs?", "Proporciona los detalles": "Provide the details", "Mentalidad y profesionalismo": "Mindset and professionalism", "¿Cuál consideras que es tu principal motivación para jugar en España?": "What do you consider your main motivation for playing in Spain?", "¿Cómo describirías tu ética de trabajo y compromiso con el equipo?": "How would you describe your work ethic and commitment to the team?", "Consentimiento y declaración": "Consent and declaration", "Autorizo a Uni Sport EC a usar y compartir esta información, incluyendo enlaces de video y datos personales, con clubes y agentes con fines de representación.": "I authorise Uni Sport EC to use and share this information, including video links and personal data, with clubs and agents for representation purposes.", "Declaro que la información proporcionada en este documento es verdadera y precisa según mi leal saber y entender.": "I declare that the information provided in this document is true and accurate to the best of my knowledge.", "Firma (nombre completo)": "Signature (full name)", "Fecha": "Date", "Enviar a Uni Sport EC": "Submit to Uni Sport EC", "Al enviar, tus datos se guardan automáticamente en el sistema interno de Uni Sport EC. Además generamos un resumen de tus respuestas por si quieres conservarlo, reenviarlo por correo o verificar que todo llegó bien.": "When you submit, your data is saved automatically in Uni Sport EC's internal system. We also generate a summary of your answers so you can keep it, email it or check that everything arrived correctly.", "Revisar y enviar mi perfil": "Review and submit my profile", "Tu perfil fue enviado": "Your profile has been submitted", "✉ Enviar por correo": "✉ Send by email", "⬇ Descargar (.txt)": "⬇ Download (.txt)", "⧉ Copiar todo": "⧉ Copy all", "Copiado ✓": "Copied ✓", "Descargado ✓": "Downloaded ✓", "Uni Sport EC — Documento confidencial": "Uni Sport EC — Confidential document", "Al enviarlo, este formulario añade tus respuestas directamente a una hoja de cálculo interna de Uni Sport EC, de uso privado del equipo. También puedes descargar o copiar un resumen de tus respuestas para tu propio archivo.": "When submitted, this form adds your answers directly to an internal Uni Sport EC spreadsheet, for the team's private use. You can also download or copy a summary of your answers for your own records."};
+  var EN_PH = {"Déjalo en blanco si no aplica": "Leave blank if not applicable", "+34 600 000 000": "+34 600 000 000", "Ej. Defensa central": "E.g. Centre-back", "Respuesta abierta + 4 atributos principales": "Open answer + 4 main attributes", "Ej. 500.000 €": "E.g. €500,000", "Si aplica": "If applicable", "Ej. 3.000 €/mes": "E.g. €3,000/month", "YouTube, Instagram, Google Drive, WeTransfer... — un enlace por línea. Incluye highlights y, si puedes, un partido completo reciente.": "YouTube, Instagram, Google Drive, WeTransfer... — one link per line. Include highlights and, if possible, a recent full match."};
+  var UI = {"remove": ["Quitar", "Remove"], "required": ["Faltan campos obligatorios (marcados con *). Complétalos para continuar.", "Some required fields (marked with *) are missing. Please complete them to continue."], "updated": ["Resumen actualizado ↓", "Summary updated ↓"], "sending": ["Enviando tus respuestas a la cartera de jugadores de Uni Sport EC…", "Sending your answers to Uni Sport EC's player portfolio…"], "ok": ["Tus respuestas se guardaron automáticamente en el sistema interno de Uni Sport EC.", "Your answers were saved automatically in Uni Sport EC's internal system."], "fail": ["No pudimos confirmar el envío automático. Usa el botón de correo o descarga el resumen de abajo para hacerlo llegar de todas formas.", "We could not confirm the automatic submission. Use the email button or download the summary below so it reaches us anyway."], "dlfail": ["No se pudo generar la descarga automáticamente. Se seleccionó el texto — cópialo (Ctrl/Cmd+C) y pégalo en un archivo o en el correo.", "The download could not be generated automatically. The text has been selected — copy it (Ctrl/Cmd+C) and paste it into a file or an email."], "doctitle": ["Evaluación de Perfil de Jugador — Uni Sport EC", "Player Profile Assessment — Uni Sport EC"]};
+  var LANG = "es";
+  var state = {submitted:false, status:"sending"};
+
+  function t(key){ var p = UI[key]; return p ? (LANG === "en" ? p[1] : p[0]) : key; }
+
+  function detectLang(){
+    try{
+      var q = new URLSearchParams(window.location.search).get("lang");
+      if(q === "es" || q === "en") return q;
+    }catch(e){}
+    try{
+      var st = localStorage.getItem(I18N_KEY);
+      if(st === "es" || st === "en") return st;
+    }catch(e){}
+    var nav = ((navigator.language || "") + "").slice(0,2).toLowerCase();
+    return nav === "en" ? "en" : "es";
+  }
+
+  var textOrig = new WeakMap();
+  var phOrig = new WeakMap();
+
+  function walkText(root, fn){
+    var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var n, list = [];
+    while((n = w.nextNode())){
+      var p = n.parentNode && n.parentNode.nodeName;
+      if(p === "SCRIPT" || p === "STYLE" || p === "TEXTAREA") continue;
+      if(n.nodeValue.trim()) list.push(n);
+    }
+    list.forEach(fn);
+  }
+
+  function renderStatus(){
+    var el = document.getElementById("send-status");
+    if(el) el.textContent = t(state.status);
+  }
+  function renderSubmitBtn(){
+    var b = document.getElementById("submit-btn");
+    if(b && state.submitted) b.textContent = t("updated");
+  }
+
+  function applyLang(lang, persist){
+    LANG = lang;
+    walkText(document.body, function(n){
+      if(!textOrig.has(n)) textOrig.set(n, n.nodeValue);
+      var orig = textOrig.get(n), trimmed = orig.trim();
+      if(lang === "en" && EN_TEXT.hasOwnProperty(trimmed)){
+        n.nodeValue = orig.replace(trimmed, EN_TEXT[trimmed]);
+      } else {
+        n.nodeValue = orig;
+      }
+    });
+    document.querySelectorAll("[placeholder]").forEach(function(el){
+      if(!phOrig.has(el)) phOrig.set(el, el.getAttribute("placeholder"));
+      var o = phOrig.get(el);
+      el.setAttribute("placeholder", (lang === "en" && EN_PH.hasOwnProperty(o)) ? EN_PH[o] : o);
+    });
+    document.querySelectorAll(".row-remove").forEach(function(b){ b.textContent = t("remove"); });
+    document.title = t("doctitle");
+    document.documentElement.setAttribute("lang", lang);
+    document.querySelectorAll(".lang-btn").forEach(function(b){
+      var a = b.getAttribute("data-lang") === lang;
+      b.classList.toggle("is-active", a);
+      b.setAttribute("aria-pressed", a ? "true" : "false");
+    });
+    renderStatus(); renderSubmitBtn();
+    if(!validationMsg_isHidden()) { var vm = document.getElementById("validation-msg"); vm.textContent = t("required"); }
+    if(persist){
+      try{ localStorage.setItem(I18N_KEY, lang); }catch(e){}
+      try{
+        var u = new URL(window.location.href);
+        if(lang === "es") u.searchParams.delete("lang"); else u.searchParams.set("lang", lang);
+        window.history.replaceState({}, "", u.toString());
+      }catch(e){}
+    }
+  }
+  function validationMsg_isHidden(){
+    var vm = document.getElementById("validation-msg");
+    return !vm || !vm.classList.contains("show");
+  }
+
   function sendToSheet(payload){
     if(!SHEET_WEBAPP_URL || SHEET_WEBAPP_URL.indexOf("https://script.google.com") !== 0){
       return Promise.resolve({ok:false, reason:"not_configured"});
@@ -1017,7 +1119,7 @@
     var btn = document.createElement("button");
     btn.type = "button";
     btn.className = "row-remove";
-    btn.textContent = "Quitar";
+    btn.textContent = t("remove");
     btn.addEventListener("click", function(){ tr.remove(); });
     tdBtn.appendChild(btn);
     tr.appendChild(tdBtn);
@@ -1071,6 +1173,7 @@
     L.push("EVALUACIÓN DE PERFIL PROFESIONAL DE JUGADOR");
     L.push("Uni Sport EC — Events & Consulting");
     L.push("Fecha de envío: "+fmtDate(new Date().toISOString().slice(0,10)));
+    L.push("Idioma del formulario / Form language: "+(LANG === "en" ? "EN" : "ES"));
     L.push("");
     L.push("1. INFORMACIÓN PERSONAL");
     L.push(line("Nombre completo", val("nombre")));
@@ -1218,7 +1321,7 @@
     if(!form.checkValidity()){
       document.querySelectorAll("input, textarea, select").forEach(function(el){ el.classList.add("touched"); });
       form.reportValidity();
-      validationMsg.textContent = "Faltan campos obligatorios (marcados con *). Complétalos para continuar.";
+      validationMsg.textContent = t("required");
       validationMsg.classList.add("show");
       return;
     }
@@ -1227,7 +1330,8 @@
     var summary = buildSummary();
     document.getElementById("review-text").value = summary;
     reviewPanel.classList.add("show");
-    submitBtn.textContent = "Resumen actualizado ↓";
+    state.submitted = true; state.status = "sending"; renderStatus();
+    submitBtn.textContent = t("updated");
     submitBtn.disabled = true;
 
     var nombre = val("nombre") || "jugador";
@@ -1244,11 +1348,8 @@
     var statusEl = document.getElementById("send-status");
     sendToSheet(buildPayload(summary)).then(function(result){
       submitBtn.disabled = false;
-      if(result.ok){
-        statusEl.textContent = "Tus respuestas se guardaron automáticamente en el sistema interno de Uni Sport EC.";
-      } else {
-        statusEl.textContent = "No pudimos confirmar el envío automático. Usa el botón de correo o descarga el resumen de abajo para hacerlo llegar de todas formas.";
-      }
+      state.status = result.ok ? "ok" : "fail";
+      renderStatus();
     });
   });
 
@@ -1288,9 +1389,15 @@
     }catch(err){
       var ta = document.getElementById("review-text");
       ta.focus(); ta.select();
-      alert("No se pudo generar la descarga automáticamente. Se seleccionó el texto — cópialo (Ctrl/Cmd+C) y pégalo en un archivo o en el correo.");
+      alert(t("dlfail"));
     }
   });
+
+  /* ---------------- language init ---------------- */
+  document.querySelectorAll(".lang-btn").forEach(function(b){
+    b.addEventListener("click", function(){ applyLang(b.getAttribute("data-lang"), true); });
+  });
+  applyLang(detectLang(), false);
 
 })();
 </script>
