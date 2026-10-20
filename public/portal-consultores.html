@@ -28,7 +28,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(6,15,38,.9);backdrop-fil
 .btn:hover{background:var(--gold);color:var(--navy);}
 .btn-primary{background:var(--gold);color:var(--navy);}
 .btn-primary:hover{background:var(--cream);}
-.btn:focus-visible,input:focus-visible,select:focus-visible,.tab:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.tab:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
 
 /* login */
 .login-wrap{min-height:calc(100vh - 90px);display:flex;align-items:center;justify-content:center;padding:40px 20px;background:radial-gradient(ellipse at 50% 0%,rgba(201,169,97,.10),transparent 60%);}
@@ -95,6 +95,22 @@ tr:last-child td{border-bottom:none;}
 td a{color:var(--gold);text-decoration:underline;}
 .empty{padding:50px 20px;text-align:center;color:var(--muted);border:1px dashed var(--line);}
 .loading{padding:60px;text-align:center;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-size:12px;}
+
+/* edición */
+.btn.edit{border-color:var(--cream);}
+.modal-bg{position:fixed;inset:0;background:rgba(2,6,18,.78);z-index:100;display:flex;align-items:flex-start;justify-content:center;padding:30px 16px;overflow-y:auto;}
+.modal{background:var(--navy-2);border:1px solid var(--line);border-radius:2px;width:100%;max-width:640px;padding:30px;}
+.modal h2{font-size:28px;margin-bottom:4px;}
+.modal .sub2{color:var(--muted);font-size:13px;margin-bottom:20px;}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fgrid .full{grid-column:1/-1;}
+@media(max-width:560px){.fgrid{grid-template-columns:1fr;}}
+.fgrid label{margin-bottom:6px;}
+textarea{width:100%;padding:12px 14px;background:var(--navy);border:1px solid var(--line);color:var(--cream);font-family:inherit;font-size:14px;border-radius:2px;min-height:84px;resize:vertical;}
+textarea:focus{outline:none;border-color:var(--gold);}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:22px;flex-wrap:wrap;}
+.modal-err{color:var(--red);font-size:13px;min-height:18px;margin-top:12px;}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);padding:12px 22px;font-size:13px;border-radius:2px;z-index:120;}
 footer{text-align:center;padding:30px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);}
 </style>
 </head>
@@ -130,7 +146,7 @@ footer{text-align:center;padding:30px;color:var(--muted);font-size:12px;border-t
     <div>
       <span class="eyebrow">Project Manager · en vivo</span>
       <h1>Portal Consultores</h1>
-      <div class="sub">Datos en directo desde el Google Sheet del equipo. Cada tarjeta muestra el siguiente paso y lo que falta por completar.</div>
+      <div class="sub">Datos en directo desde el Google Sheet del equipo. Pulsa «Editar / actualizar» en cada proyecto o jugador para cambiar estado, avance, fechas y notas: se guarda en el Sheet.</div>
     </div>
   </div>
   <div class="kpis" id="kpis"></div>
@@ -257,6 +273,7 @@ footer{text-align:center;padding:30px;color:var(--muted);font-size:12px;border-t
     c.appendChild(missingBlock(a.miss));
     if(clean(r["Notes"])) c.appendChild(el("div", "client", "Notas: " + clean(r["Notes"])));
     var act = el("div", "actions");
+    act.appendChild(editBtn("proyectos", r));
     act.appendChild(linkBtn("Abrir portal / documentación", r["Documentación"], true));
     c.appendChild(act);
     return c;
@@ -275,6 +292,7 @@ footer{text-align:center;padding:30px;color:var(--muted);font-size:12px;border-t
     c.appendChild(missingBlock(a.miss));
     if(clean(r["Notes"])) c.appendChild(el("div", "client", "Notas: " + clean(r["Notes"])));
     var act = el("div", "actions");
+    act.appendChild(editBtn("jugadores", r));
     act.appendChild(linkBtn("Video / PPT", r["Videos/PPT"], true));
     act.appendChild(linkBtn("Transfermarkt", r["Transfermarkt"], false));
     c.appendChild(act);
@@ -296,6 +314,102 @@ footer{text-align:center;padding:30px;color:var(--muted);font-size:12px;border-t
     act.appendChild(linkBtn("Videos / highlights", String(r["Enlaces de video / highlights"] || "").split(/\s+/)[0], true));
     c.appendChild(act);
     return c;
+  }
+
+  /* ---------- edición ---------- */
+  var FIELDS = {
+    proyectos: [
+      ["ESTADO","Estado","list"],["Prioridad","Prioridad","list"],["Responsable","Responsable","list"],["% Avance","% de avance (0–100)","pct"],
+      ["Fecha Inicio","Fecha de inicio","date"],["Cierre Tentativo","Cierre tentativo","date"],
+      ["Documentación","Enlace portal / documentación (https://…)","url","full"],
+      ["Última actualización","Siguiente paso / última nota","area","full"],["Notes","Notas","area","full"]
+    ],
+    jugadores: [
+      ["ESTADO","Estado","list"],["Prioridad","Prioridad","list"],["Responsable","Responsable","list"],["Agencia Destino","Agencia destino","text"],
+      ["Email","Email","text"],["Teléfono","Teléfono","text"],
+      ["Videos/PPT","Enlace video / PPT (https://…)","url","full"],["Transfermarkt","Enlace Transfermarkt (https://…)","url","full"],
+      ["Ultima actualizacion","Siguiente paso / última nota","area","full"],["Notes","Notas","area","full"]
+    ]
+  };
+  function toISO(d){ if(!d) return ""; var m = d.getMonth() + 1, dd = d.getDate(); return d.getFullYear() + "-" + (m < 10 ? "0" : "") + m + "-" + (dd < 10 ? "0" : "") + dd; }
+  function pctValue(v){
+    v = clean(v); if(!v) return "";
+    var n = parseFloat(v.replace(",", ".").replace("%", "")); if(isNaN(n)) return "";
+    if(n <= 1 && v.indexOf("%") < 0) n = n * 100;
+    return String(Math.round(n * 10) / 10);
+  }
+  function toast(msg){ var t = el("div", "toast", msg); document.body.appendChild(t); setTimeout(function(){ t.remove(); }, 2800); }
+
+  function openEditor(tab, row){
+    var code = clean(row["Codigo"]), defs = FIELDS[tab], inputs = {}, init = {};
+    var bg = el("div", "modal-bg"), box = el("form", "modal");
+    bg.setAttribute("role", "dialog"); bg.setAttribute("aria-modal", "true");
+    box.appendChild(el("span", "eyebrow", code));
+    box.appendChild(el("h2", null, tab === "proyectos" ? (clean(row["Proyecto"]) || "Proyecto") : (clean(row["Jugador"]) || "Jugador")));
+    box.appendChild(el("div", "sub2", "Los cambios se guardan directamente en el Google Sheet del equipo."));
+    var grid = el("div", "fgrid");
+    defs.forEach(function(f){
+      var wrap = el("div", f[3] === "full" ? "full" : ""), lab = el("label", null, f[1]), inp, v = clean(row[f[0]]);
+      var id = "ed-" + f[0].replace(/\W/g, "");
+      lab.setAttribute("for", id);
+      if(f[2] === "area"){ inp = el("textarea"); inp.value = v; }
+      else {
+        inp = el("input");
+        if(f[2] === "date"){ inp.type = "date"; v = toISO(parseDate(row[f[0]])); }
+        else if(f[2] === "pct"){ inp.type = "number"; inp.min = 0; inp.max = 100; inp.step = "any"; v = pctValue(row[f[0]]); }
+        else if(f[2] === "url"){ inp.type = "url"; inp.placeholder = "https://"; }
+        else { inp.type = "text"; }
+        if(f[2] === "list"){
+          var dl = el("datalist"); dl.id = id + "-dl";
+          uniq(tab, f[0]).forEach(function(o){ var op = el("option"); op.value = o; dl.appendChild(op); });
+          inp.setAttribute("list", dl.id); wrap.appendChild(dl);
+        }
+        inp.value = v;
+      }
+      inp.id = id; inputs[f[0]] = inp; init[f[0]] = v;
+      wrap.insertBefore(lab, wrap.firstChild); wrap.appendChild(inp); grid.appendChild(wrap);
+    });
+    box.appendChild(grid);
+    var err = el("div", "modal-err"); err.setAttribute("role", "alert"); box.appendChild(err);
+    var acts = el("div", "modal-actions");
+    var cancel = el("button", "btn", "Cancelar"); cancel.type = "button";
+    var save = el("button", "btn btn-primary", "Guardar cambios"); save.type = "submit";
+    acts.appendChild(cancel); acts.appendChild(save); box.appendChild(acts);
+    bg.appendChild(box); document.body.appendChild(bg);
+    var first = box.querySelector("input,textarea"); if(first) first.focus();
+
+    function close(){ bg.remove(); document.removeEventListener("keydown", onKey); }
+    function onKey(e){ if(e.key === "Escape") close(); }
+    document.addEventListener("keydown", onKey);
+    cancel.addEventListener("click", close);
+    bg.addEventListener("mousedown", function(e){ if(e.target === bg) close(); });
+
+    box.addEventListener("submit", function(e){
+      e.preventDefault(); err.textContent = "";
+      var changes = {}, n = 0;
+      Object.keys(inputs).forEach(function(k){ var v = inputs[k].value.trim(); if(v !== init[k]){ changes[k] = v; n++; } });
+      if(!n){ close(); return; }
+      save.disabled = true; save.textContent = "Guardando…";
+      fetch(API, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify({action: "update", key: KEY, sheet: tab, code: code, fields: changes})})
+        .then(function(r){ return r.json(); })
+        .then(function(j){
+          if(!j || !j.ok) throw new Error((j && j.error) || "error");
+          var rows = DATA[tab];
+          for(var i = 0; i < rows.length; i++){ if(clean(rows[i]["Codigo"]) === code){ rows[i] = j.row; break; } }
+          close(); renderKpis(); setupFilters(); render(); toast("Guardado en el Sheet ✓");
+        })
+        .catch(function(ex){
+          err.textContent = (ex && ex.message === "auth") ? "La clave ya no es válida. Vuelve a entrar." :
+            "No se pudo guardar (" + ((ex && ex.message) || "error") + "). Comprueba que el script esté en la versión con edición y desplegado como Nueva versión.";
+          save.disabled = false; save.textContent = "Guardar cambios";
+        });
+    });
+  }
+  function editBtn(tab, r){
+    var b = el("button", "btn edit", "Editar / actualizar"); b.type = "button";
+    if(!clean(r["Codigo"])){ b.disabled = true; b.title = "Sin código: no se puede editar desde aquí"; b.classList.add("off"); }
+    b.addEventListener("click", function(){ openEditor(tab, r); });
+    return b;
   }
 
   /* ---------- tablas ---------- */
