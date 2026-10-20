@@ -69,16 +69,18 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(6, 15, 38, 0.85
 .contact-hero .subtitle { max-width: 640px; margin: 0 auto; color: var(--muted); font-size: 18px; }
 .divider { width: 80px; height: 1px; background: var(--gold); margin: 32px auto 0; }
 
-.contact-body { padding: 60px 32px 160px; max-width: 1200px; margin: 0 auto; }
-.contact-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: start; }
-@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } .contact-body { padding: 40px 24px 100px; } }
+/* ---- 3 bloques iguales en una fila ---- */
+.contact-body { padding: 60px 32px 160px; max-width: 1360px; margin: 0 auto; }
+.contact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; align-items: stretch; }
+@media (max-width: 1020px) { .contact-grid { grid-template-columns: 1fr; gap: 32px; } .contact-body { padding: 40px 24px 100px; } }
 
-.channels { background: rgba(10, 21, 53, 0.7); border: 1px solid var(--line); padding: 48px 44px; border-radius: 2px; backdrop-filter: blur(6px); }
-.channels h2 { font-size: 28px; margin-bottom: 8px; }
-.channels .panel-eyebrow { display: block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
-.channels .accent-line { width: 50px; height: 1px; background: var(--gold); margin: 0 0 32px; }
+.panel { display: flex; flex-direction: column; background: var(--navy-2); border: 1px solid var(--line); padding: 44px 34px; border-radius: 2px; }
+.channels { background: rgba(10, 21, 53, 0.7); backdrop-filter: blur(6px); }
+.panel h2 { font-size: 28px; margin-bottom: 8px; }
+.panel .panel-eyebrow { display: block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.panel .accent-line { width: 50px; height: 1px; background: var(--gold); margin: 0 0 28px; }
 
-.channel-list { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 22px; }
+.channel-list { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 6px; }
 .channel-list li a { display: flex; align-items: center; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--cream); transition: color .25s ease, padding-left .25s ease; }
 .channel-list li:last-child a { border-bottom: none; }
 .channel-list li a:hover { color: var(--gold); padding-left: 6px; }
@@ -86,34 +88,35 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(6, 15, 38, 0.85
 .channel-icon svg { width: 16px; height: 16px; }
 .channel-list li a:hover .channel-icon { background: var(--gold); color: var(--navy); }
 .channel-label { display: block; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-.channel-value { display: block; font-size: 16px; letter-spacing: 0.3px; }
+.channel-value { display: block; font-size: 16px; letter-spacing: 0.3px; word-break: break-word; }
 
-.phone-hub-title { display: block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+.phone-hub-title { display: block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; padding-top: 16px; border-top: 1px solid var(--line); margin-top: auto; }
 .phone-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
 .phone-list li a { display: flex; align-items: center; gap: 14px; font-size: 16px; color: var(--cream); letter-spacing: 0.3px; transition: color .25s ease; }
 .phone-list li a:hover { color: var(--gold); }
 .phone-icon { width: 14px; height: 14px; color: var(--gold); flex-shrink: 0; }
 
-.form-wrap { background: var(--navy-2); border: 1px solid var(--line); padding: 56px 48px; border-radius: 2px; }
-.form-wrap h2 { font-size: clamp(28px, 3vw, 36px); margin-bottom: 8px; }
-.form-wrap .panel-eyebrow { display: block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
-.form-wrap .accent-line { width: 50px; height: 1px; background: var(--gold); margin: 0 0 32px; }
-
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-.form-row.full { grid-template-columns: 1fr; }
+.panel form { display: flex; flex-direction: column; flex: 1; }
+.form-row { display: grid; grid-template-columns: 1fr; gap: 20px; margin-bottom: 20px; }
+.form-row.grow { flex: 1; }
+.form-row.grow > div { display: flex; flex-direction: column; height: 100%; }
+.form-row.grow textarea { flex: 1; }
 label { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
 input, textarea { width: 100%; padding: 14px 16px; background: var(--navy); border: 1px solid var(--line); color: var(--cream); font-family: inherit; font-size: 15px; border-radius: 2px; transition: border-color .2s; }
 input:focus, textarea:focus { outline: none; border-color: var(--gold); }
 textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
 
 .form-submit { width: 100%; margin-top: 8px; padding: 18px 28px; font-size: 13px; letter-spacing: 2px; }
-.form-note { margin-top: 18px; text-align: center; font-size: 12px; letter-spacing: 1px; color: var(--muted); }
+.form-note { margin: 18px 0 0; text-align: center; font-size: 12px; letter-spacing: 1px; color: var(--muted); }
 
-.player-cta { margin-top: 28px; padding: 22px 24px; background: rgba(201,169,97,0.08); border: 1px solid var(--line); border-radius: 2px; text-align: center; }
-.player-cta p { margin: 0 0 14px; font-size: 14px; color: var(--cream); }
-.player-cta .btn { display: inline-block; }
+/* tarjeta del formulario de jugador */
+.player-lead { font-size: 15px; color: var(--cream); margin: 0 0 22px; }
+.player-list { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 14px; }
+.player-list li { display: flex; gap: 14px; align-items: flex-start; font-size: 14px; color: var(--cream); }
+.player-list li::before { content: ""; flex: 0 0 8px; height: 8px; margin-top: 8px; background: var(--gold); transform: rotate(45deg); }
+.player-cta-wrap { margin-top: auto; }
 
-@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .form-wrap, .channels { padding: 40px 28px; } }
+@media (max-width: 600px) { .panel { padding: 36px 26px; } }
 
 footer { padding: 50px 32px 30px; text-align: center; border-top: 1px solid var(--line); background: var(--navy); }
 footer .brand { justify-content: center; margin-bottom: 20px; }
@@ -169,6 +172,7 @@ footer a:hover { color: var(--gold); }
       <a href="servicios.html" data-i18n="nav.services">Servicios</a>
       <a href="insights.html" data-i18n="nav.insights">Insights</a>
       <a href="partners.html" data-i18n="nav.partners">Partners</a>
+      <a href="portal-consultores.html" data-i18n="nav.portal" title="Portal Consultores">Portal</a>
       <a href="contacto.html" class="btn btn-outline active" data-i18n="nav.contact">Contacto</a>
       <div class="lang-switcher" role="group" aria-label="Cambiar idioma" data-i18n-attr="aria-label:nav.language">
         <button type="button" class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
@@ -191,7 +195,8 @@ footer a:hover { color: var(--gold); }
 <section class="contact-body">
   <div class="contact-grid">
 
-    <aside class="channels reveal reveal-left" aria-label="Canales directos">
+    <!-- 1. INFO / CANALES DIRECTOS -->
+    <aside class="panel channels reveal reveal-left" aria-label="Canales directos">
       <span class="panel-eyebrow" data-i18n="contact.channels.eyebrow">Canales Directos</span>
       <h2 data-i18n="contact.channels.heading">Conéctate con nosotros</h2>
       <div class="accent-line" aria-hidden="true"></div>
@@ -215,12 +220,6 @@ footer a:hover { color: var(--gold); }
             <span><span class="channel-label" data-i18n="contact.channels.email">Correo</span><span class="channel-value">info@unisportec.com</span></span>
           </a>
         </li>
-        <li>
-          <a href="perfil-jugador.html">
-            <span class="channel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg></span>
-            <span><span class="channel-label">¿Eres jugador?</span><span class="channel-value">Completa tu perfil profesional</span></span>
-          </a>
-        </li>
       </ul>
 
       <span class="phone-hub-title" data-i18n="contact.channels.phones">Teléfonos · Hub Madrid / Quito</span>
@@ -231,25 +230,37 @@ footer a:hover { color: var(--gold); }
       </ul>
     </aside>
 
-    <div class="form-wrap reveal reveal-right">
+    <!-- 2. SOLICITAR ANÁLISIS DE SITUACIÓN -->
+    <div class="panel reveal reveal-up">
       <span class="panel-eyebrow" data-i18n="contact.form.eyebrow">Estrategia a medida</span>
       <h2 data-i18n="contact.form.heading">Solicitar Análisis de Situación</h2>
       <div class="accent-line" aria-hidden="true"></div>
 
       <form action="mailto:info@unisportec.com" method="post" enctype="text/plain" autocomplete="on">
-        <div class="form-row">
-          <div><label for="name" data-i18n="contact.form.name">Nombre</label><input type="text" id="name" name="name" required autocomplete="name" data-i18n-attr="placeholder:contact.form.name" placeholder="Nombre"></div>
-          <div><label for="email" data-i18n="contact.form.email">Email</label><input type="email" id="email" name="email" required autocomplete="email" data-i18n-attr="placeholder:contact.form.email" placeholder="Email"></div>
-        </div>
-        <div class="form-row full"><div><label for="org" data-i18n="contact.form.org">Organización / Club</label><input type="text" id="org" name="organization" autocomplete="organization" data-i18n-attr="placeholder:contact.form.org" placeholder="Organización / Club"></div></div>
-        <div class="form-row full"><div><label for="message" data-i18n="contact.form.message">Cuéntanos sobre tu proyecto</label><textarea id="message" name="message" required data-i18n-attr="placeholder:contact.form.message" placeholder="Cuéntanos sobre tu proyecto"></textarea></div></div>
+        <div class="form-row"><div><label for="name" data-i18n="contact.form.name">Nombre</label><input type="text" id="name" name="name" required autocomplete="name" data-i18n-attr="placeholder:contact.form.name" placeholder="Nombre"></div></div>
+        <div class="form-row"><div><label for="email" data-i18n="contact.form.email">Email</label><input type="email" id="email" name="email" required autocomplete="email" data-i18n-attr="placeholder:contact.form.email" placeholder="Email"></div></div>
+        <div class="form-row"><div><label for="org" data-i18n="contact.form.org">Organización / Club</label><input type="text" id="org" name="organization" autocomplete="organization" data-i18n-attr="placeholder:contact.form.org" placeholder="Organización / Club"></div></div>
+        <div class="form-row grow"><div><label for="message" data-i18n="contact.form.message">Cuéntanos sobre tu proyecto</label><textarea id="message" name="message" required data-i18n-attr="placeholder:contact.form.message" placeholder="Cuéntanos sobre tu proyecto"></textarea></div></div>
         <button type="submit" class="btn btn-primary form-submit" data-i18n="contact.form.submit">Enviar Solicitud</button>
         <p class="form-note" data-i18n="contact.form.note">Respondemos en menos de 48 horas.</p>
       </form>
+    </div>
 
-      <div class="player-cta">
-        <p>¿Eres jugador y buscas dar el salto a España? Completa tu evaluación de perfil profesional.</p>
-        <a href="perfil-jugador.html" class="btn btn-outline">Formulario de Perfil de Jugador</a>
+    <!-- 3. FORMULARIO DE PERFIL DE JUGADOR -->
+    <div class="panel reveal reveal-right">
+      <span class="panel-eyebrow" data-i18n="contact.player.eyebrow">Para jugadores</span>
+      <h2 data-i18n="contact.player.heading">Evaluación de Perfil de Jugador</h2>
+      <div class="accent-line" aria-hidden="true"></div>
+
+      <p class="player-lead" data-i18n="contact.player.lead">¿Eres jugador y buscas dar el salto a España? Completa tu evaluación de perfil profesional y nuestro equipo la revisará.</p>
+      <ul class="player-list">
+        <li data-i18n="contact.player.item1">9 secciones, unos 12–15 minutos.</li>
+        <li data-i18n="contact.player.item2">Ten a mano tus estadísticas, tu trayectoria y los enlaces a tus vídeos.</li>
+        <li data-i18n="contact.player.item3">Disponible en español e inglés.</li>
+      </ul>
+      <div class="player-cta-wrap">
+        <a href="perfil-jugador.html" class="btn btn-primary form-submit" data-i18n="contact.player.button">Completar mi perfil</a>
+        <p class="form-note" data-i18n="contact.player.note">Tus datos son confidenciales.</p>
       </div>
     </div>
 
