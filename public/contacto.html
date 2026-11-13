@@ -107,7 +107,12 @@ input:focus, textarea:focus { outline: none; border-color: var(--gold); }
 textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
 
 .form-submit { width: 100%; margin-top: 8px; padding: 18px 28px; font-size: 13px; letter-spacing: 2px; }
+.form-submit:disabled { opacity: .6; cursor: wait; }
 .form-note { margin: 18px 0 0; text-align: center; font-size: 12px; letter-spacing: 1px; color: var(--muted); }
+.hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; opacity: 0; }
+.form-status { margin: 16px 0 0; font-size: 14px; line-height: 1.5; text-align: center; min-height: 0; }
+.form-status.ok { color: #7FCB9B; border: 1px solid rgba(127,203,155,.45); padding: 14px 16px; }
+.form-status.err { color: #E5B567; }
 
 /* tarjeta del formulario de jugador */
 .player-lead { font-size: 15px; color: var(--cream); margin: 0 0 22px; }
@@ -236,12 +241,14 @@ footer a:hover { color: var(--gold); }
       <h2 data-i18n="contact.form.heading">Solicitar Análisis de Situación</h2>
       <div class="accent-line" aria-hidden="true"></div>
 
-      <form action="mailto:info@unisportec.com" method="post" enctype="text/plain" autocomplete="on">
+      <form id="analysis-form" action="mailto:info@unisportec.com" method="post" enctype="text/plain" autocomplete="on">
+        <div class="hp" aria-hidden="true"><label for="website">Website</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
         <div class="form-row"><div><label for="name" data-i18n="contact.form.name">Nombre</label><input type="text" id="name" name="name" required autocomplete="name" data-i18n-attr="placeholder:contact.form.name" placeholder="Nombre"></div></div>
         <div class="form-row"><div><label for="email" data-i18n="contact.form.email">Email</label><input type="email" id="email" name="email" required autocomplete="email" data-i18n-attr="placeholder:contact.form.email" placeholder="Email"></div></div>
         <div class="form-row"><div><label for="org" data-i18n="contact.form.org">Organización / Club</label><input type="text" id="org" name="organization" autocomplete="organization" data-i18n-attr="placeholder:contact.form.org" placeholder="Organización / Club"></div></div>
         <div class="form-row grow"><div><label for="message" data-i18n="contact.form.message">Cuéntanos sobre tu proyecto</label><textarea id="message" name="message" required data-i18n-attr="placeholder:contact.form.message" placeholder="Cuéntanos sobre tu proyecto"></textarea></div></div>
-        <button type="submit" class="btn btn-primary form-submit" data-i18n="contact.form.submit">Enviar Solicitud</button>
+        <button type="submit" class="btn btn-primary form-submit" id="analysis-submit" data-i18n="contact.form.submit">Enviar Solicitud</button>
+        <div class="form-status" id="analysis-status" role="status" aria-live="polite"></div>
         <p class="form-note" data-i18n="contact.form.note">Respondemos en menos de 48 horas.</p>
       </form>
     </div>
@@ -288,6 +295,51 @@ footer a:hover { color: var(--gold); }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     targets.forEach(function (el) { observer.observe(el); });
+  })();
+
+  /* ---- Solicitar Análisis: guarda en el Project Manager (Google Sheet) y avisa por correo ---- */
+  (function () {
+    var API = "https://script.google.com/macros/s/AKfycbzp8ELWy3FI5-KZpEJI8tW3w_jniBvBZxSy3ZHvyvOupLSU3H0GunSb7rB2dqZJHjPr6A/exec";
+    var MAIL = "info@unisportec.com";
+    var form = document.getElementById('analysis-form');
+    if (!form) return;
+    var btn = document.getElementById('analysis-submit');
+    var status = document.getElementById('analysis-status');
+    var T = {
+      es: { sending: "Enviando…", ok: "¡Gracias! Hemos recibido tu solicitud y te responderemos en menos de 48 horas.", fail: "No pudimos enviar la solicitud desde aquí. Se abrirá tu programa de correo para enviarla por esa vía.", subject: "Solicitud de análisis de situación" },
+      en: { sending: "Sending…", ok: "Thank you! We have received your request and will reply within 48 hours.", fail: "We couldn't send your request from here. Your email app will open so you can send it that way.", subject: "Situation analysis request" }
+    };
+    function lang() { return (document.documentElement.lang || 'es').slice(0, 2) === 'en' ? 'en' : 'es'; }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var L = lang(), t = T[L];
+      var data = {
+        action: "analysis",
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        organization: document.getElementById('org').value.trim(),
+        message: document.getElementById('message').value.trim(),
+        website: document.getElementById('website').value,
+        lang: L
+      };
+      var original = btn.textContent;
+      btn.disabled = true; btn.textContent = t.sending;
+      status.className = "form-status"; status.textContent = "";
+
+      fetch(API, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) })
+        .then(function () {
+          form.reset();
+          status.className = "form-status ok"; status.textContent = t.ok;
+        })
+        .catch(function () {
+          status.className = "form-status err"; status.textContent = t.fail;
+          var body = data.name + "\n" + data.email + "\n" + data.organization + "\n\n" + data.message;
+          window.location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(t.subject) + "&body=" + encodeURIComponent(body);
+        })
+        .then(function () { btn.disabled = false; btn.textContent = original; });
+    });
   })();
 </script>
 
