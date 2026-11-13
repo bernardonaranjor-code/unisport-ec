@@ -70,6 +70,7 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(6, 15, 38, 0.85
 
 .hero { position: relative; padding: 140px 32px 120px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.12), transparent 60%), linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%); overflow: hidden; }
 .hero-logo { width: 480px; max-width: 90%; margin: 0 auto 40px; opacity: .95; mix-blend-mode: screen; }
+.hero-logo-anim { display: block; border: 0; width: 640px; max-width: 94%; aspect-ratio: 1100 / 690; height: auto; background: transparent; overflow: hidden; }
 .hero h1 { font-size: clamp(38px, 6vw, 68px); line-height: 1.1; max-width: 900px; margin: 0 auto 24px; }
 .hero h1 em { color: var(--gold); font-style: normal; }
 .hero .subtitle { max-width: 640px; margin: 0 auto 40px; font-size: 18px; color: var(--muted); }
@@ -228,7 +229,7 @@ footer a:hover { color: var(--gold); }
 <main id="top">
 
 <section class="hero">
-  <img src="logo-unisportec.png?v=2" alt="" class="hero-logo" aria-hidden="true">
+  <img src="logo-unisportec.png?v=2" alt="" class="hero-logo" id="hero-logo" aria-hidden="true">
   <h1 data-i18n-html="home.hero.title">Estrategia, Eventos y <em>Consultoría</em> para el Deporte Global</h1>
   <p class="subtitle" data-i18n="home.hero.subtitle">Diseñamos, gestionamos y ejecutamos proyectos deportivos para empresas, federaciones e instituciones. Convertimos ambición en resultados medibles.</p>
   <div class="hero-ctas">
@@ -380,6 +381,24 @@ footer a:hover { color: var(--gold); }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     targets.forEach(function (el) { observer.observe(el); });
+  })();
+
+  /* Logo animado del hero: si el archivo existe en el sitio, reemplaza al logo estático; si no, se queda el estático. */
+  (function () {
+    var still = document.getElementById('hero-logo');
+    if (!still || !window.fetch) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    fetch('logo-completo-animado.html').then(function (r) {
+      if (!r.ok) return;
+      var f = document.createElement('iframe');
+      f.src = 'logo-completo-animado.html';
+      f.title = 'Unisport Events & Consulting';
+      f.className = 'hero-logo hero-logo-anim';
+      f.setAttribute('scrolling', 'no');
+      f.setAttribute('allowtransparency', 'true');
+      still.parentNode.replaceChild(f, still);
+    }).catch(function () {});
   })();
 </script>
 
